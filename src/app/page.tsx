@@ -5,6 +5,8 @@ import About from "@/components/public/About";
 import Professional from "@/components/public/Professional";
 import App from "@/components/public/App";
 import Booking from "@/components/public/Booking";
+import Testimonials from "@/components/public/Testimonials";
+import Services from "@/components/public/Services";
 
 export default function Home() {
   // TODO: Desenvolver home
@@ -18,6 +20,8 @@ export default function Home() {
         <Team />  
         <Professional />
         <App />
+        <Testimonials />
+        <Services />
         <Booking />
       </main>
 
