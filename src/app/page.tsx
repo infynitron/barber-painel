@@ -4,6 +4,7 @@ import Team from "@/components/public/Team";
 import About from "@/components/public/About";
 import Professional from "@/components/public/Professional";
 import App from "@/components/public/App";
+import Booking from "@/components/public/Booking";
 
 export default function Home() {
   // TODO: Desenvolver home
@@ -17,6 +18,7 @@ export default function Home() {
         <Team />  
         <Professional />
         <App />
+        <Booking />
       </main>
 
       {/* TODO: Footer */}
