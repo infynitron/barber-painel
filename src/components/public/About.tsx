@@ -28,7 +28,7 @@ export default function About() {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
             Sobre a <span className="text-primary">Barbearia</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-gold mx-auto mb-8" />
+          <div className="w-24 h-1 bg-primary mx-auto mb-8" />
           <p className="text-lg text-muted-foreground leading-relaxed mb-6">
             Fundada com a missão de resgatar a tradição das barbearias
             clássicas, aliando-a às técnicas mais modernas do mercado. Nossa
@@ -45,11 +45,10 @@ export default function About() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-card p-8 rounded-lg border border-border hover:border-primary transition-all duration-300 hover:shadow-gold animate-fade-in group"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="bg-card p-8 rounded-lg border border-border hover:border-primary transition-all delay-100 duration-300 hover:shadow-primary shadow-2xl animate-in zoom-in group"
             >
-              <div className="w-20 h-20 bg-blue-300 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
-                <feature.icon className="w-8 h-8 text-red-500" />
+              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+                <feature.icon className="w-8 h-8 text-primary-foreground" />
               </div>
               <h3 className="font-display text-2xl font-semibold text-foreground mb-3 text-center">
                 {feature.title}
