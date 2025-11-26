@@ -21,9 +21,9 @@ export default function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
+          className="w-full h-full object-cover"
           src={heroImage}
           alt="Luxury Barber Shop Interior"
-          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-linear-to-b from-black/60 to-black/40" />
       </div>

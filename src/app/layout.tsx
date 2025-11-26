@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Evertickets",
+  title: "Barbearia Profissional",
   description:
-    "Descubra e compre ingressos para os melhores eventos do Brasil. Shows, festivais, workshops e muito mais na EverTickets.",
+    "Estilo e Precisão em Cada Detalhe. Conheça a Barbearia Profissional, onde o estilo e a precisão são combinados para oferecer um serviço excepcional a cada cliente.",
 };
 
 export default function RootLayout({

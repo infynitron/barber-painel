@@ -53,7 +53,7 @@ export default function Header() {
           <div className="flex items-center gap-3 animate-fade-in">
             <ScissorsIcon className="w-8 h-8 text-primary" />
             <span className="font-display text-2xl font-bold text-foreground">
-              Barber <span className="text-primary">Premium</span>
+              Barbearia <span className="text-primary">Premium</span>
             </span>
           </div>
 

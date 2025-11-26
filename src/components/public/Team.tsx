@@ -10,21 +10,21 @@ const Team = () => {
   const team = [
     {
       name: "Ricardo Silva",
-      specialty: "Master Barber",
+      specialty: "Barbeiro Mestre",
       description:
         "Especialista em cortes clássicos e modernos com mais de 15 anos de experiência",
       image: barber1,
     },
     {
       name: "Felipe Costa",
-      specialty: "Barber Stylist",
+      specialty: "Barbeiro Estilista",
       description:
         "Expert em degradês e estilos contemporâneos, certificado internacional",
       image: barber2,
     },
     {
       name: "André Martins",
-      specialty: "Senior Barber",
+      specialty: "Sênior Barbeiro",
       description:
         "Mestre em barbas e navalha tradicional, referência em cuidados masculinos",
       image: barber3,
