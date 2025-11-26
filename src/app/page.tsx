@@ -8,6 +8,7 @@ import Booking from "@/components/public/Booking";
 import Testimonials from "@/components/public/Testimonials";
 import Services from "@/components/public/Services";
 import Portfolio from "@/components/public/Portfolio";
+import Footer from "@/components/public/Footer";
 
 export default function Home() {
   // TODO: Desenvolver home
@@ -24,6 +25,7 @@ export default function Home() {
         <Testimonials />
         <Services />
         <Portfolio />
+        <Footer />
         <Booking />
       </main>
 
