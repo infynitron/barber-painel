@@ -30,19 +30,19 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 animate-fade-in-slow">
+        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 animate-in zoom-in-20">
           Barbearia <span className="text-primary">Profissional</span>
         </h1>
-        <div className="w-24 h-1 bg-gradient-gold mx-auto mb-6 animate-fade-in" />
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in">
+        <div className="w-24 h-1 bg-gradient-gold mx-auto mb-6 animate-in zoom-in" />
+        <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-in zoom-in">
           Estilo e Precisão em Cada Detalhe
         </p>
-        <p className="text-base md:text-lg text-muted-foreground mb-12 max-w-xl mx-auto animate-fade-in">
+        <p className="text-base md:text-lg mb-12 max-w-xl mx-auto animate-in zoom-in">
           Tradição e modernidade se encontram para criar a experiência perfeita
           em cuidados masculinos
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-in zoom-in">
           <Button
             size="lg"
             onClick={() => scrollToSection("booking")}
