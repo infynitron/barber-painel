@@ -11,7 +11,6 @@ import Portfolio from "@/components/public/Portfolio";
 import Footer from "@/components/public/Footer";
 
 export default function Home() {
-  // TODO: Desenvolver home
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -19,17 +18,16 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <Team />  
+        <Team />
         <Professional />
         <App />
         <Testimonials />
         <Services />
         <Portfolio />
-        <Footer />
         <Booking />
       </main>
 
-      {/* TODO: Footer */}
+      <Footer />
     </div>
   );
 }

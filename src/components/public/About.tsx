@@ -1,5 +1,7 @@
 import { AwardIcon, ShieldIcon, UsersIcon } from "lucide-react";
 
+import settings from "@/data";
+
 const features = [
   {
     icon: AwardIcon,
@@ -26,7 +28,7 @@ export default function About() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-16 animate-fade-in">
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Sobre a <span className="text-primary">Barbearia</span>
+            Sobre a <span className="text-primary">{settings.name}</span>
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8" />
           <p className="text-lg text-muted-foreground leading-relaxed mb-6">
