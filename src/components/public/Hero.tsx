@@ -25,7 +25,7 @@ export default function Hero() {
           alt="Luxury Barber Shop Interior"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-overlay" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/60 to-black/40" />
       </div>
 
       {/* Content */}
