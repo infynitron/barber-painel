@@ -1,5 +1,8 @@
-import { Button } from "@/components/ui/button";
 import { Calendar, Clock, Phone } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+
+import settings from "@/data";
 
 const Booking = () => {
   return (
@@ -51,13 +54,17 @@ const Booking = () => {
 
             <div className="text-center">
               <p className="text-muted-foreground mb-6">
-                Clique no botão abaixo para ser direcionado ao nosso sistema de agendamento online
+                Clique no botão abaixo para ser direcionado ao nosso sistema de
+                agendamento online
               </p>
               <Button size="lg" className="text-lg">
                 Agendar Agora
               </Button>
               <p className="text-sm text-muted-foreground mt-4">
-                Ou ligue para: <span className="text-primary font-semibold">(11) 9999-9999</span>
+                Ou ligue para:{" "}
+                <span className="text-primary font-semibold">
+                  {settings.contact.phone}
+                </span>
               </p>
             </div>
           </div>
