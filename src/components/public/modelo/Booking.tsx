@@ -13,7 +13,9 @@ const Booking = () => {
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
               Agendamento <span className="text-primary">Online</span>
             </h2>
+
             <div className="w-24 h-1 bg-gradient-gold mx-auto mb-6" />
+
             <p className="text-lg text-muted-foreground">
               Agende seu horário de forma rápida e prática
             </p>
@@ -26,6 +28,7 @@ const Booking = () => {
                 <h3 className="font-display text-lg font-semibold text-foreground mb-2">
                   Escolha a Data
                 </h3>
+
                 <p className="text-muted-foreground text-sm">
                   Selecione o melhor dia para você
                 </p>
@@ -36,6 +39,7 @@ const Booking = () => {
                 <h3 className="font-display text-lg font-semibold text-foreground mb-2">
                   Horário
                 </h3>
+
                 <p className="text-muted-foreground text-sm">
                   Vários horários disponíveis
                 </p>
@@ -46,6 +50,7 @@ const Booking = () => {
                 <h3 className="font-display text-lg font-semibold text-foreground mb-2">
                   Confirmação
                 </h3>
+
                 <p className="text-muted-foreground text-sm">
                   Receba confirmação imediata
                 </p>
@@ -57,9 +62,9 @@ const Booking = () => {
                 Clique no botão abaixo para ser direcionado ao nosso sistema de
                 agendamento online
               </p>
-              <Button size="lg" className="text-lg">
-                Agendar Agora
-              </Button>
+
+              <Button size="lg">Agendar Agora</Button>
+
               <p className="text-sm text-muted-foreground mt-4">
                 Ou ligue para:{" "}
                 <span className="text-primary font-semibold">

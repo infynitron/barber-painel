@@ -44,11 +44,7 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-in zoom-in">
-          <Button
-            size="lg"
-            onClick={() => scrollToSection("booking")}
-            className="text-lg"
-          >
+          <Button size="lg" onClick={() => scrollToSection("booking")}>
             Agendar Agora
           </Button>
 
@@ -56,7 +52,6 @@ export default function Hero() {
             variant="outline"
             size="lg"
             onClick={() => scrollToSection("services")}
-            className="text-lg"
           >
             Ver Serviços
           </Button>

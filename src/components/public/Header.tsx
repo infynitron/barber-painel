@@ -69,7 +69,11 @@ export default function Header() {
               Entrar
             </Button>
 
-            <Button size="lg" variant="outline" onClick={() => scrollToSection("booking")}>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => scrollToSection("booking")}
+            >
               Registrar-se
             </Button>
           </div>
