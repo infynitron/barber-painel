@@ -14,6 +14,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import SignInForm from "@/modules/auth/ui/SignInForm";
+import SignUpForm from "@/modules/auth/ui/SignUpForm";
 
 import settings from "@/data";
 
@@ -61,9 +62,11 @@ export default function AuthComponent({ type }: Props) {
               </TabsContent>
 
               <TabsContent value="sign-up">
-                {/* <LoginForm /> */}
-                {/* <LoginForm /> */}
-                {/* <LoginForm /> */}
+                <SignUpForm
+                  onSubmit={() => {
+                    // TODO: Ação para submit
+                  }}
+                />
               </TabsContent>
             </Tabs>
           </CardContent>

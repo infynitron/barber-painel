@@ -1,26 +1,30 @@
 "use client";
 
-import { signinSchema } from "@/modules/auth/signin.schema";
+import { signupSchema } from "@/modules/auth/signup.schema";
 
 import { useAppForm } from "@/integrations/tanstack-form";
 
 interface SubmitData {
+  fullName: string;
   email: string;
   password: string;
+  confirmPassword: string;
 }
 
-interface SignInFormProps {
+interface SignUpFormProps {
   onSubmit: (data: SubmitData) => void;
 }
 
-export default function SignInForm({ onSubmit }: SignInFormProps) {
+export default function SignUpForm({ onSubmit }: SignUpFormProps) {
   const form = useAppForm({
     defaultValues: {
+      fullName: "",
       email: "",
       password: "",
+      confirmPassword: "",
     },
     validators: {
-      onChange: signinSchema,
+      onChange: signupSchema,
     },
     onSubmit: async ({ value }) => {
       onSubmit(value);
@@ -36,6 +40,15 @@ export default function SignInForm({ onSubmit }: SignInFormProps) {
         form.handleSubmit();
       }}
     >
+      <form.AppField name="fullName">
+        {(field) => (
+          <field.FormInput
+            label="Nome Completo"
+            placeholder="Digite seu nome e sobrenome"
+          />
+        )}
+      </form.AppField>
+
       <form.AppField name="email">
         {(field) => (
           <field.FormEmail label="E-mail" placeholder="Digite seu e-mail" />
@@ -48,8 +61,14 @@ export default function SignInForm({ onSubmit }: SignInFormProps) {
         )}
       </form.AppField>
 
+      <form.AppField name="confirmPassword">
+        {(field) => (
+          <field.FormPassword label="Confirme a Senha" placeholder="Digite sua senha novamente" />
+        )}
+      </form.AppField>
+
       <form.AppForm>
-        <form.FormSubmit label="Entrar" />
+        <form.FormSubmit label="Cadastrar" />
       </form.AppForm>
     </form>
   );

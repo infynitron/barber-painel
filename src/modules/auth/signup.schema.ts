@@ -6,7 +6,9 @@ export const signupSchema = z
   .object({
     fullName: z
       .string()
-      .min(2, { message: "Nome deve ter no mínimo 2 caracteres" }),
+      .trim()
+      .min(2, { message: "Nome deve ter no mínimo 2 caracteres" })
+      .regex(/^[A-Za-z]+$/, "O nome deve ter apenas letras"),
     email: z.email({ message: "Email inválido" }),
     password,
     confirmPassword: z
