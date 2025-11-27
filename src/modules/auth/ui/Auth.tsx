@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+import SignInForm from "./SignInForm";
+
 import settings from "@/data";
 
 interface Props {
@@ -51,9 +53,7 @@ export default function AuthComponent({ type }: Props) {
               </TabsList>
 
               <TabsContent value="sign-in">
-                {/* <LoginForm /> */}
-                {/* <LoginForm /> */}
-                {/* <LoginForm /> */}
+                <SignInForm />
               </TabsContent>
 
               <TabsContent value="sign-up">
