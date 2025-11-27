@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 import { MenuIcon, XIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -18,6 +19,8 @@ const menuItems: IMenuItem[] = [
 ];
 
 export default function Header() {
+  const router = useRouter();
+
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
@@ -65,14 +68,14 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:block space-x-4">
-            <Button size="lg" onClick={() => scrollToSection("booking")}>
+            <Button size="lg" onClick={() => router.push("/sign-in")}>
               Entrar
             </Button>
 
             <Button
               size="lg"
               variant="outline"
-              onClick={() => scrollToSection("booking")}
+              onClick={() => router.push("/sign-up")}
             >
               Registrar-se
             </Button>
