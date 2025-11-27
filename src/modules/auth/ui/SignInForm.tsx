@@ -14,6 +14,7 @@ export default function SignInForm() {
       onChange: signinSchema,
     },
     onSubmit: async ({ value }) => {
+      console.log("Submit");
       console.log(value);
     },
   });
@@ -32,12 +33,15 @@ export default function SignInForm() {
           <field.FormEmail label="E-mail" placeholder="Digite seu e-mail" />
         )}
       </form.AppField>
-
       <form.AppField name="password">
         {(field) => (
           <field.FormPassword label="Senha" placeholder="Digite sua senha" />
         )}
       </form.AppField>
+
+      <form.AppForm>
+        <form.FormSubmit key="Entrar" />
+      </form.AppForm>
     </form>
   );
 }
