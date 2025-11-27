@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
-import { MenuIcon, ScissorsIcon, XIcon } from "lucide-react";
+import { MenuIcon, XIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import settings from "@/data";
+
+import Logo from "@/components/Logo";
 
 interface IMenuItem {
   id: string;
@@ -50,14 +51,7 @@ export default function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          {/* TODO: Logo */}
-          <div className="flex items-center gap-3 animate-fade-in">
-            <ScissorsIcon className="w-8 h-8 text-primary" />
-            <span className="font-display text-2xl font-bold text-foreground">
-              Barbearia <span className="text-primary">{settings.name}</span>
-            </span>
-          </div>
+          <Logo />
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center gap-8">
