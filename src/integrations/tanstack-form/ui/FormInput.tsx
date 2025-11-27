@@ -36,12 +36,14 @@ export default function FormInput(props: InputProps) {
       {field.state.meta.errors && (
         <>
           {field.state.meta.errors.map((i, idx) => (
-            <>
-              <em key={"error_" + idx} role="alert" className="text-red-300">
-                * {i?.message}
-              </em>
+            <em
+              key={field.name + "_error_" + idx}
+              role="alert"
+              className="text-red-300"
+            >
+              * {i?.message}
               <br />
-            </>
+            </em>
           ))}
         </>
       )}
