@@ -1,13 +1,12 @@
 const settings = {
   // TODO: Ajuste de dados
-  name: "Premium",
-  fullName: "Barbearia Premium",
-  description: "Tradição e modernidade em cuidados masculinos de excelência.",
-  hours: "Segunda a Sexta: 9h às 18h | Sábado: 9h às 14h | Domingo: Fechado",
+  name: "PRO",
+  fullName: "Barbearia PRO",
+  description: "O melhor sistema de gestão e agendamento para barbearias.",
   contact: {
-    phone: "(11) 99999-9999",
+    phone: "(42) 9 9902 7693",
     email: "contato@infinytron.com.br",
-    address: "Av. Paulista, 1000 - Bela Vista, São Paulo - SP, 01310-200",
+    address: "Praça Duque de Caxias, 21 - Sala 1 - Centro, Ponta Grossa - PR, 84010-000",
   },
   social: {
     instagram: "https://www.instagram.com/infinytron",

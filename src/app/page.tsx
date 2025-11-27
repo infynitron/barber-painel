@@ -1,23 +1,23 @@
-import Header from "@/components/public/modelo/Header";
-import Hero from "@/components/public/modelo/Hero";
-import Team from "@/components/public/modelo/Team";
-import About from "@/components/public/modelo/About";
-import Professional from "@/components/public/modelo/Professional";
-import App from "@/components/public/modelo/App";
-import Booking from "@/components/public/modelo/Booking";
-import Testimonials from "@/components/public/modelo/Testimonials";
-import Services from "@/components/public/modelo/Services";
-import Portfolio from "@/components/public/modelo/Portfolio";
-import Footer from "@/components/public/modelo/Footer";
+import Header from "@/components/public/Header";
+import Hero from "@/components/public/Hero";
+import About from "@/components/public/About";
+import App from "@/components/public/App";
+import Booking from "@/components/public/Booking";
+import Footer from "@/components/public/Footer";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      {/* <Header /> */}
+      <Header />
 
-      <main>{/*  */}</main>
+      <main>
+        <Hero />
+        <About />
+        <App />
+        <Booking />
+      </main>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
