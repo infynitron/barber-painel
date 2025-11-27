@@ -5,6 +5,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 
+import settings from "@/data";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -16,9 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Evertickets",
-  description:
-    "Descubra e compre ingressos para os melhores eventos do Brasil. Shows, festivais, workshops e muito mais na EverTickets.",
+  title: settings.fullName,
+  description: `Estilo e Precisão em Cada Detalhe. Conheça a ${settings.fullName}, onde o estilo e a precisão são combinados para oferecer um serviço excepcional a cada cliente.`,
 };
 
 export default function RootLayout({
