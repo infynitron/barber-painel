@@ -1,10 +1,19 @@
 "use client";
 
-import { signinSchema } from "../signin.schema";
+import { signinSchema } from "@/modules/auth/signin.schema";
 
 import { useAppForm } from "@/integrations/tanstack-form";
 
-export default function SignInForm() {
+interface SubmitData {
+  email: string;
+  password: string;
+}
+
+interface SignInFormProps {
+  onSubmit: (data: SubmitData) => void;
+}
+
+export default function SignInForm({ onSubmit }: SignInFormProps) {
   const form = useAppForm({
     defaultValues: {
       email: "",
@@ -14,8 +23,7 @@ export default function SignInForm() {
       onChange: signinSchema,
     },
     onSubmit: async ({ value }) => {
-      console.log("Submit");
-      console.log(value);
+      onSubmit(value);
     },
   });
 
@@ -33,6 +41,7 @@ export default function SignInForm() {
           <field.FormEmail label="E-mail" placeholder="Digite seu e-mail" />
         )}
       </form.AppField>
+
       <form.AppField name="password">
         {(field) => (
           <field.FormPassword label="Senha" placeholder="Digite sua senha" />

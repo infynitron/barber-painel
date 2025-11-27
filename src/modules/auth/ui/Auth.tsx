@@ -3,7 +3,6 @@
 import React from "react";
 import { ScissorsIcon } from "lucide-react";
 
-// TODO: Components
 import {
   Card,
   CardContent,
@@ -11,9 +10,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import SignInForm from "./SignInForm";
+import SignInForm from "@/modules/auth/ui/SignInForm";
 
 import settings from "@/data";
 
@@ -53,7 +53,11 @@ export default function AuthComponent({ type }: Props) {
               </TabsList>
 
               <TabsContent value="sign-in">
-                <SignInForm />
+                <SignInForm
+                  onSubmit={() => {
+                    // TODO: Ação para submit
+                  }}
+                />
               </TabsContent>
 
               <TabsContent value="sign-up">
