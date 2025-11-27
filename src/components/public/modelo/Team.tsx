@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+
 import { Card, CardContent } from "@/components/ui/card";
+
 import barber1 from "@/assets/barber-1.jpg";
 import barber2 from "@/assets/barber-2.jpg";
 import barber3 from "@/assets/barber-3.jpg";

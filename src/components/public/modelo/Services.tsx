@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+
 import { Card, CardContent } from "@/components/ui/card";
+
 import serviceHaircut from "@/assets/service-haircut.jpg";
 import serviceBeard from "@/assets/service-beard.jpg";
 import serviceRazor from "@/assets/service-razor.jpg";

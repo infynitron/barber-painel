@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 
-import heroImage from "@/assets/hero-barber.jpg";
 import { Button } from "@/components/ui/button";
+
+import heroImage from "@/assets/hero-barber.jpg";
 
 export default function Hero() {
   function scrollToSection(id: string) {

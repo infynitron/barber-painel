@@ -2,7 +2,7 @@ import { Calendar, Clock, Phone } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-import settings from "@/data";
+import settings from "@/components/public/modelo/data";
 
 const Booking = () => {
   return (

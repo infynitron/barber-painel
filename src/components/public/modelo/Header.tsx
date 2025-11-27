@@ -5,7 +5,7 @@ import { MenuIcon, XIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-import Logo from "@/components/Logo";
+import Logo from "@/components/public/modelo/Logo";
 
 interface IMenuItem {
   id: string;
@@ -95,6 +95,7 @@ export default function Header() {
                   {item.label}
                 </button>
               ))}
+              
               <Button
                 size="lg"
                 className="mt-4"

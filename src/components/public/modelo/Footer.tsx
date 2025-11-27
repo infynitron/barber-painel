@@ -11,7 +11,7 @@ import {
   Youtube,
 } from "lucide-react";
 
-import settings from "@/data";
+import settings from "@/components/public/modelo/data";
 
 const social = [
   { Icon: Instagram, href: settings.social.instagram },
