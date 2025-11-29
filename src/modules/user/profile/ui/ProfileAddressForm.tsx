@@ -51,7 +51,7 @@ export default function ProfileAddressForm({
 
   return (
     <form
-      className="space-y-4"
+      className="grid grid-cols-12 gap-4"
       onSubmit={(e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -59,49 +59,69 @@ export default function ProfileAddressForm({
       }}
     >
       {/* TODO: Validar CEP */}
-      <form.AppField name="zipCode">
-        {(field) => <field.FormInput label="CEP" placeholder="Digite o CEP" />}
-      </form.AppField>
+      <div className="col-span-12 md:col-span-4">
+        <form.AppField name="zipCode">
+          {(field) => (
+            <field.FormInput label="CEP" placeholder="Digite o CEP" />
+          )}
+        </form.AppField>
+      </div>
 
-      <form.AppField name="uf">
-        {(field) => <field.FormInput label="UF" placeholder="Ex: MG" />}
-      </form.AppField>
+      <div className="col-span-12 md:col-span-2">
+        <form.AppField name="uf">
+          {(field) => <field.FormInput label="UF" placeholder="Ex: MG" />}
+        </form.AppField>
+      </div>
 
-      <form.AppField name="city">
-        {(field) => (
-          <field.FormInput label="Cidade" placeholder="Digite a cidade" />
-        )}
-      </form.AppField>
+      <div className="col-span-12 md:col-span-6">
+        <form.AppField name="city">
+          {(field) => (
+            <field.FormInput label="Cidade" placeholder="Digite a cidade" />
+          )}
+        </form.AppField>
+      </div>
 
-      <form.AppField name="neighborhood">
-        {(field) => (
-          <field.FormInput label="Bairro" placeholder="Digite o bairro" />
-        )}
-      </form.AppField>
+      <div className="col-span-12 md:col-span-4">
+        <form.AppField name="neighborhood">
+          {(field) => (
+            <field.FormInput label="Bairro" placeholder="Digite o bairro" />
+          )}
+        </form.AppField>
+      </div>
 
-      <form.AppField name="street">
-        {(field) => <field.FormInput label="Rua" placeholder="Digite a rua" />}
-      </form.AppField>
+      <div className="col-span-12 md:col-span-6">
+        <form.AppField name="street">
+          {(field) => (
+            <field.FormInput label="Rua" placeholder="Digite a rua" />
+          )}
+        </form.AppField>
+      </div>
 
-      <form.AppField name="number">
-        {(field) => (
-          <field.FormInput label="Número" placeholder="Digite o número" />
-        )}
-      </form.AppField>
+      <div className="col-span-12 md:col-span-2">
+        <form.AppField name="number">
+          {(field) => (
+            <field.FormInput label="Número" placeholder="Digite o número" />
+          )}
+        </form.AppField>
+      </div>
 
-      {/* TODO : ALTERAR CAMPO PARA TEXTAREA */}
-      <form.AppField name="complement">
-        {(field) => (
-          <field.FormInput
-            label="Complemento"
-            placeholder="Ex: Apt 201, Casa 2..."
-          />
-        )}
-      </form.AppField>
+      <div className="col-span-12 md:col-span-12">
+        <form.AppField name="complement">
+          {(field) => (
+            <field.FormInput
+              label="Complemento"
+              placeholder="Ex: Apt 201, Casa 2..."
+            />
+          )}
+        </form.AppField>
+      </div>
 
-      <form.AppForm>
-        <form.FormSubmit label="Atualizar endereço" />
-      </form.AppForm>
+      {/* Botão centralizado */}
+      <div className="col-span-12 mt-2">
+        <form.AppForm>
+          <form.FormSubmit label="Atualizar endereço" />
+        </form.AppForm>
+      </div>
     </form>
   );
 }
