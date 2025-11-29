@@ -1,33 +1,31 @@
 "use client";
 
-import { signupSchema } from "@/modules/auth/signup.schema";
+import { profileLoginSchema } from "@/modules/user/profile/profile.schema";
 
 import { useAppForm } from "@/integrations/tanstack-form";
 
 interface SubmitData {
-  fullName: string;
-  email: string;
   password: string;
-  confirmPassword: string;
 }
 
-interface SignUpFormProps {
+interface ProfileLoginFormProps {
   onSubmit: (data: SubmitData) => void;
 }
 
-export default function SignUpForm({ onSubmit }: SignUpFormProps) {
+export default function ProfileLoginForm({ onSubmit }: ProfileLoginFormProps) {
   const form = useAppForm({
     defaultValues: {
-      fullName: "",
-      email: "",
       password: "",
       confirmPassword: "",
     },
     validators: {
-      onChange: signupSchema,
+      onChange: profileLoginSchema,
     },
     onSubmit: async ({ value }) => {
-      onSubmit(value);
+      const data = {
+        password: value.password,
+      };
+      onSubmit(data);
     },
   });
 
@@ -40,21 +38,6 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
         form.handleSubmit();
       }}
     >
-      <form.AppField name="fullName">
-        {(field) => (
-          <field.FormInput
-            label="Nome Completo"
-            placeholder="Digite seu nome e sobrenome"
-          />
-        )}
-      </form.AppField>
-
-      <form.AppField name="email">
-        {(field) => (
-          <field.FormEmail label="E-mail" placeholder="Digite seu e-mail" />
-        )}
-      </form.AppField>
-
       <form.AppField name="password">
         {(field) => (
           <field.FormPassword label="Senha" placeholder="Digite sua senha" />
@@ -71,7 +54,7 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
       </form.AppField>
 
       <form.AppForm>
-        <form.FormSubmit label="Cadastrar" />
+        <form.FormSubmit label="Atualizar senha" />
       </form.AppForm>
     </form>
   );
