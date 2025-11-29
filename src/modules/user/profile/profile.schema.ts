@@ -4,6 +4,13 @@ import { loginSchema } from "@/modules/shared/schema";
 
 export const profileLoginSchema = loginSchema.omit({ email: true });
 
+export const profileFiscalSchema = z.object({
+  // TODO: Barbearia ou barbeiro
+  type: z.string(),
+  // TODO: Regex para CPF/CNPJ
+  document: z.string().trim(),
+});
+
 export const profileSchema = z.object({
   fullName: z
     .string()
@@ -12,15 +19,6 @@ export const profileSchema = z.object({
     .regex(/^[A-Za-z]+$/, "O nome deve ter apenas letras"),
   // TODO: ZOD File
   photo: z.any(),
-  type: z
-    .string()
-    // TODO: Barbearia ou barbeiro
-    .optional(),
-  documemnt: z
-    .string()
-    .trim()
-    // TODO: Regex para CPF/CNPJ
-    .optional(),
   contact: z
     .object({
       // TODO: Regex para celular
