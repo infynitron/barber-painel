@@ -11,6 +11,13 @@ export const profileFiscalSchema = z.object({
   document: z.string().trim(),
 });
 
+export const profileContactSchema = z.object({
+  telephone: z.string().trim(),
+  whatsapp: z.string().trim(),
+  instagram: z.string().trim(),
+  facebook: z.string().trim(),
+})
+
 export const profileSchema = z.object({
   fullName: z
     .string()
