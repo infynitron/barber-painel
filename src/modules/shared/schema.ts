@@ -19,3 +19,18 @@ export const password = z
     "A senha deve conter pelo menos um caractere especial"
   )
   .min(6, "A senha deve ter no mínimo 6 caracteres");
+
+const confirmPassword = z
+  .string()
+  .min(6, { message: "A senha deve ter no mínimo 6 caracteres" });
+
+export const loginSchema = z
+  .object({
+    email: z.email({ message: "Email inválido" }),
+    password,
+    confirmPassword,
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "As senhas não coincidem",
+    path: ["confirmPassword"],
+  });

@@ -63,7 +63,10 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
 
       <form.AppField name="confirmPassword">
         {(field) => (
-          <field.FormPassword label="Confirme a Senha" placeholder="Digite sua senha novamente" />
+          <field.FormPassword
+            label="Confirme a Senha"
+            placeholder="Digite sua senha novamente"
+          />
         )}
       </form.AppField>
 
