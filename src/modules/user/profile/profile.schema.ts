@@ -16,7 +16,17 @@ export const profileContactSchema = z.object({
   whatsapp: z.string().trim(),
   instagram: z.string().trim(),
   facebook: z.string().trim(),
-})
+});
+
+export const profileAddressSchema = z.object({
+  zipCode: z.string().trim(),
+  uf: z.string().max(2, "Digte uma UF válida"),
+  city: z.string().trim(),
+  neighborhood: z.string().trim(),
+  street: z.string().trim(),
+  number: z.string().trim(),
+  complement: z.string().nullable(),
+});
 
 export const profileSchema = z.object({
   fullName: z
@@ -26,22 +36,4 @@ export const profileSchema = z.object({
     .regex(/^[A-Za-z]+$/, "O nome deve ter apenas letras"),
   // TODO: ZOD File
   photo: z.any(),
-  contact: z
-    .object({
-      // TODO: Regex para celular
-      cellphone: z.string().trim(),
-      // TODO: Regex para telefone
-      telphone: z.string().trim(),
-    })
-    .optional(),
-  address: z
-    .object({
-      zip_code: z.string().trim(),
-      uf: z.string().trim(),
-      city: z.string().trim(),
-      neighborhood: z.string().trim(),
-      street: z.string().trim(),
-      number: z.string().trim(),
-    })
-    .optional(),
 });

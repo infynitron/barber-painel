@@ -15,6 +15,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ProfileLoginForm from "@/modules/user/profile/ui/ProfileLoginForm";
 import ProfileFiscalForm from "@/modules/user/profile/ui/ProfileFiscalForm";
 import ProfileContactForm from "@/modules/user/profile/ui/ProfileContactForm";
+import ProfileAddressForm from "@/modules/user/profile/ui/ProfileAddressForm";
 
 interface Props {
   type: "login" | "fiscal" | "contact" | "address";
@@ -77,11 +78,11 @@ export default function ProfileComponent({ type }: Props) {
               </TabsContent>
 
               <TabsContent value="address">
-                <CardDescription>
-                  Gerencie suas informações de endereço
-                </CardDescription>
-
-                {/* TODO: Address form */}
+                <ProfileAddressForm
+                  onSubmit={() => {
+                    // TODO: Ação para submit
+                  }}
+                />
               </TabsContent>
             </Tabs>
           </CardContent>
