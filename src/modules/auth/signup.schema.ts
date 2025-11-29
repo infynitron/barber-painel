@@ -7,7 +7,7 @@ export const signupSchema = z
     fullName: z
       .string()
       .trim()
-      .min(2, { message: "Nome deve ter no mínimo 2 caracteres" })
+      .min(5, { message: "Nome deve ter no mínimo 5 caracteres" })
       .regex(/^[A-Za-zÀ-ÿ ]+$/, "O nome deve ter apenas letras"),
   })
   .extend(loginSchema.shape);
