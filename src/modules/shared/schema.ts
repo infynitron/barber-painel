@@ -20,7 +20,7 @@ export const password = z
   )
   .min(6, "A senha deve ter no mínimo 6 caracteres");
 
-const confirmPassword = z
+export const confirmPassword = z
   .string()
   .min(6, { message: "A senha deve ter no mínimo 6 caracteres" });
 

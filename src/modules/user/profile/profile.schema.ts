@@ -2,8 +2,9 @@ import { z } from "zod/v4";
 
 import { loginSchema } from "@/modules/shared/schema";
 
+export const profileLoginSchema = loginSchema.omit({ email: true });
+
 export const profileSchema = z.object({
-  login: loginSchema.optional(),
   fullName: z
     .string()
     .trim()
