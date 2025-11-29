@@ -15,6 +15,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import SignInForm from "@/modules/auth/ui/SignInForm";
 import SignUpForm from "@/modules/auth/ui/SignUpForm";
+import SignUpPolicy from "@/modules/auth/ui/SignUpPolicy";
 
 import settings from "@/data";
 
@@ -67,6 +68,8 @@ export default function AuthComponent({ type }: Props) {
                     // TODO: Ação para submit
                   }}
                 />
+
+                <SignUpPolicy />
               </TabsContent>
             </Tabs>
           </CardContent>
