@@ -1,17 +1,20 @@
 "use client";
 
+import React from "react";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+
 import { signupSchema } from "@/modules/auth/signup.schema";
 
+import { supabase } from "@/integrations/supabase/client";
 import { useAppForm } from "@/integrations/tanstack-form";
 
 import { ISignUpSubmitForm } from "@/modules/auth/types/signup";
 
-interface SignUpFormProps {
-  loading?: boolean;
-  onSubmit: (data: ISignUpSubmitForm) => Promise<void>;
-}
+export default function SignUpForm() {
+  const router = useRouter();
+  const [isEmailLoading, setIsEmailLoading] = React.useState<boolean>(false);
 
-export default function SignUpForm(props: SignUpFormProps) {
   const form = useAppForm({
     defaultValues: {
       fullName: "",
@@ -23,9 +26,44 @@ export default function SignUpForm(props: SignUpFormProps) {
       onChange: signupSchema,
     },
     onSubmit: async ({ value }) => {
-      await props.onSubmit(value);
+      await handleSignUpWithEmail(value);
     },
   });
+
+  const handleSignUpWithEmail = async (data: ISignUpSubmitForm) => {
+    setIsEmailLoading(true);
+
+    const { data: user, error } = await supabase.auth.signUp({
+      email: data.email,
+      password: data.password,
+      options: {
+        data: {
+          fullName: data.fullName,
+        },
+      },
+    });
+
+    if (user.user?.id) {
+      router.push("/admin");
+      toast.success("Cadastro realizado com sucesso!");
+    }
+
+    if (error) {
+      console.error(error);
+      switch (error.message) {
+        case "User already registered":
+          toast.error("E-mail já está em uso!");
+          break;
+        default:
+          toast.error(
+            error?.message ?? "Ocorreu um erro ao tentar criar a conta!"
+          );
+          break;
+      }
+    }
+
+    setIsEmailLoading(false);
+  };
 
   return (
     <form
@@ -67,7 +105,7 @@ export default function SignUpForm(props: SignUpFormProps) {
       </form.AppField>
 
       <form.AppForm>
-        <form.FormSubmit loading={props?.loading} label="Cadastrar" />
+        <form.FormSubmit loading={isEmailLoading} label="Cadastrar" />
       </form.AppForm>
     </form>
   );
