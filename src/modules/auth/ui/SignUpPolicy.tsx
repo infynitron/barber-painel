@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 // TODO: Terms
 export default function SignUpPolicy() {
   return (
-    <div className="mt-4 flex text-xs text-gray-600">
+    <div className="flex text-xs text-gray-600">
       <div className="w-5 flex justify-center items-center">
         <Input
           className="h-3"
