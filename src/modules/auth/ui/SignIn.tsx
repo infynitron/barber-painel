@@ -10,12 +10,16 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 
+import { SeparatorText } from "@/components/ui/separator-text";
+
 import { supabase } from "@/integrations/supabase/client";
 
+import SignWithGoogle from "@/modules/auth/ui/SignWithGoogle";
 import SignInForm from "@/modules/auth/ui/SignInForm";
 
 import { ISignInSubmitForm } from "@/modules/auth/types/signin";
@@ -57,37 +61,49 @@ export default function SignInComponent() {
   };
 
   return (
-    <div className="w-full max-w-md space-y-6 p-4 mx-auto">
-      <div className="text-center">
-        <div className="w-16 h-16 rounded-2xl bg-gradient-primary mx-auto flex items-center justify-center shadow-glow">
-          <ScissorsIcon className="w-12 h-12 text-primary" />
+    <div className="space-y-6 p-4">
+      <div>
+        <div className="flex gap-2 justify-center items-center">
+          <h1 className="text-3xl font-bold">{settings.fullName}</h1>
         </div>
-        <h1 className="font-display text-3xl font-bold mb-2 text-gradient">
-          {settings.fullName}
-        </h1>
-        <p className="text-muted-foreground">{settings.description}</p>
+
+        <p className="text-center text-muted-foreground">
+          {settings.description}
+        </p>
       </div>
 
       <Card className="border-border/50">
-        <CardHeader>
-          <CardTitle className="font-display">Bem-vindo</CardTitle>
-          <CardDescription>
-            Entre com sua conta ou crie uma nova
-          </CardDescription>
+        <CardHeader className="text-center">
+          <CardTitle className="font-display">Bem-vindo de volta</CardTitle>
+          <CardDescription>Entre com seus dados de e-mail</CardDescription>
         </CardHeader>
 
-        <CardContent>
+        <CardContent className="space-y-4">
           <SignInForm
             loading={isEmailLoading}
             onSubmit={handleSignInWithEmail}
           />
 
-          <Link href="/recovery">Esqueceu a senha?</Link>
+          <SeparatorText text="ou" />
 
-          <br />
-
-          <Link href="/sign-up">Não possui conta?</Link>
+          <SignWithGoogle />
         </CardContent>
+
+        <CardFooter className="flex-col space-y-2">
+          <div className="space-x-2 text-center text-muted-foreground">
+            <span>Esqueceu a senha?</span>
+            <Link href="/recovery" className="underline hover:text-primary">
+              Recupere aqui
+            </Link>
+          </div>
+
+          <div className="space-x-2 text-center text-muted-foreground">
+            <span>Não possui uma conta?</span>
+            <Link href="/sign-up" className="underline hover:text-primary">
+              Crie agora
+            </Link>
+          </div>
+        </CardFooter>
       </Card>
     </div>
   );

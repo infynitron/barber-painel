@@ -10,7 +10,7 @@ import { GoogleIcon } from "@/icons";
 
 import { supabase } from "@/integrations/supabase/client";
 
-export default function SignUpGoogle() {
+export default function SignWithGoogle() {
   const [isGoogleLoading, setIsGoogleLoading] = React.useState<boolean>(false);
 
   const handleSignUpWithGoogle = async () => {

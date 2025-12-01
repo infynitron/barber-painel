@@ -49,6 +49,7 @@ export default function SignUpForm() {
     }
 
     if (error) {
+      // TODO: Use do code
       console.error(error);
       switch (error.message) {
         case "User already registered":
@@ -67,46 +68,56 @@ export default function SignUpForm() {
 
   return (
     <form
-      className="space-y-4"
+      className="grid grid-cols-12 gap-4"
       onSubmit={(e) => {
         e.preventDefault();
         e.stopPropagation();
         form.handleSubmit();
       }}
     >
-      <form.AppField name="fullName">
-        {(field) => (
-          <field.FormInput
-            label="Nome Completo"
-            placeholder="Digite seu nome e sobrenome"
-          />
-        )}
-      </form.AppField>
+      <div className="col-span-12 md:col-span-12">
+        <form.AppField name="fullName">
+          {(field) => (
+            <field.FormInput
+              label="Nome Completo"
+              placeholder="Digite seu nome e sobrenome"
+            />
+          )}
+        </form.AppField>
+      </div>
 
-      <form.AppField name="email">
-        {(field) => (
-          <field.FormEmail label="E-mail" placeholder="Digite seu e-mail" />
-        )}
-      </form.AppField>
+      <div className="col-span-12 md:col-span-12">
+        <form.AppField name="email">
+          {(field) => (
+            <field.FormEmail label="E-mail" placeholder="Digite seu e-mail" />
+          )}
+        </form.AppField>
+      </div>
 
-      <form.AppField name="password">
-        {(field) => (
-          <field.FormPassword label="Senha" placeholder="Digite sua senha" />
-        )}
-      </form.AppField>
+      <div className="col-span-12 md:col-span-6">
+        <form.AppField name="password">
+          {(field) => (
+            <field.FormPassword label="Senha" placeholder="Digite sua senha" />
+          )}
+        </form.AppField>
+      </div>
 
-      <form.AppField name="confirmPassword">
-        {(field) => (
-          <field.FormPassword
-            label="Confirme a Senha"
-            placeholder="Digite sua senha novamente"
-          />
-        )}
-      </form.AppField>
+      <div className="col-span-12 md:col-span-6">
+        <form.AppField name="confirmPassword">
+          {(field) => (
+            <field.FormPassword
+              label="Confirme a Senha"
+              placeholder="Digite sua senha novamente"
+            />
+          )}
+        </form.AppField>
+      </div>
 
-      <form.AppForm>
-        <form.FormSubmit loading={isEmailLoading} label="Cadastrar" />
-      </form.AppForm>
+      <div className="col-span-12 md:col-span-12">
+        <form.AppForm>
+          <form.FormSubmit loading={isEmailLoading} label="Cadastrar" />
+        </form.AppForm>
+      </div>
     </form>
   );
 }
