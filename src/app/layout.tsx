@@ -9,17 +9,22 @@ import settings from "@/data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
+  display: "swap",
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  display: "swap",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
+  applicationName: settings.fullName,
   title: settings.fullName,
   description: `Estilo e Precisão em Cada Detalhe. Conheça a ${settings.fullName}, onde o estilo e a precisão são combinados para oferecer um serviço excepcional a cada cliente.`,
+  creator: "Infinytron",
+  authors: [{ name: "David Marques" }, { name: "Cristian Marques" }],
 };
 
 export default function RootLayout({
@@ -34,7 +39,7 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
