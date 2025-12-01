@@ -4,18 +4,14 @@ import { signupSchema } from "@/modules/auth/signup.schema";
 
 import { useAppForm } from "@/integrations/tanstack-form";
 
-interface SubmitData {
-  fullName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
+import { ISignUpSubmitForm } from "@/modules/auth/types/signup";
 
 interface SignUpFormProps {
-  onSubmit: (data: SubmitData) => void;
+  loading?: boolean;
+  onSubmit: (data: ISignUpSubmitForm) => void;
 }
 
-export default function SignUpForm({ onSubmit }: SignUpFormProps) {
+export default function SignUpForm(props: SignUpFormProps) {
   const form = useAppForm({
     defaultValues: {
       fullName: "",
@@ -27,7 +23,7 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
       onChange: signupSchema,
     },
     onSubmit: async ({ value }) => {
-      onSubmit(value);
+      props.onSubmit(value);
     },
   });
 
@@ -63,12 +59,15 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
 
       <form.AppField name="confirmPassword">
         {(field) => (
-          <field.FormPassword label="Confirme a Senha" placeholder="Digite sua senha novamente" />
+          <field.FormPassword
+            label="Confirme a Senha"
+            placeholder="Digite sua senha novamente"
+          />
         )}
       </form.AppField>
 
       <form.AppForm>
-        <form.FormSubmit label="Cadastrar" />
+        <form.FormSubmit loading={props?.loading} label="Cadastrar" />
       </form.AppForm>
     </form>
   );
