@@ -1,21 +1,20 @@
 "use client";
 
+import React from "react";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+
 import { signupSchema } from "@/modules/auth/signup.schema";
 
+import { supabase } from "@/integrations/supabase/client";
 import { useAppForm } from "@/integrations/tanstack-form";
 
-interface SubmitData {
-  fullName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
+import { ISignUpSubmitForm } from "@/modules/auth/types/signup";
 
-interface SignUpFormProps {
-  onSubmit: (data: SubmitData) => void;
-}
+export default function SignUpForm() {
+  const router = useRouter();
+  const [isEmailLoading, setIsEmailLoading] = React.useState<boolean>(false);
 
-export default function SignUpForm({ onSubmit }: SignUpFormProps) {
   const form = useAppForm({
     defaultValues: {
       fullName: "",
@@ -27,9 +26,44 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
       onChange: signupSchema,
     },
     onSubmit: async ({ value }) => {
-      onSubmit(value);
+      await handleSignUpWithEmail(value);
     },
   });
+
+  const handleSignUpWithEmail = async (data: ISignUpSubmitForm) => {
+    setIsEmailLoading(true);
+
+    const { data: user, error } = await supabase.auth.signUp({
+      email: data.email,
+      password: data.password,
+      options: {
+        data: {
+          fullName: data.fullName,
+        },
+      },
+    });
+
+    if (user.user?.id) {
+      router.push("/admin");
+      toast.success("Cadastro realizado com sucesso!");
+    }
+
+    if (error) {
+      console.error(error);
+      switch (error.message) {
+        case "User already registered":
+          toast.error("E-mail já está em uso!");
+          break;
+        default:
+          toast.error(
+            error?.message ?? "Ocorreu um erro ao tentar criar a conta!"
+          );
+          break;
+      }
+    }
+
+    setIsEmailLoading(false);
+  };
 
   return (
     <form
@@ -71,7 +105,7 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
       </form.AppField>
 
       <form.AppForm>
-        <form.FormSubmit label="Cadastrar" />
+        <form.FormSubmit loading={isEmailLoading} label="Cadastrar" />
       </form.AppForm>
     </form>
   );

@@ -1,5 +1,5 @@
-import AuthComponent from "@/modules/auth/ui/Auth";
+import SignUpComponent from "@/modules/auth/ui/SignUp";
 
 export default function SignUpPage() {
-  return <AuthComponent type="sign-up" />;
+  return <SignUpComponent />;
 }

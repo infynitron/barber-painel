@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 
 interface InputProps {
   label: string;
-  type?: "email" | "password";
+  type?: "email" | "checkbox" | "password";
   placeholder?: string;
 }
 
