@@ -4,16 +4,14 @@ import { signinSchema } from "@/modules/auth/signin.schema";
 
 import { useAppForm } from "@/integrations/tanstack-form";
 
-interface SubmitData {
-  email: string;
-  password: string;
-}
+import { ISignInSubmitForm } from "@/modules/auth/types/signin";
 
 interface SignInFormProps {
-  onSubmit: (data: SubmitData) => void;
+  loading?: boolean;
+  onSubmit: (data: ISignInSubmitForm) => Promise<void>;
 }
 
-export default function SignInForm({ onSubmit }: SignInFormProps) {
+export default function SignInForm(props: SignInFormProps) {
   const form = useAppForm({
     defaultValues: {
       email: "",
@@ -23,7 +21,7 @@ export default function SignInForm({ onSubmit }: SignInFormProps) {
       onChange: signinSchema,
     },
     onSubmit: async ({ value }) => {
-      onSubmit(value);
+      await props.onSubmit(value);
     },
   });
 
