@@ -1,5 +1,5 @@
-import AuthComponent from "@/modules/auth/ui/Auth";
+import SignInComponent from "@/modules/auth/ui/SignIn";
 
 export default function SignInPage() {
-  return <AuthComponent type="sign-in" />;
+  return <SignInComponent />;
 }

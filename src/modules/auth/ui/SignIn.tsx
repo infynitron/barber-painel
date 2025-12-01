@@ -2,13 +2,25 @@
 
 import React from "react";
 import { toast } from "sonner";
+import Link from "next/link";
+import { ScissorsIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 import { supabase } from "@/integrations/supabase/client";
 
 import SignInForm from "@/modules/auth/ui/SignInForm";
 
 import { ISignInSubmitForm } from "@/modules/auth/types/signin";
+
+import settings from "@/data";
 
 export default function SignInComponent() {
   const router = useRouter();
@@ -45,8 +57,38 @@ export default function SignInComponent() {
   };
 
   return (
-    <div className="space-y-4">
-      <SignInForm loading={isEmailLoading} onSubmit={handleSignInWithEmail} />
+    <div className="w-full max-w-md space-y-6 p-4 mx-auto">
+      <div className="text-center">
+        <div className="w-16 h-16 rounded-2xl bg-gradient-primary mx-auto flex items-center justify-center shadow-glow">
+          <ScissorsIcon className="w-12 h-12 text-primary" />
+        </div>
+        <h1 className="font-display text-3xl font-bold mb-2 text-gradient">
+          {settings.fullName}
+        </h1>
+        <p className="text-muted-foreground">{settings.description}</p>
+      </div>
+
+      <Card className="border-border/50">
+        <CardHeader>
+          <CardTitle className="font-display">Bem-vindo</CardTitle>
+          <CardDescription>
+            Entre com sua conta ou crie uma nova
+          </CardDescription>
+        </CardHeader>
+
+        <CardContent>
+          <SignInForm
+            loading={isEmailLoading}
+            onSubmit={handleSignInWithEmail}
+          />
+
+          <Link href="/recovery">Esqueceu a senha?</Link>
+
+          <br />
+
+          <Link href="/sign-up">Não possui conta?</Link>
+        </CardContent>
+      </Card>
     </div>
   );
 }
