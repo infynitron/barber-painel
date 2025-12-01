@@ -21,8 +21,8 @@ export async function updateSession(request: NextRequest) {
           supabaseResponse = NextResponse.next({
             request,
           });
-          cookiesToSet.forEach(({ name, value }) =>
-            supabaseResponse.cookies.set(name, value)
+          cookiesToSet.forEach(({ name, value, options }) =>
+            supabaseResponse.cookies.set(name, value, options)
           );
         },
       },
@@ -30,10 +30,10 @@ export async function updateSession(request: NextRequest) {
   );
 
   const { data } = await supabase.auth.getClaims();
-
   const user = data?.claims;
 
-  if (!user && !request.nextUrl.pathname.startsWith("/sign-in")) {
+  const pathname = request.nextUrl.pathname;
+  if (pathname !== "/" && !user && !pathname.startsWith("/sign-in")) {
     const url = request.nextUrl.clone();
     url.pathname = "/sign-in";
     return NextResponse.redirect(url);
