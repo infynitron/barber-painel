@@ -1,7 +1,9 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
+console.log("updateSession request 1");
 export async function updateSession(request: NextRequest) {
+  console.log("updateSession request", request);
   let supabaseResponse = NextResponse.next({
     request,
   });
@@ -33,6 +35,7 @@ export async function updateSession(request: NextRequest) {
   const user = data?.claims;
 
   const pathname = request.nextUrl.pathname;
+  console.log("pathname", pathname);
   if (pathname !== "/" && !user && !pathname.startsWith("/sign-in")) {
     const url = request.nextUrl.clone();
     url.pathname = "/sign-in";
