@@ -8,7 +8,7 @@ import { ISignUpSubmitForm } from "@/modules/auth/types/signup";
 
 interface SignUpFormProps {
   loading?: boolean;
-  onSubmit: (data: ISignUpSubmitForm) => void;
+  onSubmit: (data: ISignUpSubmitForm) => Promise<void>;
 }
 
 export default function SignUpForm(props: SignUpFormProps) {
@@ -23,7 +23,7 @@ export default function SignUpForm(props: SignUpFormProps) {
       onChange: signupSchema,
     },
     onSubmit: async ({ value }) => {
-      props.onSubmit(value);
+      await props.onSubmit(value);
     },
   });
 
