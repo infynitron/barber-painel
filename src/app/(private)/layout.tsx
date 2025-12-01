@@ -43,11 +43,11 @@ const data: NavSidebarProps = {
       items: [
         {
           title: "Dashboard",
-          url: "/dash",
+          url: "/barbeiro",
         },
         {
           title: "Agenda",
-          url: "/agenda",
+          url: "/barbeiro/agenda",
         },
       ],
     },
@@ -56,16 +56,16 @@ const data: NavSidebarProps = {
       icon: DollarSignIcon,
       items: [
         {
-          title: "A receber",
-          url: "/cash-flow/accounts-receivable",
+          title: "A Receber",
+          url: "/barbeiro/receber",
         },
         {
           title: "A Pagar",
-          url: "/cash-flow/accounts-payable",
+          url: "/barbeiro/pagar",
         },
         {
           title: "Relatórios",
-          url: "/cash-flow/reports",
+          url: "/barbeiro/relatorios",
         },
       ],
     },
@@ -97,19 +97,23 @@ const data: NavSidebarProps = {
       items: [
         {
           title: "General",
-          url: "/settings/general",
+          url: "/configuracoes",
+        },
+        {
+          title: "Perfil",
+          url: "/perfil",
         },
         {
           title: "Team",
-          url: "/settings/team",
+          url: "/barbeiro/time",
         },
         {
           title: "Serviços",
-          url: "/settings/services",
+          url: "/barbeiro/servicos",
         },
         {
-          title: "Billing",
-          url: "/settings/billing",
+          title: "Pagamento",
+          url: "/barbeiro/pagamento",
         },
       ],
     },

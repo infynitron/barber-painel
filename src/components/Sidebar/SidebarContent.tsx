@@ -33,6 +33,7 @@ export interface NavSidebarContentProps {
 }
 
 export function NavSidebarContent({ modules }: NavSidebarContentProps) {
+  console.log(modules)
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Plataforma</SidebarGroupLabel>
