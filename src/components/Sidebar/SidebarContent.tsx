@@ -21,7 +21,6 @@ import {
 export interface NavSidebarContentProps {
   modules: {
     title: string;
-    url: string;
     isActive?: boolean;
     icon: React.ForwardRefExoticComponent<
       Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
