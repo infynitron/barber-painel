@@ -1,4 +1,5 @@
 const settings = {
+  version: "1.0.0",
   // TODO: Ajuste de dados
   name: "PRO",
   fullName: "Barbearia PRO",
@@ -6,7 +7,8 @@ const settings = {
   contact: {
     phone: "(42) 9 9902 7693",
     email: "contato@infinytron.com.br",
-    address: "Praça Duque de Caxias, 21 - Sala 1 - Centro, Ponta Grossa - PR, 84010-000",
+    address:
+      "Praça Duque de Caxias, 21 - Sala 1 - Centro, Ponta Grossa - PR, 84010-000",
   },
   social: {
     instagram: "https://www.instagram.com/infinytron",

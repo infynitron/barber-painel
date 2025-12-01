@@ -5,10 +5,18 @@ import { createServerClient } from "@/integrations/supabase/server";
 
 import { AuthButton } from "@/modules/auth/ui/AuthButton";
 
+import { NavSidebar } from "@/components/Sidebar";
+
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+
+import { NavSidebarInsetHeader } from "@/components/Sidebar/SidebarInsetHeader";
+
 async function UserDetails() {
   const supabase = await createServerClient();
   const { data, error } = await supabase.auth.getClaims();
 
+  console.log(data);
+  console.log(error);
   if (error || !data?.claims) {
     redirect("/sign-in");
   }
@@ -22,18 +30,20 @@ export default function PrivateLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="min-h-screen">
-      <Suspense>
-        <nav className="w-full flex justify-between items-center p-3 px-5 text-sm border-b border-b-foreground/50 h-16">
-          <AuthButton />
-        </nav>
-      </Suspense>
+    <SidebarProvider>
+      <NavSidebar />
 
-      <Suspense>
-        <UserDetails />
-      </Suspense>
+      <SidebarInset>
+        <NavSidebarInsetHeader />
 
-      {children}
-    </main>
+        <Suspense>
+          <UserDetails />
+        </Suspense>
+
+        <div className="flex flex-1 flex-col gap-4 p-4">
+          {children}
+        </div>
+      </SidebarInset>
+    </SidebarProvider>
   );
 }
