@@ -8,7 +8,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { format, startOfDay, endOfDay } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { Calendar, Clock, User, Scissors, Plus, ChevronLeft, ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
 
 interface Appointment {
   id: string;
