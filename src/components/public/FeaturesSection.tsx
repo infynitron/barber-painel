@@ -24,7 +24,7 @@ const iconMap: any = {
 
 const FeaturesSection = () => {
   return (
-    <section className="py-32 bg-gradient-to-b from-background to-card relative overflow-hidden">
+<section id="recursos" className="py-32 bg-gradient-to-b from-background to-card relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/40 rounded-full blur-3xl"></div>
