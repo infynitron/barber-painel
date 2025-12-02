@@ -149,13 +149,7 @@ export default function Agenda() {
           ) : (
             <div className="space-y-3">
               {appointments.map((appointment, index) => (
-                <motion.div
-                  key={appointment.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  className="p-4 rounded-lg bg-card border border-border hover:border-primary/50 transition-smooth"
-                >
+
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
@@ -202,7 +196,6 @@ export default function Agenda() {
                       {statusConfig[appointment.status as keyof typeof statusConfig].label}
                     </Badge>
                   </div>
-                </motion.div>
               ))}
             </div>
           )}
