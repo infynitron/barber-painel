@@ -25,7 +25,7 @@ import {
   NavSidebarFooterAvatarProps,
 } from "@/components/Sidebar/SidebarFooterAvatar";
 
-import { createClient } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client";
 
 type NavSidebarFooterDropdownProps = NavSidebarFooterAvatarProps;
 
@@ -37,7 +37,6 @@ export function NavSidebarFooterDropdown({
   const { isMobile } = useSidebar();
 
   const logout = async () => {
-    const supabase = createClient();
     await supabase.auth.signOut();
 
     router.push("/");
