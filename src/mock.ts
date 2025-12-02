@@ -209,7 +209,7 @@ export const faqData = [
 
 export const footerData = {
   company: {
-    name: "AgendaPro",
+    name: "Infynitron Agenda",
     tagline: "O futuro dos agendamentos",
     description:
       "Transformando a forma como empresas gerenciam tempo e clientes desde 2020.",
