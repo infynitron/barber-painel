@@ -6,7 +6,7 @@ import { useFormContext } from "@/integrations/tanstack-form";
 
 interface EmailProps {
   label?: string;
-  loading?: boolean;
+  disabled?: boolean;
 }
 
 export default function FormSubmit(props: EmailProps) {
@@ -26,7 +26,7 @@ export default function FormSubmit(props: EmailProps) {
           className="w-full"
           type="submit"
           disabled={
-            props?.loading || !canSubmit || isSubmitting || !isFormValid
+            props?.disabled || !canSubmit || isSubmitting || !isFormValid
           }
         >
           <SaveIcon />
