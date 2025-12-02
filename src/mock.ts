@@ -1,5 +1,3 @@
-// Mock data para Landing Page Profissional de Agendamento
-
 export const navigationItems = [
   { label: "Início", href: "#inicio" },
   { label: "Recursos", href: "#recursos" },
@@ -30,7 +28,7 @@ export const featuresData = [
     title: "IA Preditiva",
     description:
       "Algoritmos inteligentes preveem cancelamentos e otimizam sua agenda automaticamente.",
-    color: "from-purple-500 to-pink-500",
+    color: "from-primary to-primary",
     stats: "+85% eficiência",
   },
   {
@@ -38,7 +36,7 @@ export const featuresData = [
     title: "Automação Total",
     description:
       "Lembretes, confirmações e follow-ups automáticos via WhatsApp, SMS e email.",
-    color: "from-cyan-500 to-blue-500",
+    color: "from-primary to-primary",
     stats: "10h economizadas/semana",
   },
   {
@@ -46,7 +44,7 @@ export const featuresData = [
     title: "Pagamentos Integrados",
     description:
       "Aceite cartão, Pix e boleto. Receba na hora com taxas competitivas.",
-    color: "from-green-500 to-emerald-500",
+    color: "from-primary to-primary",
     stats: "Taxas 30% menores",
   },
   {
@@ -54,7 +52,7 @@ export const featuresData = [
     title: "Analytics Avançado",
     description:
       "Dashboards em tempo real com insights acionáveis e relatórios personalizados.",
-    color: "from-orange-500 to-red-500",
+    color: "from-primary to-primary",
     stats: "ROI rastreado 100%",
   },
   {
@@ -62,7 +60,7 @@ export const featuresData = [
     title: "Multi-profissional",
     description:
       "Gerencie equipes ilimitadas com agenda sincronizada e comissões automáticas.",
-    color: "from-indigo-500 to-purple-500",
+    color: "from-primary to-primary",
     stats: "Equipes ilimitadas",
   },
   {
@@ -70,7 +68,7 @@ export const featuresData = [
     title: "Segurança Premium",
     description:
       "Criptografia de ponta, LGPD compliance e backup automático em tempo real.",
-    color: "from-blue-500 to-cyan-500",
+    color: "from-primary to-primary",
     stats: "99.9% uptime",
   },
 ];
@@ -140,7 +138,7 @@ export const pricingData = [
       "Suporte prioritário",
       "App personalizado",
     ],
-    highlighted: true,
+    highlighted: true, // Pode colorir com primary no layout
   },
   {
     name: "Enterprise",
