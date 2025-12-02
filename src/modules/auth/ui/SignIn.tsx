@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { toast } from "sonner";
 import Link from "next/link";
-import { ScissorsIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import {
@@ -33,17 +32,16 @@ export default function SignInComponent() {
   const handleSignInWithEmail = async (data: ISignInSubmitForm) => {
     setIsEmailLoading(true);
 
-    const { data: user, error } = await supabase.auth.signInWithPassword({
-      email: data.email,
-      password: data.password,
-    });
+    try {
+      const { data: user, error } = await supabase.auth.signInWithPassword({
+        email: data.email,
+        password: data.password,
+      });
+      if (error) throw error;
 
-    if (user.user?.id) {
       router.push("/admin");
       toast.success("Login realizado com sucesso!");
-    }
-
-    if (error) {
+    } catch (error: any) {
       console.error(error);
       switch (error.code) {
         case "invalid_credentials":
@@ -79,10 +77,12 @@ export default function SignInComponent() {
         </CardHeader>
 
         <CardContent className="space-y-4">
-          <SignInForm
-            loading={isEmailLoading}
-            onSubmit={handleSignInWithEmail}
-          />
+          <Suspense>
+            <SignInForm
+              loading={isEmailLoading}
+              onSubmit={handleSignInWithEmail}
+            />
+          </Suspense>
 
           <SeparatorText text="ou" />
 
@@ -92,14 +92,20 @@ export default function SignInComponent() {
         <CardFooter className="flex-col space-y-2">
           <div className="space-x-2 text-center text-muted-foreground">
             <span>Esqueceu a senha?</span>
-            <Link href="/recovery" className="underline hover:text-primary">
+            <Link
+              className="hover:underline underline-offset-4 hover:text-primary"
+              href="/recovery"
+            >
               Recupere aqui
             </Link>
           </div>
 
           <div className="space-x-2 text-center text-muted-foreground">
             <span>Não possui uma conta?</span>
-            <Link href="/sign-up" className="underline hover:text-primary">
+            <Link
+              className="underline underline-offset-4 hover:text-primary"
+              href="/sign-up"
+            >
               Crie agora
             </Link>
           </div>

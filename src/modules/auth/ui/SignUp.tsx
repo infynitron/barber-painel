@@ -1,5 +1,5 @@
+import { Suspense } from "react";
 import Link from "next/link";
-import { ScissorsIcon } from "lucide-react";
 
 import {
   Card,
@@ -32,13 +32,15 @@ export default function SignUpComponent() {
       </div>
 
       <Card className="border-border/50">
-        <CardHeader>
+        <CardHeader className="text-center">
           <CardTitle className="font-display">Crie sua conta</CardTitle>
           <CardDescription>Preencha seus dados de acesso</CardDescription>
         </CardHeader>
 
         <CardContent className="space-y-4">
-          <SignUpForm />
+          <Suspense>
+            <SignUpForm />
+          </Suspense>
 
           <SeparatorText text="ou" />
 

@@ -33,22 +33,21 @@ export default function SignUpForm() {
   const handleSignUpWithEmail = async (data: ISignUpSubmitForm) => {
     setIsEmailLoading(true);
 
-    const { data: user, error } = await supabase.auth.signUp({
-      email: data.email,
-      password: data.password,
-      options: {
-        data: {
-          fullName: data.fullName,
+    try {
+      const { error } = await supabase.auth.signUp({
+        email: data.email,
+        password: data.password,
+        options: {
+          data: {
+            fullName: data.fullName,
+          },
         },
-      },
-    });
+      });
+      if (error) throw error;
 
-    if (user.user?.id) {
-      router.push("/admin");
+      router.push("/sign-up/success");
       toast.success("Cadastro realizado com sucesso!");
-    }
-
-    if (error) {
+    } catch (error: any) {
       // TODO: Use do code
       console.error(error);
       switch (error.message) {
@@ -94,7 +93,7 @@ export default function SignUpForm() {
         </form.AppField>
       </div>
 
-      <div className="col-span-12 md:col-span-6">
+      <div className="col-span-12 md:col-span-12">
         <form.AppField name="password">
           {(field) => (
             <field.FormPassword label="Senha" placeholder="Digite sua senha" />
@@ -102,7 +101,7 @@ export default function SignUpForm() {
         </form.AppField>
       </div>
 
-      <div className="col-span-12 md:col-span-6">
+      <div className="col-span-12 md:col-span-12">
         <form.AppField name="confirmPassword">
           {(field) => (
             <field.FormPassword
