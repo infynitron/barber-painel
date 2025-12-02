@@ -1,3 +1,5 @@
+"use client";
+
 import { footerData } from "@/mock";
 import {
   FacebookIcon,
