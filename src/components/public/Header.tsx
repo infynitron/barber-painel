@@ -46,7 +46,7 @@ const Header = () => {
                   !scrolled && 'text-white bg-none'
                 }`}
               >
-                AgendaPro
+               Infynitron Agenda 
               </h1>
             </div>
           </div>
