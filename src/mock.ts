@@ -6,6 +6,117 @@ export const navigationItems = [
   { label: "Contato", href: "#contato" },
 ];
 
+// Mock data para Contas a Receber
+
+export const metricsData = {
+  totalReceivable: 45780.5,
+  receivedToday: 8950.0,
+  overdueRate: 12.5,
+  overdueClients: 7,
+};
+
+export const upcomingReceivables = [
+  {
+    id: 1,
+    clientName: "João Silva & Cia",
+    amount: 3500.0,
+    dueDate: "2025-07-28",
+    status: "pending",
+    invoiceNumber: "INV-2025-001",
+    paymentMethod: "Boleto",
+  },
+  {
+    id: 2,
+    clientName: "Maria Comércio LTDA",
+    amount: 5200.0,
+    dueDate: "2025-07-29",
+    status: "pending",
+    invoiceNumber: "INV-2025-002",
+    paymentMethod: "Transferência",
+  },
+  {
+    id: 3,
+    clientName: "Tech Solutions Inc",
+    amount: 12500.0,
+    dueDate: "2025-07-30",
+    status: "pending",
+    invoiceNumber: "INV-2025-003",
+    paymentMethod: "PIX",
+  },
+  {
+    id: 4,
+    clientName: "Construtora ABC",
+    amount: 8900.0,
+    dueDate: "2025-07-25",
+    status: "overdue",
+    invoiceNumber: "INV-2025-004",
+    paymentMethod: "Boleto",
+  },
+  {
+    id: 5,
+    clientName: "Farmácia Central",
+    amount: 1800.0,
+    dueDate: "2025-07-31",
+    status: "pending",
+    invoiceNumber: "INV-2025-005",
+    paymentMethod: "Cartão",
+  },
+  {
+    id: 6,
+    clientName: "Supermercado São José",
+    amount: 6750.0,
+    dueDate: "2025-08-02",
+    status: "pending",
+    invoiceNumber: "INV-2025-006",
+    paymentMethod: "PIX",
+  },
+  {
+    id: 7,
+    clientName: "Padaria Pão Quente",
+    amount: 950.0,
+    dueDate: "2025-07-23",
+    status: "overdue",
+    invoiceNumber: "INV-2025-007",
+    paymentMethod: "Dinheiro",
+  },
+  {
+    id: 8,
+    clientName: "Escritório Advocacia Lima",
+    amount: 15000.0,
+    dueDate: "2025-08-05",
+    status: "pending",
+    invoiceNumber: "INV-2025-008",
+    paymentMethod: "Transferência",
+  },
+];
+
+export const recentTransactions = [
+  {
+    id: 1,
+    clientName: "Loja do Pedro",
+    amount: 2300.0,
+    paidDate: "2025-07-26",
+    status: "paid",
+    invoiceNumber: "INV-2025-009",
+  },
+  {
+    id: 2,
+    clientName: "Restaurante Sabor",
+    amount: 4100.0,
+    paidDate: "2025-07-26",
+    status: "paid",
+    invoiceNumber: "INV-2025-010",
+  },
+  {
+    id: 3,
+    clientName: "Clínica Saúde+",
+    amount: 2550.0,
+    paidDate: "2025-07-26",
+    status: "paid",
+    invoiceNumber: "INV-2025-011",
+  },
+];
+
 export const heroData = {
   badge: "Revolucione seu negócio",
   title: "Transforme agendamentos em",
