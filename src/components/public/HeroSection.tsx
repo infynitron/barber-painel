@@ -1,20 +1,76 @@
 "use client";
 
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Play, TrendingUp, Zap } from 'lucide-react';
-import { heroData } from '@/mock';
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Play, TrendingUp, Zap } from "lucide-react";
+import { heroData } from "@/mock";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-background">
+      {/* Estilos CSS para animação */}
+      <style jsx>{`
+        @keyframes shimmerMove {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+
+        @keyframes pulse {
+          0%,
+          100% {
+            opacity: 0.8;
+          }
+          50% {
+            opacity: 1;
+          }
+        }
+
+        .shimmer-text {
+          position: relative;
+          color: hsl(var(--primary));
+          display: block;
+          animation: pulse 2s ease-in-out infinite;
+        }
+
+        .shimmer-text::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.6) 50%,
+            transparent 100%
+          );
+          animation: shimmerMove 3s linear infinite;
+          pointer-events: none;
+        }
+
+        .shimmer-text:hover {
+          color: hsl(var(--primary)) !important;
+        }
+      `}</style>
+
       {/* Animated background elements */}
       <div className="absolute inset-0">
         {/* Gradient orbs with animation */}
         <div className="absolute top-20 left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        
+        <div
+          className="absolute bottom-20 right-20 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "1s" }}
+        ></div>
+        <div
+          className="absolute top-1/2 left-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "2s" }}
+        ></div>
+
         {/* Grid pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       </div>
@@ -32,10 +88,10 @@ const HeroSection = () => {
 
         {/* Main Heading */}
         <h1 className="text-6xl md:text-8xl font-black mb-6 leading-tight">
-          <span className="block text-foreground">{heroData.title}</span>
-          <span className="block text-primary animate-gradient">
-            {heroData.titleHighlight}
+          <span className="block text-foreground">
+            Transforme agendamentos em
           </span>
+          <span className="block shimmer-text">experiências incríveis</span>
         </h1>
 
         {/* Subtitle */}
@@ -54,7 +110,7 @@ const HeroSection = () => {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </span>
           </Button>
-          
+
           <Button
             size="lg"
             variant="outline"
@@ -78,16 +134,27 @@ const HeroSection = () => {
                   {stat.value}
                 </div>
               </div>
-              <div className="text-sm font-semibold text-muted-foreground">{stat.label}</div>
+              <div className="text-sm font-semibold text-muted-foreground">
+                {stat.label}
+              </div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Floating elements */}
-      <div className="absolute bottom-10 left-10 w-20 h-20 bg-primary/30 rounded-2xl animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
-      <div className="absolute top-40 right-20 w-16 h-16 bg-primary/25 rounded-full animate-bounce" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
-      <div className="absolute bottom-40 right-40 w-12 h-12 bg-primary/20 rounded-xl animate-bounce" style={{ animationDelay: '2s', animationDuration: '5s' }}></div>
+      <div
+        className="absolute bottom-10 left-10 w-20 h-20 bg-primary/30 rounded-2xl animate-bounce"
+        style={{ animationDelay: "0s", animationDuration: "3s" }}
+      ></div>
+      <div
+        className="absolute top-40 right-20 w-16 h-16 bg-primary/25 rounded-full animate-bounce"
+        style={{ animationDelay: "1s", animationDuration: "4s" }}
+      ></div>
+      <div
+        className="absolute bottom-40 right-40 w-12 h-12 bg-primary/20 rounded-xl animate-bounce"
+        style={{ animationDelay: "2s", animationDuration: "5s" }}
+      ></div>
     </section>
   );
 };
