@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CheckCircle2, Calendar, Smartphone, TrendingUp, ArrowRight } from 'lucide-react';
 import { benefitsData } from '@/mock';
 import { Button } from '@/components/ui/button';
