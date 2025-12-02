@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X, Sparkles } from 'lucide-react';
 import { navigationItems } from '@/mock';
 
-const Navbar = () => {
+const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -21,24 +21,31 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'backdrop-blur-2xl shadow-lg  border-gray-200'
+          ? 'backdrop-blur-2xl shadow-lg border-gray-200'
           : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
+          
           {/* Logo */}
           <div className="flex items-center gap-3 group cursor-pointer">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
-              <div className="relative bg-gradient-to-r from-purple-600 to-pink-600 p-2 rounded-xl">
-                <Sparkles className="w-6 h-6 text-white" />
+              {/* Glow */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary rounded-xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
+
+              {/* Icon background */}
+              <div className="relative bg-gradient-to-r from-primary to-primary p-2 rounded-xl">
+                <Sparkles className="w-6 h-6 text-primary-foreground" />
               </div>
             </div>
+
             <div>
-              <h1 className={`text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent ${
-                !scrolled && 'text-white bg-none'
-              }`}>
+              <h1
+                className={`text-2xl font-bold bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent ${
+                  !scrolled && 'text-white bg-none'
+                }`}
+              >
                 AgendaPro
               </h1>
             </div>
@@ -52,8 +59,8 @@ const Navbar = () => {
                 href={item.href}
                 className={`text-sm font-medium transition-all duration-200 hover:scale-105 ${
                   scrolled
-                    ? 'text-gray-700 hover:text-purple-600'
-                    : 'text-white hover:text-purple-300'
+                    ? 'text-gray-300 hover:text-primary'
+                    : 'text-white hover:text-primary'
                 }`}
               >
                 {item.label}
@@ -65,13 +72,16 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-4">
             <Button
               variant="ghost"
-              className={scrolled ? 'text-gray-700 hover:text-purple-600' : 'text-white hover:text-purple-300'}
+              className={
+                scrolled
+                  ? 'text-gray-300 hover:text-primary'
+                  : 'text-white hover:text-primary'
+              }
             >
               Entrar
             </Button>
-            <Button
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-200 hover:scale-105"
-            >
+
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/80 shadow-lg hover:shadow-primary/50 transition-all duration-200 hover:scale-105">
               Teste Grátis
             </Button>
           </div>
@@ -82,28 +92,29 @@ const Navbar = () => {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
-              <X className={scrolled ? 'text-gray-700' : 'text-white'} />
+              <X className={scrolled ? 'text-gray-300' : 'text-white'} />
             ) : (
-              <Menu className={scrolled ? 'text-gray-700' : 'text-white'} />
+              <Menu className={scrolled ? 'text-gray-300' : 'text-white'} />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 py-4 bg-white rounded-2xl shadow-xl">
+          <div className="lg:hidden mt-4 py-4 bg-background rounded-2xl shadow-xl">
             <div className="flex flex-col space-y-4 px-4">
               {navigationItems.map((item, index) => (
                 <a
                   key={index}
                   href={item.href}
-                  className="text-gray-700 hover:text-purple-600 font-medium"
+                  className="text-gray-300 hover:text-primary font-medium"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
-              <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+
+              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/80">
                 Teste Grátis
               </Button>
             </div>
@@ -114,4 +125,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;

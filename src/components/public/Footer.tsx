@@ -16,11 +16,11 @@ const socialIcons: any = {
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 text-white py-20 relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-gray-950 to-black text-white py-20 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-500 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -30,9 +30,9 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl blur-lg opacity-50"></div>
-                <div className="relative bg-gradient-to-r from-purple-600 to-pink-600 p-2 rounded-xl">
-                  <SparklesIcon className="w-6 h-6 text-white" />
+                <div className="absolute inset-0 bg-primary rounded-xl blur-lg opacity-50"></div>
+                <div className="relative bg-primary p-2 rounded-xl">
+                  <SparklesIcon className="w-6 h-6 text-primary-foreground" />
                 </div>
               </div>
               <h3 className="text-3xl font-black">{footerData.company.name}</h3>
@@ -55,7 +55,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <span className="w-0 h-0.5 bg-purple-500 group-hover:w-4 transition-all duration-200"></span>
+                    <span className="w-0 h-0.5 bg-primary group-hover:w-4 transition-all duration-200"></span>
                     {link.label}
                   </a>
                 </li>
@@ -73,7 +73,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <span className="w-0 h-0.5 bg-purple-500 group-hover:w-4 transition-all duration-200"></span>
+                    <span className="w-0 h-0.5 bg-primary group-hover:w-4 transition-all duration-200"></span>
                     {link.label}
                   </a>
                 </li>
@@ -91,7 +91,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <span className="w-0 h-0.5 bg-purple-500 group-hover:w-4 transition-all duration-200"></span>
+                    <span className="w-0 h-0.5 bg-primary group-hover:w-4 transition-all duration-200"></span>
                     {link.label}
                   </a>
                 </li>
@@ -111,9 +111,9 @@ export default function Footer() {
                   key={index}
                   href={social.url}
                   aria-label={social.name}
-                  className="group w-12 h-12 bg-gray-800 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-6"
+                  className="group w-12 h-12 bg-gray-800 hover:bg-primary rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-6"
                 >
-                  <Icon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                  <Icon className="w-5 h-5 text-gray-400 group-hover:text-primary-foreground transition-colors" />
                 </a>
               );
             })}
