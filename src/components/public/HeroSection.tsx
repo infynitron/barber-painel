@@ -7,7 +7,10 @@ import { heroData } from "@/mock";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-background">
+    <section
+      id="inicio"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-background"
+    >
       <style>{`
   @keyframes glowPulse {
     0%, 100% {
