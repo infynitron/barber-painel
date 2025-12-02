@@ -8,55 +8,27 @@ import { heroData } from "@/mock";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-background">
-      {/* Estilos CSS para animação */}
-      <style jsx>{`
-        @keyframes shimmerMove {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
+      <style>{`
+  @keyframes glowPulse {
+    0%, 100% {
+      text-shadow: 0 0 3px #fbbf24;
+      filter: brightness(1);
+    }
+    50% {
+      text-shadow: 
+        0 0 8px #fbbf24,
+        0 0 15px #fde68a;
+      filter: brightness(1.05);
+    }
+  }
 
-        @keyframes pulse {
-          0%,
-          100% {
-            opacity: 0.8;
-          }
-          50% {
-            opacity: 1;
-          }
-        }
-
-        .shimmer-text {
-          position: relative;
-          color: hsl(var(--primary));
-          display: block;
-          animation: pulse 2s ease-in-out infinite;
-        }
-
-        .shimmer-text::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(
-            90deg,
-            transparent 0%,
-            rgba(255, 255, 255, 0.6) 50%,
-            transparent 100%
-          );
-          animation: shimmerMove 3s linear infinite;
-          pointer-events: none;
-        }
-
-        .shimmer-text:hover {
-          color: hsl(var(--primary)) !important;
-        }
-      `}</style>
+  .shimmer-text {
+    color: #fbbf24;
+    display: block;
+    animation: glowPulse 2s ease-in-out infinite;
+    font-weight: 900;
+  }
+`}</style>
 
       {/* Animated background elements */}
       <div className="absolute inset-0">
