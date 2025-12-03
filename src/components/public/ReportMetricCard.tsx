@@ -8,7 +8,7 @@ const ReportMetricCard = ({
   trend,
   iconBgColor,
   iconColor,
-}) => {
+}: any) => {
   return (
     <div className="bg-[#121214] border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition-all duration-300 group">
       <div className="flex items-start justify-between">

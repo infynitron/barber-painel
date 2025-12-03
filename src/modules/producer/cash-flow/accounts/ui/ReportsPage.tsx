@@ -1,9 +1,11 @@
+"use client";
+
 import { useState } from "react";
-import ReportMetricCard from "../components/ReportMetricCard";
-import ServiceBarChart from "../components/ServiceBarChart";
-import PaymentMethodsChart from "../components/PaymentMethodsChart";
-import BarberRankingTable from "../components/BarberRankingTable";
-import AppointmentsTable from "../components/AppointmentsTable";
+import ReportMetricCard from "@/components/public/ReportMetricCard";
+import ServiceBarChart from "@/components/public/ServiceBarChart";
+import PaymentMethodsChart from "@/components/public/PaymentMethodsChart";
+import BarberRankingTable from "@/components/public/BarberRankingTable";
+import AppointmentsTable from "@/components/public/AppointmentsTable";
 import {
   DollarSign,
   TrendingUp,
@@ -17,7 +19,7 @@ import { monthlyMetrics } from "@/mock";
 const Reports = () => {
   const [selectedPeriod, setSelectedPeriod] = useState("month");
 
-  const formatCurrency = (value) => {
+  const formatCurrency = (value: any) => {
     return new Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
