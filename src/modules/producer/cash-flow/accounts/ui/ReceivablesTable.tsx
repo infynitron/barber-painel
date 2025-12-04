@@ -1,59 +1,60 @@
-import React from 'react';
-import MetricCard from '@/modules/producer/cash-flow/accounts/ui/MetricCard';
-import ReceivablesTable from '@/modules/producer/cash-flow/accounts/ui/ReceivablesTable';
-import { DollarSign, TrendingUp, AlertCircle } from 'lucide-react';
-import { metricsData } from '@/mock';
+import { DollarSign, TrendingUp, AlertCircle } from "lucide-react";
+
+import { metricsData } from "@/mock";
+
+import MetricCard from "@/modules/producer/cash-flow/accounts/ui/MetricCard";
+import ReceivablesTable from "@/modules/producer/cash-flow/accounts/ui/ReceivablesTable";
+
+const formatCurrency = (value: any) => {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(value);
+};
+
+const metrics = [
+  {
+    title: "Total A Receber",
+    value: formatCurrency(metricsData.totalReceivable),
+    subtitle: "15 faturas em aberto",
+    icon: DollarSign,
+    iconBgColor: "bg-green-500/10",
+    iconColor: "text-green-500",
+    trend: {
+      direction: "up",
+      value: "+12.5%",
+      label: "vs mês anterior",
+    },
+  },
+  {
+    title: "Recebido Hoje",
+    value: formatCurrency(metricsData.receivedToday),
+    subtitle: "3 transações confirmadas",
+    icon: TrendingUp,
+    iconBgColor: "bg-blue-500/10",
+    iconColor: "text-blue-500",
+    trend: {
+      direction: "up",
+      value: "+8.2%",
+      label: "vs ontem",
+    },
+  },
+  {
+    title: "Taxa de Conclusão",
+    value: `${100 - metricsData.overdueRate}%`,
+    subtitle: "0 cancelados, 0 falhas",
+    icon: AlertCircle,
+    iconBgColor: "bg-orange-500/10",
+    iconColor: "text-orange-500",
+    trend: {
+      direction: "down",
+      value: "-2.1%",
+      label: "inadimplência",
+    },
+  },
+];
 
 const Dashboard = () => {
-  const formatCurrency = (value: any) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(value);
-  };
-
-  const metrics = [
-    {
-      title: 'Total A Receber',
-      value: formatCurrency(metricsData.totalReceivable),
-      subtitle: '15 faturas em aberto',
-      icon: DollarSign,
-      iconBgColor: 'bg-green-500/10',
-      iconColor: 'text-green-500',
-      trend: {
-        direction: 'up',
-        value: '+12.5%',
-        label: 'vs mês anterior'
-      }
-    },
-    {
-      title: 'Recebido Hoje',
-      value: formatCurrency(metricsData.receivedToday),
-      subtitle: '3 transações confirmadas',
-      icon: TrendingUp,
-      iconBgColor: 'bg-blue-500/10',
-      iconColor: 'text-blue-500',
-      trend: {
-        direction: 'up',
-        value: '+8.2%',
-        label: 'vs ontem'
-      }
-    },
-    {
-      title: 'Taxa de Conclusão',
-      value: `${100 - metricsData.overdueRate}%`,
-      subtitle: '0 cancelados, 0 falhas',
-      icon: AlertCircle,
-      iconBgColor: 'bg-orange-500/10',
-      iconColor: 'text-orange-500',
-      trend: {
-        direction: 'down',
-        value: '-2.1%',
-        label: 'inadimplência'
-      }
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-[#0a0a0b]">
       {/* Header */}
