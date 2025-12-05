@@ -1,9 +1,5 @@
-"use client";
-
-import React, { Suspense } from "react";
-import { toast } from "sonner";
+import { Suspense } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 import {
   Card,
@@ -16,48 +12,12 @@ import {
 
 import { SeparatorText } from "@/components/ui/separator-text";
 
-import { supabase } from "@/integrations/supabase/client";
-
 import SignWithGoogle from "@/modules/auth/ui/SignWithGoogle";
 import SignInForm from "@/modules/auth/ui/SignInForm";
-
-import { ISignInSubmitForm } from "@/modules/auth/types/signin";
 
 import settings from "@/data";
 
 export default function SignInComponent() {
-  const router = useRouter();
-  const [isEmailLoading, setIsEmailLoading] = React.useState<boolean>(false);
-
-  const handleSignInWithEmail = async (data: ISignInSubmitForm) => {
-    setIsEmailLoading(true);
-
-    try {
-      const { data: user, error } = await supabase.auth.signInWithPassword({
-        email: data.email,
-        password: data.password,
-      });
-      if (error) throw error;
-
-      router.push("/admin");
-      toast.success("Login realizado com sucesso!");
-    } catch (error: any) {
-      console.error(error);
-      switch (error.code) {
-        case "invalid_credentials":
-          toast.error("E-mail ou senha incorreto!");
-          break;
-        default:
-          toast.error(
-            error?.message ?? "Ocorreu um erro ao tentar fazer login!"
-          );
-          break;
-      }
-    }
-
-    setIsEmailLoading(false);
-  };
-
   return (
     <div className="space-y-6 p-4">
       <div>
@@ -78,10 +38,7 @@ export default function SignInComponent() {
 
         <CardContent className="space-y-4">
           <Suspense>
-            <SignInForm
-              loading={isEmailLoading}
-              onSubmit={handleSignInWithEmail}
-            />
+            <SignInForm />
           </Suspense>
 
           <SeparatorText text="ou" />

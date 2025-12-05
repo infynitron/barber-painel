@@ -1,18 +1,15 @@
 "use client";
 
-import React from "react";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+import React, { Suspense } from "react";
 
-import { signupSchema } from "@/modules/auth/signup.schema";
-
-import { supabase } from "@/integrations/supabase/client";
 import { useAppForm } from "@/integrations/tanstack-form";
 
-import { ISignUpSubmitForm } from "@/modules/auth/types/signup";
+import { useAuth } from "@/modules/auth/useAuth";
+import { signupSchema } from "@/modules/auth/signup.schema";
 
 export default function SignUpForm() {
-  const router = useRouter();
+  const { signUpWithEmail } = useAuth();
+
   const [isEmailLoading, setIsEmailLoading] = React.useState<boolean>(false);
 
   const form = useAppForm({
@@ -26,44 +23,11 @@ export default function SignUpForm() {
       onChange: signupSchema,
     },
     onSubmit: async ({ value }) => {
-      await handleSignUpWithEmail(value);
+      setIsEmailLoading(true);
+      await signUpWithEmail(value);
+      setIsEmailLoading(false);
     },
   });
-
-  const handleSignUpWithEmail = async (data: ISignUpSubmitForm) => {
-    setIsEmailLoading(true);
-
-    try {
-      const { error } = await supabase.auth.signUp({
-        email: data.email,
-        password: data.password,
-        options: {
-          data: {
-            fullName: data.fullName,
-          },
-        },
-      });
-      if (error) throw error;
-
-      router.push("/sign-up/success");
-      toast.success("Cadastro realizado com sucesso!");
-    } catch (error: any) {
-      // TODO: Use do code
-      console.error(error);
-      switch (error.message) {
-        case "User already registered":
-          toast.error("E-mail já está em uso!");
-          break;
-        default:
-          toast.error(
-            error?.message ?? "Ocorreu um erro ao tentar criar a conta!"
-          );
-          break;
-      }
-    }
-
-    setIsEmailLoading(false);
-  };
 
   return (
     <form
@@ -114,7 +78,7 @@ export default function SignUpForm() {
 
       <div className="col-span-12 md:col-span-12">
         <form.AppForm>
-          <form.FormSubmit loading={isEmailLoading} label="Cadastrar" />
+          <form.FormSubmit disabled={isEmailLoading} label="Cadastrar" />
         </form.AppForm>
       </div>
     </form>

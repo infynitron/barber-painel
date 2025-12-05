@@ -7,6 +7,8 @@ import { Toaster } from "@/components/ui/sonner";
 
 import settings from "@/data";
 
+import { AuthProvider } from "@/modules/auth/AuthContext";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   display: "swap",
@@ -45,7 +47,7 @@ export default function RootLayout({
         >
           <Toaster />
 
-          {children}
+          <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>
       </body>
     </html>

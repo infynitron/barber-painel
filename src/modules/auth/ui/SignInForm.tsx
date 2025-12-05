@@ -1,17 +1,21 @@
 "use client";
 
-import { signinSchema } from "@/modules/auth/signin.schema";
+import React from "react";
 
 import { useAppForm } from "@/integrations/tanstack-form";
 
-import { ISignInSubmitForm } from "@/modules/auth/types/signin";
+import { useAuth } from "@/modules/auth/useAuth";
+import { signinSchema } from "@/modules/auth/signin.schema";
 
 interface SignInFormProps {
   loading?: boolean;
-  onSubmit: (data: ISignInSubmitForm) => Promise<void>;
 }
 
 export default function SignInForm(props: SignInFormProps) {
+  const { signInWithPassword } = useAuth();
+
+  const [isEmailLoading, setIsEmailLoading] = React.useState<boolean>(false);
+
   const form = useAppForm({
     defaultValues: {
       email: "",
@@ -21,7 +25,9 @@ export default function SignInForm(props: SignInFormProps) {
       onChange: signinSchema,
     },
     onSubmit: async ({ value }) => {
-      await props.onSubmit(value);
+      setIsEmailLoading(true);
+      await signInWithPassword(value);
+      setIsEmailLoading(false);
     },
   });
 
@@ -48,7 +54,7 @@ export default function SignInForm(props: SignInFormProps) {
       </form.AppField>
 
       <form.AppForm>
-        <form.FormSubmit label="Entrar" />
+        <form.FormSubmit disabled={isEmailLoading} label="Entrar" />
       </form.AppForm>
     </form>
   );
