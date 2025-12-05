@@ -1,6 +1,12 @@
 ## Empresa
 1. Múltiplas filiais
 
+## Autenticação
+### Confirmação de e-mail
+1. Ativar confirmação de e-mail no supabase
+2. Ação de reenvio de e-mail de confirmação
+3. Validçaão de código
+
 ## Perfil
 ### Processo de cadastro de usuário
 

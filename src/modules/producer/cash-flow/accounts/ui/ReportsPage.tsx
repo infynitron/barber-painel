@@ -7,12 +7,10 @@ import PaymentMethodsChart from "@/components/public/PaymentMethodsChart";
 import BarberRankingTable from "@/components/public/BarberRankingTable";
 import AppointmentsTable from "@/components/public/AppointmentsTable";
 import {
-  DollarSign,
-  TrendingUp,
-  Users,
-  Receipt,
-  Calendar,
-  Award,
+  ReceiptIcon,
+  AwardIcon,
+  DollarSignIcon,
+  UsersIcon,
 } from "lucide-react";
 import { monthlyMetrics } from "@/mock";
 
@@ -31,7 +29,7 @@ const Reports = () => {
       title: "Faturamento Total",
       value: formatCurrency(monthlyMetrics.totalRevenue),
       subtitle: `${monthlyMetrics.workingDays} dias trabalhados`,
-      icon: DollarSign,
+      icon: DollarSignIcon,
       iconBgColor: "bg-green-500/10",
       iconColor: "text-green-500",
       trend: {
@@ -44,7 +42,7 @@ const Reports = () => {
       title: "Total de Clientes",
       value: monthlyMetrics.totalClients,
       subtitle: "Atendimentos realizados",
-      icon: Users,
+      icon: UsersIcon,
       iconBgColor: "bg-blue-500/10",
       iconColor: "text-blue-500",
       trend: {
@@ -57,7 +55,7 @@ const Reports = () => {
       title: "Ticket Médio",
       value: formatCurrency(monthlyMetrics.averageTicket),
       subtitle: "Valor médio por cliente",
-      icon: Receipt,
+      icon: ReceiptIcon,
       iconBgColor: "bg-purple-500/10",
       iconColor: "text-purple-500",
       trend: {
@@ -70,7 +68,7 @@ const Reports = () => {
       title: "Serviço Top",
       value: monthlyMetrics.topService,
       subtitle: "Mais vendido do mês",
-      icon: Award,
+      icon: AwardIcon,
       iconBgColor: "bg-orange-500/10",
       iconColor: "text-orange-500",
     },
