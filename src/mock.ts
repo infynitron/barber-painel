@@ -6,6 +6,146 @@ export const navigationItems = [
   { label: "Contato", href: "#contato" },
 ];
 
+export const monthlyMetrics = {
+  totalRevenue: 28450.0,
+  growthRate: 15.3,
+  totalClients: 342,
+  averageTicket: 83.19,
+  workingDays: 26,
+  topService: "Corte + Barba",
+};
+
+export const dailyRevenue = [
+  { day: "01", revenue: 850, appointments: 12 },
+  { day: "02", revenue: 920, appointments: 14 },
+  { day: "03", revenue: 1100, appointments: 16 },
+  { day: "04", revenue: 780, appointments: 11 },
+  { day: "05", revenue: 1250, appointments: 18 },
+  { day: "06", revenue: 1450, appointments: 21 },
+  { day: "07", revenue: 950, appointments: 13 },
+  { day: "08", revenue: 890, appointments: 12 },
+  { day: "09", revenue: 1020, appointments: 15 },
+  { day: "10", revenue: 1180, appointments: 17 },
+  { day: "11", revenue: 950, appointments: 14 },
+  { day: "12", revenue: 1300, appointments: 19 },
+  { day: "13", revenue: 1520, appointments: 22 },
+  { day: "14", revenue: 980, appointments: 14 },
+  { day: "15", revenue: 1100, appointments: 16 },
+];
+
+export const topServices = [
+  { name: "Corte + Barba", sales: 156, revenue: 18720, percentage: 35 },
+  { name: "Corte Simples", sales: 98, revenue: 4900, percentage: 22 },
+  { name: "Barba", sales: 67, revenue: 3350, percentage: 15 },
+  { name: "Sobrancelha", sales: 45, revenue: 900, percentage: 10 },
+  { name: "Químicas", sales: 28, revenue: 2800, percentage: 8 },
+];
+
+export const barberPerformance = [
+  {
+    id: 1,
+    name: "Carlos Silva",
+    appointments: 112,
+    revenue: 9856.0,
+    rating: 4.9,
+    position: 1,
+  },
+  {
+    id: 2,
+    name: "João Santos",
+    appointments: 98,
+    revenue: 8232.0,
+    rating: 4.8,
+    position: 2,
+  },
+  {
+    id: 3,
+    name: "Pedro Costa",
+    appointments: 87,
+    revenue: 7134.0,
+    rating: 4.7,
+    position: 3,
+  },
+  {
+    id: 4,
+    name: "Lucas Oliveira",
+    apartments: 45,
+    revenue: 3228.0,
+    rating: 4.6,
+    position: 4,
+  },
+];
+
+export const paymentMethods = [
+  { method: "PIX", amount: 12450.0, percentage: 44, color: "bg-blue-500" },
+  {
+    method: "Cartão Débito",
+    amount: 8920.0,
+    percentage: 31,
+    color: "bg-green-500",
+  },
+  {
+    method: "Cartão Crédito",
+    amount: 5680.0,
+    percentage: 20,
+    color: "bg-purple-500",
+  },
+  { method: "Dinheiro", amount: 1400.0, percentage: 5, color: "bg-orange-500" },
+];
+
+export const recentAppointments = [
+  {
+    id: 1,
+    date: "2025-07-26",
+    time: "14:30",
+    client: "Rafael Mendes",
+    barber: "Carlos Silva",
+    service: "Corte + Barba",
+    value: 120.0,
+    payment: "PIX",
+  },
+  {
+    id: 2,
+    date: "2025-07-26",
+    time: "15:00",
+    client: "Bruno Alves",
+    barber: "João Santos",
+    service: "Corte Simples",
+    value: 50.0,
+    payment: "Dinheiro",
+  },
+  {
+    id: 3,
+    date: "2025-07-26",
+    time: "15:30",
+    client: "Marcos Paulo",
+    barber: "Pedro Costa",
+    service: "Barba",
+    value: 50.0,
+    payment: "Cartão Débito",
+  },
+  {
+    id: 4,
+    date: "2025-07-26",
+    time: "16:00",
+    client: "Fernando Lima",
+    barber: "Carlos Silva",
+    service: "Corte + Barba",
+    value: 120.0,
+    payment: "PIX",
+  },
+  {
+    id: 5,
+    date: "2025-07-26",
+    time: "16:30",
+    client: "Gabriel Torres",
+    barber: "João Santos",
+    service: "Químicas",
+    value: 100.0,
+    payment: "Cartão Crédito",
+  },
+];
+
 export const heroData = {
   badge: "Revolucione seu negócio",
   title: "Transforme agendamentos em",
