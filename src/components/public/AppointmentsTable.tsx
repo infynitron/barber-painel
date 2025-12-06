@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Search, Download, Calendar } from "lucide-react";
 
-import { formatCurrency } from "@/modules/shared/utils";
+import { formatCurrency, formatDate } from "@/modules/shared/utils";
 
 import { recentAppointments } from "@/mock";
 
@@ -15,14 +15,6 @@ const AppointmentsTable = () => {
       item.service.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
-
-  const formatDate = (dateString: any) => {
-    return new Date(dateString).toLocaleDateString("pt-BR", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    });
-  };
 
   return (
     <div className="bg-[#121214] border border-gray-800 rounded-xl overflow-hidden">
@@ -48,11 +40,11 @@ const AppointmentsTable = () => {
             size={18}
           />
           <input
+            className="w-full pl-10 pr-4 py-2.5 bg-[#1a1a1c] border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-700 transition-colors duration-200"
             type="text"
             placeholder="Buscar por cliente, barbeiro ou serviço..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-[#1a1a1c] border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-700 transition-colors duration-200"
           />
         </div>
       </div>
