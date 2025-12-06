@@ -10,9 +10,9 @@ interface DynamicIconProps {
   color?: string;
 }
 
-export default function DynamicIcon({ name, size, color }: DynamicIconProps) {
+export const DynamicIcon = ({ name, size, color }: DynamicIconProps) => {
   const IconComponent = Icons[name as keyof typeof Icons] as Icon;
   if (!IconComponent) return <span>Icon "{name}" not found</span>;
 
   return <IconComponent className={color} size={size}></IconComponent>;
-}
+};
