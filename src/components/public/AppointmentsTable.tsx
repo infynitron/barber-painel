@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { SearchIcon, DownloadIcon, CalendarIcon } from "lucide-react";
+import { DownloadIcon, CalendarIcon } from "lucide-react";
+
+import { Search } from "@/components/Search";
 
 import { formatCurrency, formatDate } from "@/modules/shared/utils";
 
@@ -34,19 +36,7 @@ const AppointmentsTable = () => {
           </button>
         </div>
 
-        <div className="relative">
-          <SearchIcon
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
-            size={18}
-          />
-          <input
-            className="w-full pl-10 pr-4 py-2.5 bg-[#1a1a1c] border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-700 transition-colors duration-200"
-            type="text"
-            placeholder="Buscar por cliente, barbeiro ou serviço..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
+        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
 
       <div className="overflow-x-auto">
@@ -73,6 +63,7 @@ const AppointmentsTable = () => {
               </th>
             </tr>
           </thead>
+
           <tbody className="divide-y divide-gray-800">
             {filteredAppointments.length === 0 ? (
               <tr>
