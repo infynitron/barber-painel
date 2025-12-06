@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, Download, Calendar } from "lucide-react";
+import { SearchIcon, DownloadIcon, CalendarIcon } from "lucide-react";
 
 import { formatCurrency, formatDate } from "@/modules/shared/utils";
 
@@ -29,13 +29,13 @@ const AppointmentsTable = () => {
             </p>
           </div>
           <button className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
-            <Download size={18} />
+            <DownloadIcon size={18} />
             <span className="text-sm font-medium">Exportar</span>
           </button>
         </div>
 
         <div className="relative">
-          <Search
+          <SearchIcon
             className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
             size={18}
           />
@@ -77,7 +77,10 @@ const AppointmentsTable = () => {
             {filteredAppointments.length === 0 ? (
               <tr>
                 <td colSpan={6} className="px-6 py-12 text-center">
-                  <Calendar className="mx-auto mb-3 text-gray-600" size={48} />
+                  <CalendarIcon
+                    className="mx-auto mb-3 text-gray-600"
+                    size={48}
+                  />
                   <p className="text-gray-400 text-sm">
                     Nenhum atendimento encontrado
                   </p>

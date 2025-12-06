@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import React from "react";
+import { ChevronDownIcon, HelpCircleIcon } from "lucide-react";
+
 import { faqData } from "@/mock";
 
 const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = React.useState(0);
 
   return (
     <section className="py-32 bg-gradient-to-b from-background to-card relative overflow-hidden">
@@ -13,7 +14,7 @@ const FAQSection = () => {
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-20">
           <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/20 rounded-full mb-6">
-            <HelpCircle className="w-4 h-4 text-primary" />
+            <HelpCircleIcon className="w-4 h-4 text-primary" />
             <span className="text-sm font-bold text-primary">
               PERGUNTAS FREQUENTES
             </span>
@@ -39,7 +40,7 @@ const FAQSection = () => {
                 <span className="text-xl font-bold text-foreground pr-8">
                   {faq.question}
                 </span>
-                <ChevronDown
+                <ChevronDownIcon
                   className={`w-6 h-6 text-primary flex-shrink-0 transition-transform duration-300 ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
@@ -70,7 +71,7 @@ const FAQSection = () => {
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-bold text-lg transition-colors"
           >
             Fale com nosso time
-            <ChevronDown className="w-5 h-5 rotate-[-90deg]" />
+            <ChevronDownIcon className="w-5 h-5 -rotate-90" />
           </a>
         </div>
       </div>

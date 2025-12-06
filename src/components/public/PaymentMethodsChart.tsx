@@ -1,20 +1,20 @@
-import { CreditCard, Smartphone } from "lucide-react";
+import { CreditCardIcon, SmartphoneIcon } from "lucide-react";
 
 import { formatCurrency } from "@/modules/shared/utils";
 
 import { paymentMethods } from "@/mock";
 
+const icons = {
+  PIX: SmartphoneIcon,
+  "Cartão Débito": CreditCardIcon,
+  "Cartão Crédito": CreditCardIcon,
+};
+
+const getIcon = (method: string) => {
+  return icons[method as keyof typeof icons] || SmartphoneIcon;
+};
+
 const PaymentMethodsChart = () => {
-  const icons = {
-    PIX: Smartphone,
-    "Cartão Débito": CreditCard,
-    "Cartão Crédito": CreditCard,
-  };
-
-  const getIcon = (method: string) => {
-    return icons[method as keyof typeof icons] || Smartphone;
-  };
-
   return (
     <div className="bg-[#121214] border border-gray-800 rounded-xl p-6">
       <div className="mb-6">

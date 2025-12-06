@@ -1,4 +1,4 @@
-import { TrendingUp, TrendingDown } from "lucide-react";
+import { TrendingUpIcon, TrendingDownIcon } from "lucide-react";
 
 const ReportMetricCard = ({
   title,
@@ -29,9 +29,9 @@ const ReportMetricCard = ({
         <div className="mt-4 pt-4 border-t border-gray-800">
           <div className="flex items-center gap-2">
             {trend.direction === "up" ? (
-              <TrendingUp size={16} className="text-green-500" />
+              <TrendingUpIcon size={16} className="text-green-500" />
             ) : (
-              <TrendingDown size={16} className="text-red-500" />
+              <TrendingDownIcon size={16} className="text-red-500" />
             )}
             <span
               className={`text-sm font-medium ${

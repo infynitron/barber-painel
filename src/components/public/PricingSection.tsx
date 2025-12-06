@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
-import { Check, Zap, Crown } from "lucide-react";
-import { pricingData } from "@/mock";
+import { CheckIcon, ZapIcon, CrownIcon } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+
+import { pricingData } from "@/mock";
 
 const PricingSection = () => {
   return (
@@ -22,7 +23,7 @@ const PricingSection = () => {
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-20">
           <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/20 rounded-full mb-6">
-            <Crown className="w-4 h-4 text-primary" />
+            <CrownIcon className="w-4 h-4 text-primary" />
             <span className="text-sm font-bold text-primary">
               PREÇOS TRANSPARENTES
             </span>
@@ -51,7 +52,7 @@ const PricingSection = () => {
             >
               {plan.highlighted && (
                 <div className="absolute top-6 right-6 bg-primary-foreground text-primary px-4 py-2 rounded-full text-xs font-black flex items-center gap-1 shadow-lg">
-                  <Zap className="w-3 h-3" />
+                  <ZapIcon className="w-3 h-3" />
                   POPULAR
                 </div>
               )}
@@ -133,7 +134,7 @@ const PricingSection = () => {
                             : "bg-primary"
                         }`}
                       >
-                        <Check
+                        <CheckIcon
                           className={`w-4 h-4 ${
                             plan.highlighted
                               ? "text-primary-foreground"

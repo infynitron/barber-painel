@@ -4,17 +4,17 @@ import { formatCurrency } from "@/modules/shared/utils";
 
 import { barberPerformance } from "@/mock";
 
+const colors: Record<number, string> = {
+  1: "text-yellow-500",
+  2: "text-gray-400",
+  3: "text-orange-600",
+};
+
+const getMedalColor = (position: number): string => {
+  return colors[position] ?? "text-gray-600";
+};
+
 const BarberRankingTable = () => {
-  const getMedalColor = (position: number): string => {
-    const colors: Record<number, string> = {
-      1: "text-yellow-500",
-      2: "text-gray-400",
-      3: "text-orange-600",
-    };
-
-    return colors[position] ?? "text-gray-600";
-  };
-
   return (
     <div className="bg-[#121214] border border-gray-800 rounded-xl overflow-hidden">
       <div className="p-6 border-b border-gray-800">
