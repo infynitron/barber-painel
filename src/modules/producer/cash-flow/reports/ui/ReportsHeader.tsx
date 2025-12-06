@@ -1,9 +1,9 @@
-import { ReportPeriod } from "@/modules/producer/cash-flow/reports/reports";
+import {
+  FilterPeriodProps,
+  FilterPeriodComponent,
+} from "@/components/FilterPeriod";
 
-interface ReportsHeaderProps {
-  selectedPeriod: ReportPeriod;
-  setSelectedPeriod: (period: ReportPeriod) => void;
-}
+type ReportsHeaderProps = FilterPeriodProps;
 
 export default function ReportsHeader({
   selectedPeriod,
@@ -19,47 +19,10 @@ export default function ReportsHeader({
           </p>
         </div>
 
-        {/* Period Selector */}
-        <div className="flex gap-2">
-          <button
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
-              selectedPeriod === "week"
-                ? "bg-primary text-white"
-                : "bg-gray-800 text-gray-400 hover:bg-gray-700"
-            }`}
-            onClick={() => {
-              setSelectedPeriod("week");
-            }}
-          >
-            Semana
-          </button>
-
-          <button
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
-              selectedPeriod === "month"
-                ? "bg-primary text-white"
-                : "bg-gray-800 text-gray-400 hover:bg-gray-700"
-            }`}
-            onClick={() => {
-              setSelectedPeriod("month");
-            }}
-          >
-            Mês
-          </button>
-
-          <button
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
-              selectedPeriod === "year"
-                ? "bg-primary text-white"
-                : "bg-gray-800 text-gray-400 hover:bg-gray-700"
-            }`}
-            onClick={() => {
-              setSelectedPeriod("year");
-            }}
-          >
-            Ano
-          </button>
-        </div>
+        <FilterPeriodComponent
+          selectedPeriod={selectedPeriod}
+          setSelectedPeriod={setSelectedPeriod}
+        />
       </div>
     </div>
   );
