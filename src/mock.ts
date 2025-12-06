@@ -32,41 +32,6 @@ export const topServices = [
   { name: "Químicas", sales: 28, revenue: 2800, percentage: 8 },
 ];
 
-export const barberPerformance = [
-  {
-    id: 1,
-    name: "Carlos Silva",
-    appointments: 112,
-    revenue: 9856.0,
-    rating: 4.9,
-    position: 1,
-  },
-  {
-    id: 2,
-    name: "João Santos",
-    appointments: 98,
-    revenue: 8232.0,
-    rating: 4.8,
-    position: 2,
-  },
-  {
-    id: 3,
-    name: "Pedro Costa",
-    appointments: 87,
-    revenue: 7134.0,
-    rating: 4.7,
-    position: 3,
-  },
-  {
-    id: 4,
-    name: "Lucas Oliveira",
-    apartments: 45,
-    revenue: 3228.0,
-    rating: 4.6,
-    position: 4,
-  },
-];
-
 export const paymentMethods = [
   { method: "PIX", amount: 12450.0, percentage: 44, color: "bg-blue-500" },
   {

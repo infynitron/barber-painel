@@ -5,10 +5,11 @@ import React from "react";
 import { MetricCardComponent, MetricCardProps } from "@/components/MetricCard";
 import ServiceBarChart from "@/components/public/ServiceBarChart";
 import PaymentMethodsChart from "@/components/public/PaymentMethodsChart";
-import BarberRankingTable from "@/components/public/BarberRankingTable";
 import AppointmentsTable from "@/components/public/AppointmentsTable";
 
 import { formatCurrency } from "@/modules/shared/utils";
+
+import { BarberRankingTable } from "@/modules/producer/teams/ui/BarberRankingTable";
 
 import {
   IReport,
@@ -125,7 +126,7 @@ export default function ReportsComponent() {
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {cards.map((metric, index) => (
-          <MetricCardComponent key={index} {...metric} />
+          <MetricCardComponent key={"metric_card_" + index} {...metric} />
         ))}
       </div>
 
@@ -135,7 +136,7 @@ export default function ReportsComponent() {
         <PaymentMethodsChart />
       </div>
 
-      <BarberRankingTable />
+      <BarberRankingTable items={[]} loading={false} />
 
       <AppointmentsTable />
     </div>
