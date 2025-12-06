@@ -8,14 +8,29 @@ interface IGetByPeriodProps {
 }
 
 export class ReportsService {
-  getByPeriod = async ({ period }: IGetByPeriodProps): Promise<IReport> => {
+  getByPeriod = async ({ period }: IGetByPeriodProps) => {
     // TODO: Backend
-    const data = {
+    const data: IReport = {
       workingDays: 26,
-      totalRevenue: 28450.0,
-      growthRate: 15.3,
-      totalClients: 342,
-      averageTicket: 83.19,
+      totalRevenue: {
+        value: 28450.0,
+        growthRate: 15.3,
+      },
+      totalClients: {
+        value: 342,
+        growthRate: 5.3,
+      },
+      averageTicket: {
+        value: 83.19,
+        growthRate: 25.3,
+      },
+      topService: {
+        count: 10,
+        service: {
+          id: "UUID",
+          name: "Corte + Barba",
+        },
+      },
     };
 
     return data;

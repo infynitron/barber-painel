@@ -1,9 +1,20 @@
 export type ReportPeriod = "week" | "month" | "year";
 
-export interface IReport {
-  workingDays: number;
-  totalRevenue: number;
+interface GrowthRate {
+  value: number;
   growthRate: number;
-  totalClients: number;
-  averageTicket: number;
+}
+
+export interface IReport {
+  totalRevenue: GrowthRate;
+  totalClients: GrowthRate;
+  averageTicket: GrowthRate;
+  workingDays: number;
+  topService: {
+    count: number;
+    service: {
+      id: string;
+      name: string;
+    };
+  };
 }

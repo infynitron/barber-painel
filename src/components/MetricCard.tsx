@@ -13,7 +13,7 @@ export interface MetricCardProps {
     color: string;
     background_color: string;
   };
-  trend: MetricTrendProps;
+  trend?: MetricTrendProps;
 }
 
 export const MetricCardComponent = ({
