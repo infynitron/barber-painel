@@ -10,6 +10,8 @@ import AppointmentsTable from "@/components/public/AppointmentsTable";
 import { formatCurrency } from "@/modules/shared/utils";
 
 import { BarberRankingTable } from "@/modules/producer/teams/ui/BarberRankingTable";
+import { ITeamRanking } from "@/modules/producer/teams/teams";
+import { TeamsService } from "@/modules/producer/teams/team.service";
 
 import {
   IReport,
@@ -25,6 +27,7 @@ export default function ReportsComponent() {
     React.useState<ReportPeriod>("month");
 
   const [reports, setReports] = React.useState<IReport | undefined>();
+  const [rankingTeams, setRankingTeams] = React.useState<ITeamRanking[]>([]);
 
   // TODO: React Query
   React.useEffect(() => {
@@ -33,6 +36,16 @@ export default function ReportsComponent() {
         period: selectedPeriod,
       });
       setReports(data);
+    };
+
+    fetch();
+  }, []);
+
+  // TODO: React Query
+  React.useEffect(() => {
+    const fetch = async () => {
+      const items = await new TeamsService().rankingByBarber();
+      setRankingTeams(items);
     };
 
     fetch();
@@ -136,7 +149,11 @@ export default function ReportsComponent() {
         <PaymentMethodsChart />
       </div>
 
-      <BarberRankingTable period={selectedPeriod} items={[]} loading={false} />
+      <BarberRankingTable
+        period={selectedPeriod}
+        items={rankingTeams}
+        loading={false}
+      />
 
       <AppointmentsTable />
     </div>
