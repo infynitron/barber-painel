@@ -1,3 +1,12 @@
+import {
+  ReceiptIcon,
+  AwardIcon,
+  DollarSignIcon,
+  UsersIcon,
+} from "lucide-react";
+
+import { formatCurrency } from "@/modules/shared/utils";
+
 export const navigationItems = [
   { label: "Início", href: "#inicio" },
   { label: "Recursos", href: "#recursos" },
@@ -380,3 +389,53 @@ export const footerData = {
     { name: "Twitter", icon: "Twitter", url: "#" },
   ],
 };
+
+export const metrics = [
+  {
+    title: "Faturamento Total",
+    value: formatCurrency(monthlyMetrics.totalRevenue),
+    subtitle: `${monthlyMetrics.workingDays} dias trabalhados`,
+    icon: DollarSignIcon,
+    iconBgColor: "bg-green-500/10",
+    iconColor: "text-green-500",
+    trend: {
+      direction: "up",
+      value: `+${monthlyMetrics.growthRate}%`,
+      label: "vs mês anterior",
+    },
+  },
+  {
+    title: "Total de Clientes",
+    value: monthlyMetrics.totalClients,
+    subtitle: "Atendimentos realizados",
+    icon: UsersIcon,
+    iconBgColor: "bg-blue-500/10",
+    iconColor: "text-blue-500",
+    trend: {
+      direction: "up",
+      value: "+8.5%",
+      label: "novos clientes",
+    },
+  },
+  {
+    title: "Ticket Médio",
+    value: formatCurrency(monthlyMetrics.averageTicket),
+    subtitle: "Valor médio por cliente",
+    icon: ReceiptIcon,
+    iconBgColor: "bg-purple-500/10",
+    iconColor: "text-purple-500",
+    trend: {
+      direction: "up",
+      value: "+5.2%",
+      label: "vs mês anterior",
+    },
+  },
+  {
+    title: "Serviço Top",
+    value: monthlyMetrics.topService,
+    subtitle: "Mais vendido do mês",
+    icon: AwardIcon,
+    iconBgColor: "bg-orange-500/10",
+    iconColor: "text-orange-500",
+  },
+];
