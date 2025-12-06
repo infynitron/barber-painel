@@ -1,16 +1,10 @@
-import React from "react";
 import { Trophy, Star } from "lucide-react";
+
+import { formatCurrency } from "@/modules/shared/utils";
+
 import { barberPerformance } from "@/mock";
-import { any } from "zod/v4";
 
 const BarberRankingTable = () => {
-  const formatCurrency = (value: any) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(value);
-  };
-
   const getMedalColor = (position: number): string => {
     const colors: Record<number, string> = {
       1: "text-yellow-500",

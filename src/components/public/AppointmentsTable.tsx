@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Search, Download, Calendar } from "lucide-react";
+
+import { formatCurrency } from "@/modules/shared/utils";
+
 import { recentAppointments } from "@/mock";
 
 const AppointmentsTable = () => {
@@ -12,13 +15,6 @@ const AppointmentsTable = () => {
       item.service.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
-
-  const formatCurrency = (value: any) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(value);
-  };
 
   const formatDate = (dateString: any) => {
     return new Date(dateString).toLocaleDateString("pt-BR", {

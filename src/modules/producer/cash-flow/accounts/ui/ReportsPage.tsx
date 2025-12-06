@@ -1,28 +1,25 @@
 "use client";
 
 import { useState } from "react";
-import ReportMetricCard from "@/components/public/ReportMetricCard";
-import ServiceBarChart from "@/components/public/ServiceBarChart";
-import PaymentMethodsChart from "@/components/public/PaymentMethodsChart";
-import BarberRankingTable from "@/components/public/BarberRankingTable";
-import AppointmentsTable from "@/components/public/AppointmentsTable";
 import {
   ReceiptIcon,
   AwardIcon,
   DollarSignIcon,
   UsersIcon,
 } from "lucide-react";
+
+import ReportMetricCard from "@/components/public/ReportMetricCard";
+import ServiceBarChart from "@/components/public/ServiceBarChart";
+import PaymentMethodsChart from "@/components/public/PaymentMethodsChart";
+import BarberRankingTable from "@/components/public/BarberRankingTable";
+import AppointmentsTable from "@/components/public/AppointmentsTable";
+
+import { formatCurrency } from "@/modules/shared/utils";
+
 import { monthlyMetrics } from "@/mock";
 
 const Reports = () => {
   const [selectedPeriod, setSelectedPeriod] = useState("month");
-
-  const formatCurrency = (value: any) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(value);
-  };
 
   const metrics = [
     {

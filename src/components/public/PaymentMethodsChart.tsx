@@ -1,14 +1,10 @@
-import React from "react";
-import { CreditCard, Smartphone, Banknote, Wallet } from "lucide-react";
+import { CreditCard, Smartphone } from "lucide-react";
+
+import { formatCurrency } from "@/modules/shared/utils";
+
 import { paymentMethods } from "@/mock";
 
 const PaymentMethodsChart = () => {
-  const formatCurrency = (value: any) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(value);
-  };
   const icons = {
     PIX: Smartphone,
     "Cartão Débito": CreditCard,

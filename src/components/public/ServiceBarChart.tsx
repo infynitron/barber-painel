@@ -1,14 +1,8 @@
-import React from "react";
+import { formatCurrency } from "@/modules/shared/utils";
+
 import { topServices } from "@/mock";
 
 const ServiceBarChart = () => {
-  const formatCurrency = (value: any) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(value);
-  };
-
   const maxRevenue = Math.max(...topServices.map((s) => s.revenue));
 
   return (
