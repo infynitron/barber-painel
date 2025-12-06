@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 
-export type FilterPeriod = "week" | "month" | "year";
+import { Period } from "@/modules/shared/shared";
+import { periods } from "@/modules/shared/utils";
+
+export type FilterPeriod = Period;
 
 export interface FilterPeriodProps {
   selectedPeriod: FilterPeriod;
@@ -13,35 +16,17 @@ export const FilterPeriodComponent = ({
 }: FilterPeriodProps) => {
   return (
     <div className="flex gap-2">
-      <Button
-        variant={selectedPeriod === "week" ? "default" : "secondary"}
-        type="button"
-        onClick={() => {
-          setSelectedPeriod("week");
-        }}
-      >
-        Semana
-      </Button>
-
-      <Button
-        variant={selectedPeriod === "month" ? "default" : "secondary"}
-        type="button"
-        onClick={() => {
-          setSelectedPeriod("month");
-        }}
-      >
-        Mês
-      </Button>
-
-      <Button
-        variant={selectedPeriod === "year" ? "default" : "secondary"}
-        type="button"
-        onClick={() => {
-          setSelectedPeriod("year");
-        }}
-      >
-        Ano
-      </Button>
+      {Object.keys(periods).map((period) => (
+        <Button
+          variant={selectedPeriod === period ? "default" : "secondary"}
+          type="button"
+          onClick={() => {
+            setSelectedPeriod(period as FilterPeriod);
+          }}
+        >
+          {periods[period as FilterPeriod]}
+        </Button>
+      ))}
     </div>
   );
 };

@@ -1,3 +1,11 @@
+import { Period } from "./shared";
+
+export const periods: { [key in Period]: string } = {
+  week: "Semana",
+  month: "Mês",
+  year: "Ano",
+};
+
 export const formatCurrency = (value: any) => {
   return new Intl.NumberFormat("pt-BR", {
     style: "currency",

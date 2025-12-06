@@ -136,7 +136,7 @@ export default function ReportsComponent() {
         <PaymentMethodsChart />
       </div>
 
-      <BarberRankingTable items={[]} loading={false} />
+      <BarberRankingTable period={selectedPeriod} items={[]} loading={false} />
 
       <AppointmentsTable />
     </div>

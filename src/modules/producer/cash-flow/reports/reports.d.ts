@@ -1,4 +1,6 @@
-export type ReportPeriod = "week" | "month" | "year";
+import { Period } from "@/modules/shared/shared";
+
+export type ReportPeriod = Period;
 
 interface GrowthRate {
   value: number;
