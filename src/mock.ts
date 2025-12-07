@@ -49,59 +49,6 @@ export const paymentMethods = [
   { method: "Dinheiro", amount: 1400.0, percentage: 5, color: "bg-orange-500" },
 ];
 
-export const recentAppointments = [
-  {
-    id: 1,
-    date: "2025-07-26",
-    time: "14:30",
-    client: "Rafael Mendes",
-    barber: "Carlos Silva",
-    service: "Corte + Barba",
-    value: 120.0,
-    payment: "PIX",
-  },
-  {
-    id: 2,
-    date: "2025-07-26",
-    time: "15:00",
-    client: "Bruno Alves",
-    barber: "João Santos",
-    service: "Corte Simples",
-    value: 50.0,
-    payment: "Dinheiro",
-  },
-  {
-    id: 3,
-    date: "2025-07-26",
-    time: "15:30",
-    client: "Marcos Paulo",
-    barber: "Pedro Costa",
-    service: "Barba",
-    value: 50.0,
-    payment: "Cartão Débito",
-  },
-  {
-    id: 4,
-    date: "2025-07-26",
-    time: "16:00",
-    client: "Fernando Lima",
-    barber: "Carlos Silva",
-    service: "Corte + Barba",
-    value: 120.0,
-    payment: "PIX",
-  },
-  {
-    id: 5,
-    date: "2025-07-26",
-    time: "16:30",
-    client: "Gabriel Torres",
-    barber: "João Santos",
-    service: "Químicas",
-    value: 100.0,
-    payment: "Cartão Crédito",
-  },
-];
-
 export const heroData = {
   badge: "Revolucione seu negócio",
   title: "Transforme agendamentos em",

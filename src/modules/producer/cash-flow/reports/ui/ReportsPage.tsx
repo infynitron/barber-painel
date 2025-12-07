@@ -5,7 +5,6 @@ import React from "react";
 import { MetricCardComponent, MetricCardProps } from "@/components/MetricCard";
 import ServiceBarChart from "@/components/public/ServiceBarChart";
 import PaymentMethodsChart from "@/components/public/PaymentMethodsChart";
-import { RecentAppointments } from "@/components/public/AppointmentsTable";
 
 import { formatCurrency } from "@/modules/shared/utils";
 
@@ -22,15 +21,24 @@ import { ReportsService } from "@/modules/producer/cash-flow/reports/reports.ser
 
 import ReportsHeader from "@/modules/producer/cash-flow/reports/ui/ReportsHeader";
 
+import { ICustomerServiceRecent } from "@/modules/producer/customer/customer";
+import { CustomerService } from "@/modules/producer/customer/customer.service";
+import { CustomerRecentServices } from "@/modules/producer/customer/ui/CustomerRecentServices";
+
 export default function ReportsComponent() {
-  const [searchTermRecentAppointments, setSearchTermRecentAppointments] =
-    React.useState("");
+  const [
+    searchTermCustomerRecentServices,
+    setSearchTermCustomerRecentServices,
+  ] = React.useState("");
 
   const [selectedPeriod, setSelectedPeriod] =
     React.useState<ReportPeriod>("month");
 
   const [reports, setReports] = React.useState<IReport | undefined>();
   const [rankingTeams, setRankingTeams] = React.useState<ITeamRanking[]>([]);
+  const [customerServiceRecent, setCustomerServiceRecent] = React.useState<
+    ICustomerServiceRecent[]
+  >([]);
 
   // TODO: React Query
   React.useEffect(() => {
@@ -49,6 +57,16 @@ export default function ReportsComponent() {
     const fetch = async () => {
       const items = await new TeamsService().rankingByBarber();
       setRankingTeams(items);
+    };
+
+    fetch();
+  }, []);
+
+  // TODO: React Query
+  React.useEffect(() => {
+    const fetch = async () => {
+      const items = await new CustomerService().serviceRecents();
+      setCustomerServiceRecent(items);
     };
 
     fetch();
@@ -158,9 +176,11 @@ export default function ReportsComponent() {
         loading={false}
       />
 
-      <RecentAppointments
-        searchTerm={searchTermRecentAppointments}
-        setSearchTerm={setSearchTermRecentAppointments}
+      <CustomerRecentServices
+        items={customerServiceRecent}
+        total={customerServiceRecent.length}
+        searchTerm={searchTermCustomerRecentServices}
+        setSearchTerm={setSearchTermCustomerRecentServices}
       />
     </div>
   );

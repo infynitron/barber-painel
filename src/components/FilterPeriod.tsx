@@ -18,6 +18,7 @@ export const FilterPeriodComponent = ({
     <div className="flex gap-2">
       {Object.keys(periods).map((period) => (
         <Button
+          key={period}
           variant={selectedPeriod === period ? "default" : "secondary"}
           type="button"
           onClick={() => {
