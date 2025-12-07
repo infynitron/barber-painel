@@ -14,17 +14,17 @@ const getMedalColor = (position: number): string => {
   return colors[position] ?? "text-gray-600";
 };
 
-interface BarberRankingTableProps {
+interface TeamRankingTableProps {
   period: TeamPeriod;
   items: ITeamRanking[];
   loading?: boolean;
 }
 
-export const BarberRankingTable = ({
+export const TeamRanking = ({
   period,
   items,
   loading,
-}: BarberRankingTableProps) => {
+}: TeamRankingTableProps) => {
   return (
     <div className="bg-[#121214] border border-gray-800 rounded-xl overflow-hidden">
       <div className="p-6 border-b border-gray-800">
@@ -64,25 +64,11 @@ export const BarberRankingTable = ({
           </thead>
 
           <tbody className="divide-y divide-gray-800">
-            {loading && (
-              <>
-                {/* TODO: Skeleton */}
-                <p>Sem itens</p>
-              </>
-            )}
+            {loading && <TeamRankingTableLoading />}
 
-            {!loading && items.map(BarberRankingColumn)}
+            {!loading && items.length === 0 && <TeamRankingTableEmpty />}
 
-            {!loading && items.length === 0 && (
-              <>
-                {/* TODO: No items */}
-                <tr className="hover:bg-[#1a1a1c] transition-colors duration-150">
-                  <td className="px-6 py-4" colSpan={5}>
-                    Sem itens
-                  </td>
-                </tr>
-              </>
-            )}
+            {!loading && items.map(TeamRankingTableColumn)}
           </tbody>
         </table>
       </div>
@@ -90,7 +76,7 @@ export const BarberRankingTable = ({
   );
 };
 
-const BarberRankingColumn = (item: ITeamRanking, idx: number) => {
+const TeamRankingTableColumn = (item: ITeamRanking, idx: number) => {
   return (
     <tr
       key={item.id}
@@ -129,5 +115,42 @@ const BarberRankingColumn = (item: ITeamRanking, idx: number) => {
         </div>
       </td>
     </tr>
+  );
+};
+
+// TODO: TeamRankingTableEmpty
+const TeamRankingTableEmpty = () => {
+  return (
+    <tr>
+      <td colSpan={5} className="px-6 py-12 text-center">
+        <p className="text-gray-400 text-sm">Nenhum registro encontrado</p>
+      </td>
+    </tr>
+  );
+};
+
+// TODO: TeamRankingTableLoading
+const TeamRankingTableLoading = () => {
+  return (
+    <>
+      {new Array(4).fill("").map((item) => (
+        <tr
+          key={item}
+          className="hover:bg-[#1a1a1c] transition-colors duration-150"
+        >
+          <td className="px-6 py-4"></td>
+
+          <td className="px-6 py-4"></td>
+
+          <td className="px-6 py-4"></td>
+
+          <td className="px-6 py-4"></td>
+
+          <td className="px-6 py-4"></td>
+
+          <td className="px-6 py-4"></td>
+        </tr>
+      ))}
+    </>
   );
 };

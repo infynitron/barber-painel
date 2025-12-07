@@ -8,9 +8,9 @@ import PaymentMethodsChart from "@/components/public/PaymentMethodsChart";
 
 import { formatCurrency } from "@/modules/shared/utils";
 
-import { BarberRankingTable } from "@/modules/producer/teams/ui/BarberRankingTable";
 import { ITeamRanking } from "@/modules/producer/teams/teams";
 import { TeamsService } from "@/modules/producer/teams/team.service";
+import { TeamRanking } from "@/modules/producer/teams/ui/TeamRanking";
 
 import {
   IReport,
@@ -170,7 +170,7 @@ export default function ReportsComponent() {
         <PaymentMethodsChart />
       </div>
 
-      <BarberRankingTable
+      <TeamRanking
         period={selectedPeriod}
         items={rankingTeams}
         loading={false}

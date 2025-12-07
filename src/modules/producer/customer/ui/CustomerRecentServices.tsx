@@ -146,18 +146,19 @@ const CustomerRecentServicesTableColumn = (item: ICustomerServiceRecent) => {
   );
 };
 
+// TODO: CustomerRecentServicesTableEmpty
 const CustomerRecentServicesTableEmpty = () => {
   return (
     <tr>
       <td colSpan={6} className="px-6 py-12 text-center">
         <CalendarIcon className="mx-auto mb-3 text-gray-600" size={48} />
-        <p className="text-gray-400 text-sm">Nenhum atendimento encontrado</p>
+        <p className="text-gray-400 text-sm">Nenhum registro encontrado</p>
       </td>
     </tr>
   );
 };
 
-// TODO: Loading
+// TODO: CustomerRecentServicesTableLoading
 const CustomerRecentServicesTableLoading = () => {
   return (
     <>
