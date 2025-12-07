@@ -7,12 +7,12 @@ export type FilterPeriod = Period;
 
 export interface FilterPeriodProps {
   selectedPeriod: FilterPeriod;
-  setSelectedPeriod: (period: FilterPeriod) => void;
+  togglePeriod: (period: FilterPeriod) => void;
 }
 
 export const FilterPeriodComponent = ({
   selectedPeriod,
-  setSelectedPeriod,
+  togglePeriod,
 }: FilterPeriodProps) => {
   return (
     <div className="flex gap-2">
@@ -22,7 +22,7 @@ export const FilterPeriodComponent = ({
           variant={selectedPeriod === period ? "default" : "secondary"}
           type="button"
           onClick={() => {
-            setSelectedPeriod(period as FilterPeriod);
+            togglePeriod(period as FilterPeriod);
           }}
         >
           {periods[period as FilterPeriod]}

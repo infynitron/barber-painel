@@ -1,8 +1,8 @@
 import { TrophyIcon, StarIcon } from "lucide-react";
 
-import { formatCurrency, periods } from "@/modules/shared/utils";
+import { formatCurrency } from "@/modules/shared/utils";
 
-import { ITeamRanking, TeamPeriod } from "@/modules/producer/teams/teams";
+import { ITeamRanking } from "@/modules/producer/teams/teams";
 
 const colors: Record<number, string> = {
   1: "text-yellow-500",
@@ -15,16 +15,11 @@ const getMedalColor = (position: number): string => {
 };
 
 interface TeamRankingTableProps {
-  period: TeamPeriod;
   items: ITeamRanking[];
   loading?: boolean;
 }
 
-export const TeamRanking = ({
-  period,
-  items,
-  loading,
-}: TeamRankingTableProps) => {
+export const TeamRanking = ({ items, loading }: TeamRankingTableProps) => {
   return (
     <div className="bg-[#121214] border border-gray-800 rounded-xl overflow-hidden">
       <div className="p-6 border-b border-gray-800">
@@ -33,9 +28,7 @@ export const TeamRanking = ({
             <h3 className="text-xl font-bold text-white mb-1">
               Ranking de Barbeiros
             </h3>
-            <p className="text-sm text-gray-400">
-              Desempenho individual do(a) {periods[period].toLocaleLowerCase()}
-            </p>
+            <p className="text-sm text-gray-400">Desempenho individual</p>
           </div>
           <TrophyIcon className="text-yellow-500" size={32} />
         </div>

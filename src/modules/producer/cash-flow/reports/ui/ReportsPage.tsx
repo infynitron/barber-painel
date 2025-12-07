@@ -31,23 +31,32 @@ import { IServiceBestSelling } from "@/modules/producer/services/service";
 import { ServicesService } from "@/modules/producer/services/service.service";
 import { BestsellingServicesChart } from "@/modules/producer/services/ui/BestsellingServicesChart";
 
-export default function ReportsComponent() {
-  const [
-    searchTermCustomerRecentServices,
-    setSearchTermCustomerRecentServices,
-  ] = React.useState("");
+interface ReportsComponentProps {
+  period: ReportPeriod;
+  customerRecent: string;
+}
 
-  const [selectedPeriod, setSelectedPeriod] =
-    React.useState<ReportPeriod>("month");
-
+export function ReportsComponent({
+  period,
+  customerRecent,
+}: ReportsComponentProps) {
+  // TODO: reports
   const [reports, setReports] = React.useState<IReport | undefined>();
+
+  // TODO: rankingTeams
   const [rankingTeams, setRankingTeams] = React.useState<ITeamRanking[]>([]);
+
+  // TODO: customerServiceRecent
   const [customerServiceRecent, setCustomerServiceRecent] = React.useState<
     ICustomerServiceRecent[]
   >([]);
+
+  // TODO: paymentDistribution
   const [paymentDistribution, setPaymentDistribution] = React.useState<
     IPaymentDistribution[]
   >([]);
+
+  // TODO: serviceBestSelling
   const [serviceBestSelling, setServiceBestSelling] = React.useState<
     IServiceBestSelling[]
   >([]);
@@ -55,9 +64,7 @@ export default function ReportsComponent() {
   // TODO: React Query
   React.useEffect(() => {
     const fetch = async () => {
-      const data = await new ReportsService().getByPeriod({
-        period: selectedPeriod,
-      });
+      const data = await new ReportsService().getByPeriod({ period });
       setReports(data);
     };
 
@@ -97,9 +104,7 @@ export default function ReportsComponent() {
   // TODO: React Query
   React.useEffect(() => {
     const fetch = async () => {
-      const items = await new ServicesService().bestSelling({
-        period: selectedPeriod,
-      });
+      const items = await new ServicesService().bestSelling({ period });
       setServiceBestSelling(items);
     };
 
@@ -188,8 +193,10 @@ export default function ReportsComponent() {
   return (
     <div className="min-h-screen space-y-4">
       <ReportsHeader
-        selectedPeriod={selectedPeriod}
-        setSelectedPeriod={setSelectedPeriod}
+        selectedPeriod={period}
+        togglePeriod={() => {
+          // TODO: togglePeriod
+        }}
       />
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -204,18 +211,16 @@ export default function ReportsComponent() {
         <PaymentDistributionChart items={paymentDistribution} loading={false} />
       </div>
 
-      <TeamRanking
-        period={selectedPeriod}
-        items={rankingTeams}
-        loading={false}
-      />
+      <TeamRanking items={rankingTeams} loading={false} />
 
       <CustomerRecentServices
         items={customerServiceRecent}
         total={customerServiceRecent.length}
         loading={false}
-        searchTerm={searchTermCustomerRecentServices}
-        setSearchTerm={setSearchTermCustomerRecentServices}
+        searchTerm={customerRecent}
+        setSearchTerm={() => {
+          // TODO: setSearchTerm
+        }}
       />
     </div>
   );

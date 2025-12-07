@@ -7,7 +7,7 @@ type ReportsHeaderProps = FilterPeriodProps;
 
 export default function ReportsHeader({
   selectedPeriod,
-  setSelectedPeriod,
+  togglePeriod,
 }: ReportsHeaderProps) {
   return (
     <div className="p-6 border-b border-gray-800">
@@ -21,7 +21,7 @@ export default function ReportsHeader({
 
         <FilterPeriodComponent
           selectedPeriod={selectedPeriod}
-          setSelectedPeriod={setSelectedPeriod}
+          togglePeriod={togglePeriod}
         />
       </div>
     </div>
