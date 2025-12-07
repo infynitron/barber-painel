@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { DownloadIcon, CalendarIcon } from "lucide-react";
 
 import { Search } from "@/components/Search";
@@ -9,9 +8,15 @@ import { formatCurrency, formatDate } from "@/modules/shared/utils";
 
 import { recentAppointments } from "@/mock";
 
-const AppointmentsTable = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+interface RecentAppointmentsProps {
+  searchTerm: string;
+  setSearchTerm: (text: string) => void;
+}
 
+export const RecentAppointments = ({
+  searchTerm,
+  setSearchTerm,
+}: RecentAppointmentsProps) => {
   const filteredAppointments = recentAppointments.filter((item) => {
     return (
       item.client.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -144,5 +149,3 @@ const AppointmentsTable = () => {
     </div>
   );
 };
-
-export default AppointmentsTable;

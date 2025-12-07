@@ -5,7 +5,7 @@ import React from "react";
 import { MetricCardComponent, MetricCardProps } from "@/components/MetricCard";
 import ServiceBarChart from "@/components/public/ServiceBarChart";
 import PaymentMethodsChart from "@/components/public/PaymentMethodsChart";
-import AppointmentsTable from "@/components/public/AppointmentsTable";
+import { RecentAppointments } from "@/components/public/AppointmentsTable";
 
 import { formatCurrency } from "@/modules/shared/utils";
 
@@ -23,6 +23,9 @@ import { ReportsService } from "@/modules/producer/cash-flow/reports/reports.ser
 import ReportsHeader from "@/modules/producer/cash-flow/reports/ui/ReportsHeader";
 
 export default function ReportsComponent() {
+  const [searchTermRecentAppointments, setSearchTermRecentAppointments] =
+    React.useState("");
+
   const [selectedPeriod, setSelectedPeriod] =
     React.useState<ReportPeriod>("month");
 
@@ -155,7 +158,10 @@ export default function ReportsComponent() {
         loading={false}
       />
 
-      <AppointmentsTable />
+      <RecentAppointments
+        searchTerm={searchTermRecentAppointments}
+        setSearchTerm={setSearchTermRecentAppointments}
+      />
     </div>
   );
 }
