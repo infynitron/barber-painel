@@ -4,7 +4,6 @@ import React from "react";
 
 import { MetricCardComponent, MetricCardProps } from "@/components/MetricCard";
 import ServiceBarChart from "@/components/public/ServiceBarChart";
-import PaymentMethodsChart from "@/components/public/PaymentMethodsChart";
 
 import { formatCurrency } from "@/modules/shared/utils";
 
@@ -25,6 +24,10 @@ import { ICustomerServiceRecent } from "@/modules/producer/customer/customer";
 import { CustomerService } from "@/modules/producer/customer/customer.service";
 import { CustomerRecentServices } from "@/modules/producer/customer/ui/CustomerRecentServices";
 
+import { IPaymentDistribution } from "@/modules/producer/cash-flow/payments/payment";
+import { PaymentService } from "@/modules/producer/cash-flow/payments/payment.service";
+import { PaymentDistributionChart } from "@/modules/producer/cash-flow/payments/ui/PaymentDistributionChart";
+
 export default function ReportsComponent() {
   const [
     searchTermCustomerRecentServices,
@@ -38,6 +41,9 @@ export default function ReportsComponent() {
   const [rankingTeams, setRankingTeams] = React.useState<ITeamRanking[]>([]);
   const [customerServiceRecent, setCustomerServiceRecent] = React.useState<
     ICustomerServiceRecent[]
+  >([]);
+  const [paymentDistribution, setPaymentDistribution] = React.useState<
+    IPaymentDistribution[]
   >([]);
 
   // TODO: React Query
@@ -67,6 +73,16 @@ export default function ReportsComponent() {
     const fetch = async () => {
       const items = await new CustomerService().serviceRecents();
       setCustomerServiceRecent(items);
+    };
+
+    fetch();
+  }, []);
+
+  // TODO: React Query
+  React.useEffect(() => {
+    const fetch = async () => {
+      const items = await new PaymentService().paymentDistribution();
+      setPaymentDistribution(items);
     };
 
     fetch();
@@ -167,7 +183,7 @@ export default function ReportsComponent() {
       {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <ServiceBarChart />
-        <PaymentMethodsChart />
+        <PaymentDistributionChart items={paymentDistribution} loading={false} />
       </div>
 
       <TeamRanking
@@ -179,6 +195,7 @@ export default function ReportsComponent() {
       <CustomerRecentServices
         items={customerServiceRecent}
         total={customerServiceRecent.length}
+        loading={false}
         searchTerm={searchTermCustomerRecentServices}
         setSearchTerm={setSearchTermCustomerRecentServices}
       />

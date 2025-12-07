@@ -1,4 +1,4 @@
-type PaymentMethod = "PIX" | "CREDIT_CARD" | "DEBIT_CARD" | "CASH";
+import { PaymentMethod } from "@/modules/producer/cash-flow/payments/payment";
 
 export interface ICustomerServiceRecent {
   id: string;

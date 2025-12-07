@@ -32,23 +32,6 @@ export const topServices = [
   { name: "Químicas", sales: 28, revenue: 2800, percentage: 8 },
 ];
 
-export const paymentMethods = [
-  { method: "PIX", amount: 12450.0, percentage: 44, color: "bg-blue-500" },
-  {
-    method: "Cartão Débito",
-    amount: 8920.0,
-    percentage: 31,
-    color: "bg-green-500",
-  },
-  {
-    method: "Cartão Crédito",
-    amount: 5680.0,
-    percentage: 20,
-    color: "bg-purple-500",
-  },
-  { method: "Dinheiro", amount: 1400.0, percentage: 5, color: "bg-orange-500" },
-];
-
 export const heroData = {
   badge: "Revolucione seu negócio",
   title: "Transforme agendamentos em",
