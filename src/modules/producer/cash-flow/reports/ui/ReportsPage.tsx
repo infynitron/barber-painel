@@ -3,13 +3,8 @@
 import React from "react";
 
 import { MetricCardComponent, MetricCardProps } from "@/components/MetricCard";
-import ServiceBarChart from "@/components/public/ServiceBarChart";
 
 import { formatCurrency } from "@/modules/shared/utils";
-
-import { ITeamRanking } from "@/modules/producer/teams/teams";
-import { TeamsService } from "@/modules/producer/teams/team.service";
-import { TeamRanking } from "@/modules/producer/teams/ui/TeamRanking";
 
 import {
   IReport,
@@ -20,6 +15,10 @@ import { ReportsService } from "@/modules/producer/cash-flow/reports/reports.ser
 
 import ReportsHeader from "@/modules/producer/cash-flow/reports/ui/ReportsHeader";
 
+import { ITeamRanking } from "@/modules/producer/teams/teams";
+import { TeamsService } from "@/modules/producer/teams/team.service";
+import { TeamRanking } from "@/modules/producer/teams/ui/TeamRanking";
+
 import { ICustomerServiceRecent } from "@/modules/producer/customer/customer";
 import { CustomerService } from "@/modules/producer/customer/customer.service";
 import { CustomerRecentServices } from "@/modules/producer/customer/ui/CustomerRecentServices";
@@ -27,6 +26,10 @@ import { CustomerRecentServices } from "@/modules/producer/customer/ui/CustomerR
 import { IPaymentDistribution } from "@/modules/producer/cash-flow/payments/payment";
 import { PaymentService } from "@/modules/producer/cash-flow/payments/payment.service";
 import { PaymentDistributionChart } from "@/modules/producer/cash-flow/payments/ui/PaymentDistributionChart";
+
+import { IServiceBestSelling } from "@/modules/producer/services/service";
+import { ServicesService } from "@/modules/producer/services/service.service";
+import { BestsellingServicesChart } from "@/modules/producer/services/ui/BestsellingServicesChart";
 
 export default function ReportsComponent() {
   const [
@@ -44,6 +47,9 @@ export default function ReportsComponent() {
   >([]);
   const [paymentDistribution, setPaymentDistribution] = React.useState<
     IPaymentDistribution[]
+  >([]);
+  const [serviceBestSelling, setServiceBestSelling] = React.useState<
+    IServiceBestSelling[]
   >([]);
 
   // TODO: React Query
@@ -83,6 +89,18 @@ export default function ReportsComponent() {
     const fetch = async () => {
       const items = await new PaymentService().paymentDistribution();
       setPaymentDistribution(items);
+    };
+
+    fetch();
+  }, []);
+
+  // TODO: React Query
+  React.useEffect(() => {
+    const fetch = async () => {
+      const items = await new ServicesService().bestSelling({
+        period: selectedPeriod,
+      });
+      setServiceBestSelling(items);
     };
 
     fetch();
@@ -182,7 +200,7 @@ export default function ReportsComponent() {
 
       {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <ServiceBarChart />
+        <BestsellingServicesChart items={serviceBestSelling} loading={false} />
         <PaymentDistributionChart items={paymentDistribution} loading={false} />
       </div>
 

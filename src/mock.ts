@@ -24,14 +24,6 @@ export const dailyRevenue = [
   { day: "15", revenue: 1100, appointments: 16 },
 ];
 
-export const topServices = [
-  { name: "Corte + Barba", sales: 156, revenue: 18720, percentage: 35 },
-  { name: "Corte Simples", sales: 98, revenue: 4900, percentage: 22 },
-  { name: "Barba", sales: 67, revenue: 3350, percentage: 15 },
-  { name: "Sobrancelha", sales: 45, revenue: 900, percentage: 10 },
-  { name: "Químicas", sales: 28, revenue: 2800, percentage: 8 },
-];
-
 export const heroData = {
   badge: "Revolucione seu negócio",
   title: "Transforme agendamentos em",
