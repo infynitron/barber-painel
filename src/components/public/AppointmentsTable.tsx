@@ -3,6 +3,7 @@ import { DownloadIcon, CalendarIcon } from "lucide-react";
 
 import { Search } from "@/components/Search";
 import { TableFooter } from "@/components/TableFooter";
+import { Button } from "@/components/ui/button";
 
 import { formatCurrency, formatDate } from "@/modules/shared/utils";
 
@@ -19,6 +20,10 @@ const AppointmentsTable = () => {
     );
   });
 
+  const toggleDownload = () => {
+    // TODO: Ação de download de csv
+  };
+
   return (
     <div className="bg-[#121214] border border-gray-800 rounded-xl overflow-hidden">
       <div className="p-6 border-b border-gray-800">
@@ -31,10 +36,17 @@ const AppointmentsTable = () => {
               Histórico detalhado de atendimentos
             </p>
           </div>
-          <button className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => {
+              toggleDownload();
+            }}
+          >
             <DownloadIcon size={18} />
             <span className="text-sm font-medium">Exportar</span>
-          </button>
+          </Button>
         </div>
 
         <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
