@@ -1,0 +1,17 @@
+interface TableFooterProps {
+  items: number;
+  total: number;
+}
+
+export const TableFooter = ({ items, total }: TableFooterProps) => {
+  if (items === 0) return <></>;
+
+  return (
+    <div className="px-6 py-4 border-t border-gray-800 bg-[#0a0a0b]">
+      <p className="text-sm text-gray-400">
+        Mostrando <span className="font-medium text-white">{items}</span> de{" "}
+        <span className="font-medium text-white">{total}</span> registros
+      </p>
+    </div>
+  );
+};

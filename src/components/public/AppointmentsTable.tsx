@@ -2,6 +2,7 @@ import { useState } from "react";
 import { DownloadIcon, CalendarIcon } from "lucide-react";
 
 import { Search } from "@/components/Search";
+import { TableFooter } from "@/components/TableFooter";
 
 import { formatCurrency, formatDate } from "@/modules/shared/utils";
 
@@ -124,21 +125,10 @@ const AppointmentsTable = () => {
         </table>
       </div>
 
-      {filteredAppointments.length > 0 && (
-        <div className="px-6 py-4 border-t border-gray-800 bg-[#0a0a0b]">
-          <p className="text-sm text-gray-400">
-            Mostrando{" "}
-            <span className="font-medium text-white">
-              {filteredAppointments.length}
-            </span>{" "}
-            de{" "}
-            <span className="font-medium text-white">
-              {recentAppointments.length}
-            </span>{" "}
-            atendimentos
-          </p>
-        </div>
-      )}
+      <TableFooter
+        items={filteredAppointments.length}
+        total={recentAppointments.length}
+      />
     </div>
   );
 };
