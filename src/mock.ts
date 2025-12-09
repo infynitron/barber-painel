@@ -90,33 +90,6 @@ export const upcomingReceivables = [
   },
 ];
 
-export const recentTransactions = [
-  {
-    id: 1,
-    clientName: "Loja do Pedro",
-    amount: 2300.0,
-    paidDate: "2025-07-26",
-    status: "paid",
-    invoiceNumber: "INV-2025-009",
-  },
-  {
-    id: 2,
-    clientName: "Restaurante Sabor",
-    amount: 4100.0,
-    paidDate: "2025-07-26",
-    status: "paid",
-    invoiceNumber: "INV-2025-010",
-  },
-  {
-    id: 3,
-    clientName: "Clínica Saúde+",
-    amount: 2550.0,
-    paidDate: "2025-07-26",
-    status: "paid",
-    invoiceNumber: "INV-2025-011",
-  },
-];
-
 export const heroData = {
   badge: "Revolucione seu negócio",
   title: "Transforme agendamentos em",

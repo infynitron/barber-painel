@@ -1,6 +1,6 @@
 "use client";
 
-import { Star, Quote } from "lucide-react";
+import { StarIcon, QuoteIcon } from "lucide-react";
 import { testimonialsData } from "@/mock";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -20,7 +20,7 @@ const TestimonialsSection = () => {
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-20">
           <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/20 rounded-full mb-6">
-            <Star className="w-4 h-4 text-primary fill-primary" />
+            <StarIcon className="w-4 h-4 text-primary fill-primary" />
             <span className="text-sm font-bold text-primary">AVALIAÇÕES</span>
           </div>
           <h2 className="text-5xl md:text-6xl font-black mb-6">
@@ -44,13 +44,13 @@ const TestimonialsSection = () => {
               <CardContent className="p-8 relative">
                 {/* Quote icon */}
                 <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                  <Quote className="w-20 h-20 text-primary" />
+                  <QuoteIcon className="w-20 h-20 text-primary" />
                 </div>
 
                 {/* Rating */}
                 <div className="flex gap-1 mb-6">
                   {Array.from({ length: testimonial.rating }, (_, i) => (
-                    <Star
+                    <StarIcon
                       key={i}
                       className="w-5 h-5 text-primary fill-primary"
                     />

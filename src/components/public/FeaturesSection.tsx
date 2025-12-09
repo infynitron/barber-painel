@@ -1,12 +1,12 @@
 "use client";
 
 import {
-  Sparkles,
-  Zap,
-  CreditCard,
-  BarChart3,
-  Users,
-  Shield,
+  SparklesIcon,
+  ZapIcon,
+  CreditCardIcon,
+  BarChart3Icon,
+  UsersIcon,
+  ShieldIcon,
 } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,12 +14,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { featuresData } from "@/mock";
 
 const iconMap: any = {
-  Sparkles: Sparkles,
-  Zap: Zap,
-  CreditCard: CreditCard,
-  BarChart3: BarChart3,
-  Users: Users,
-  Shield: Shield,
+  Sparkles: SparklesIcon,
+  Zap: ZapIcon,
+  CreditCard: CreditCardIcon,
+  BarChart3: BarChart3Icon,
+  Users: UsersIcon,
+  Shield: ShieldIcon,
 };
 
 const FeaturesSection = () => {
@@ -35,7 +35,7 @@ const FeaturesSection = () => {
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-20">
           <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/20 rounded-full mb-6">
-            <Sparkles className="w-4 h-4 text-primary" />
+            <SparklesIcon className="w-4 h-4 text-primary" />
             <span className="text-sm font-bold text-primary">
               RECURSOS PODEROSOS
             </span>
@@ -89,7 +89,7 @@ const FeaturesSection = () => {
 
                   {/* Stats badge */}
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-muted group-hover:bg-primary/20 rounded-full transition-colors">
-                    <Zap className="w-4 h-4 text-primary" />
+                    <ZapIcon className="w-4 h-4 text-primary" />
                     <span className="text-sm font-bold text-primary">
                       {feature.stats}
                     </span>
