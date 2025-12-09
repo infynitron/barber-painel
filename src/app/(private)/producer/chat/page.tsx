@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
@@ -194,9 +194,12 @@ const ChatBot = () => {
           <div className="relative border-b border-amber-500/20 p-6 bg-linear-to-r from-black/60 to-zinc-900/60 backdrop-blur-sm">
             <div className="flex items-center gap-4">
               <div className="relative">
-                <div className="absolute inset-0 bg-amber-500/30 rounded-full blur-xl"></div>
-                <div className="relative bg-linear-to-br from-amber-500 to-amber-600 p-4 rounded-full shadow-lg">
-                  <Scissors className="w-8 h-8 text-black" />
+                <div className="relative bg-linear-to-br p-4 rounded-full shadow-lg overflow-hidden">
+                  <img
+                    src=""
+                    alt="Logo Douglas Barber"
+                    className="w-8 h-8 object-contain"
+                  />
                 </div>
               </div>
               <div className="flex-1">
