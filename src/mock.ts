@@ -6,8 +6,6 @@ export const navigationItems = [
   { label: "Contato", href: "#contato" },
 ];
 
-// Mock data para o sistema de agendamento
-
 export const barbershopInfo = {
   name: "Barberia Premium",
   tagline: "Estilo e tradição em cada corte",
