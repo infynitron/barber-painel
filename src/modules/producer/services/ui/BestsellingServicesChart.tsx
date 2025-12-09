@@ -1,3 +1,5 @@
+import { CardChart } from "@/components/CardChart";
+
 import { formatCurrency } from "@/modules/shared/utils";
 
 import { IServiceBestSelling } from "@/modules/producer/services/service";
@@ -14,26 +16,18 @@ export const BestsellingServicesChart = ({
   const maxRevenue = Math.max(...items.map((s) => s.revenue));
 
   return (
-    <div className="bg-[#121214] border border-gray-800 rounded-xl p-6">
-      <div className="mb-6">
-        <h3 className="text-xl font-bold text-white mb-1">
-          Serviços Mais Vendidos
-        </h3>
-        <p className="text-sm text-gray-400">Top 5 serviços do mês</p>
-      </div>
+    <CardChart title="Serviços Mais Vendidos" subtitle="Top 5 serviços">
+      {loading && <BestsellingServicesChartLoading />}
 
-      <div className="space-y-6">
-        {loading && <BestsellingServicesChartLoading />}
-
-        {items.map((item, index) => (
-          <BestsellingServicesChartItem
-            item={item}
-            index={index}
-            maxRevenue={maxRevenue}
-          />
-        ))}
-      </div>
-    </div>
+      {items.map((item, index) => (
+        <BestsellingServicesChartItem
+          key={index}
+          item={item}
+          index={index}
+          maxRevenue={maxRevenue}
+        />
+      ))}
+    </CardChart>
   );
 };
 

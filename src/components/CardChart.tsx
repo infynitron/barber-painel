@@ -21,6 +21,7 @@ export const CardChart = ({ title, subtitle, children }: CardChartProps) => {
         <CardTitle className="text-xl">{title}</CardTitle>
         <CardDescription>{subtitle}</CardDescription>
       </CardHeader>
+
       <CardContent>{children}</CardContent>
     </Card>
   );
