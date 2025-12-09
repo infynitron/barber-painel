@@ -24,12 +24,14 @@ export const MetricCardComponent = ({
   trend,
 }: MetricCardProps) => {
   return (
-    <div className="bg-secondary border border-secondary rounded-xl space-y-4 p-6 hover:border-gray-700 transition-all duration-300 group">
+    <div className="rounded-xl space-y-4 p-6 shadow-sm text-card-foreground bg-card border border-secondary transition-all duration-300 group hover:border-gray-700 ">
       <div className="flex items-start justify-between">
         <div className="flex-1">
-          <p className="text-gray-400 text-sm font-medium mb-2">{title}</p>
-          <h3 className="text-3xl font-bold text-white mb-3">{value}</h3>
-          <p className="text-gray-500 text-xs">{subtitle}</p>
+          <p className="mb-2 text-sm font-semibold leading-none text-gray-400">
+            {title}
+          </p>
+          <h3 className="text-2xl font-bold mb-3">{value}</h3>
+          <p className="text-muted-foreground text-sm">{subtitle}</p>
         </div>
 
         <div

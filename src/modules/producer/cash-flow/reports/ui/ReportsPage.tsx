@@ -4,7 +4,7 @@ import React from "react";
 
 import { MetricCardComponent, MetricCardProps } from "@/components/MetricCard";
 
-import { formatCurrency } from "@/modules/shared/utils";
+import { formatCurrency, periods } from "@/modules/shared/utils";
 
 import {
   IReport,
@@ -122,10 +122,13 @@ export function ReportsComponent({
         icon: {
           name: "DollarSignIcon",
           color: "text-green-500",
-          background_color: "bg-green-500/10",
+          background_color:
+            reports.totalRevenue.value >= 0
+              ? "bg-green-500/10"
+              : "bg-red-500/10",
         },
         trend: {
-          label: "vs mês anterior",
+          label: `vs ${periods[period].toLowerCase()} anterior`,
           direction: reports.totalRevenue.growthRate >= 0 ? "up" : "down",
           value:
             reports.totalRevenue.growthRate >= 0
@@ -161,7 +164,7 @@ export function ReportsComponent({
           background_color: "bg-purple-500/10",
         },
         trend: {
-          label: "vs mês anterior",
+          label: `vs ${periods[period].toLowerCase()} anterior`,
           direction: reports.averageTicket.growthRate >= 0 ? "up" : "down",
           value:
             reports.averageTicket.growthRate >= 0
@@ -199,14 +202,14 @@ export function ReportsComponent({
         }}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {cards.map((metric, index) => (
           <MetricCardComponent key={"metric_card_" + index} {...metric} />
         ))}
       </div>
 
       {/* Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <BestsellingServicesChart items={serviceBestSelling} loading={false} />
         <PaymentDistributionChart items={paymentDistribution} loading={false} />
       </div>
