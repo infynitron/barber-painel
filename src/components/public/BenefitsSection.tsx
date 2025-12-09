@@ -1,20 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import React from "react";
 import {
-  CheckCircle2,
-  Calendar,
-  Smartphone,
-  TrendingUp,
-  ArrowRight,
+  CheckCircle2Icon,
+  CalendarIcon,
+  SmartphoneIcon,
+  TrendingUpIcon,
+  ArrowRightIcon,
 } from "lucide-react";
-import { benefitsData } from "@/mock";
+
 import { Button } from "@/components/ui/button";
 
-const BenefitsSection = () => {
-  const [activeTab, setActiveTab] = useState(0);
+import { benefitsData } from "@/mock";
 
-  const icons = [Calendar, Smartphone, TrendingUp];
+const icons = [CalendarIcon, SmartphoneIcon, TrendingUpIcon];
+
+const BenefitsSection = () => {
+  const [activeTab, setActiveTab] = React.useState(0);
 
   return (
     <section className="py-32 bg-gradient-to-br from-background to-card relative overflow-hidden">
@@ -80,7 +82,7 @@ const BenefitsSection = () => {
                 {benefitsData[activeTab].metrics.map((metric, index) => (
                   <div key={index} className="flex items-center gap-3 group">
                     <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <CheckCircle2 className="w-5 h-5 text-primary-foreground" />
+                      <CheckCircle2Icon className="w-5 h-5 text-primary-foreground" />
                     </div>
                     <span className="text-lg font-semibold text-foreground">
                       {metric}
@@ -94,7 +96,7 @@ const BenefitsSection = () => {
                 className="group w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg font-bold py-6 rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105"
               >
                 Experimentar Agora
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                <ArrowRightIcon className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </Button>
             </div>
           </div>
@@ -114,7 +116,7 @@ const BenefitsSection = () => {
                       <h4 className="text-xl font-bold text-gray-900">
                         Agenda Inteligente
                       </h4>
-                      <Calendar className="w-6 h-6 text-primary" />
+                      <CalendarIcon className="w-6 h-6 text-primary" />
                     </div>
                     <div className="grid grid-cols-7 gap-2 mb-4">
                       {["D", "S", "T", "Q", "Q", "S", "S"].map((day, i) => (
@@ -162,7 +164,7 @@ const BenefitsSection = () => {
                   <div className="bg-white rounded-2xl p-6">
                     <div className="text-center mb-6">
                       <div className="w-16 h-16 bg-primary rounded-full mx-auto mb-3 flex items-center justify-center">
-                        <Smartphone className="w-8 h-8 text-primary-foreground" />
+                        <SmartphoneIcon className="w-8 h-8 text-primary-foreground" />
                       </div>
                       <h4 className="text-xl font-bold text-gray-900 mb-2">
                         App do Cliente
@@ -187,7 +189,7 @@ const BenefitsSection = () => {
                               45 min - R$ 50,00
                             </div>
                           </div>
-                          <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                          <ArrowRightIcon className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                         </div>
                       ))}
                     </div>
@@ -209,7 +211,7 @@ const BenefitsSection = () => {
                       <h4 className="text-xl font-bold text-gray-900">
                         Dashboard Financeiro
                       </h4>
-                      <TrendingUp className="w-6 h-6 text-green-600" />
+                      <TrendingUpIcon className="w-6 h-6 text-green-600" />
                     </div>
                     <div className="space-y-4">
                       <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl p-4 text-white">
@@ -218,7 +220,7 @@ const BenefitsSection = () => {
                         </div>
                         <div className="text-3xl font-bold">R$ 45.890</div>
                         <div className="text-sm flex items-center gap-1 mt-2">
-                          <TrendingUp className="w-4 h-4" />
+                          <TrendingUpIcon className="w-4 h-4" />
                           <span>+28% vs mês anterior</span>
                         </div>
                       </div>

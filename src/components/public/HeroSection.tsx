@@ -1,8 +1,12 @@
 "use client";
 
-import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, TrendingUp, Zap } from "lucide-react";
+import {
+  ArrowRightIcon,
+  PlayIcon,
+  TrendingUpIcon,
+  ZapIcon,
+} from "lucide-react";
 import { heroData } from "@/mock";
 
 const HeroSection = () => {
@@ -58,7 +62,7 @@ const HeroSection = () => {
           <span className="text-sm font-semibold text-primary">
             {heroData.badge}
           </span>
-          <TrendingUp className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
+          <TrendingUpIcon className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
         </div>
 
         {/* Main Heading */}
@@ -82,7 +86,7 @@ const HeroSection = () => {
           >
             <span className="relative z-10 flex items-center gap-2">
               {heroData.ctaPrimary}
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </span>
           </Button>
 
@@ -91,7 +95,7 @@ const HeroSection = () => {
             variant="outline"
             className="group px-10 py-7 text-lg font-bold border-2 border-primary/50 text-foreground hover:border-primary hover:text-primary rounded-2xl transition-all duration-300 hover:scale-105 bg-card/80 backdrop-blur-xl"
           >
-            <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+            <PlayIcon className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
             {heroData.ctaSecondary}
           </Button>
         </div>
@@ -104,7 +108,7 @@ const HeroSection = () => {
               className="group bg-card/80 backdrop-blur-xl border border-border rounded-2xl p-6 hover:shadow-2xl hover:shadow-primary/20 hover:scale-105 transition-all duration-300 cursor-pointer"
             >
               <div className="flex items-center justify-center gap-2 mb-2">
-                <Zap className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                <ZapIcon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
                 <div className="text-4xl font-black text-primary">
                   {stat.value}
                 </div>
