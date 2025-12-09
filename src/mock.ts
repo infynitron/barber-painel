@@ -6,6 +6,96 @@ export const navigationItems = [
   { label: "Contato", href: "#contato" },
 ];
 
+// Mock data para o sistema de agendamento
+
+export const barbershopInfo = {
+  name: "Douglas Barber",
+  tagline: "Estilo e tradição em cada corte",
+  description: "Agende seu horário de forma rápida e fácil!",
+};
+
+export const services = [
+  {
+    id: 1,
+    name: "Corte Masculino",
+    duration: "30min",
+    price: "R$ 45,00",
+    icon: "scissors",
+    image:
+      "https://images.unsplash.com/photo-1654097801176-cb1795fd0c5e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHxiYXJiZXIlMjBoYWlyY3V0fGVufDB8fHx8MTc2NTIzMjE2N3ww&ixlib=rb-4.1.0&q=85",
+  },
+  {
+    id: 2,
+    name: "Barba",
+    duration: "20min",
+    price: "R$ 30,00",
+    icon: "razor",
+    image:
+      "https://images.unsplash.com/photo-1533808232502-bee53575c3af?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxiZWFyZCUyMHRyaW1taW5nfGVufDB8fHx8MTc2NTMxMTQ3N3ww&ixlib=rb-4.1.0&q=85",
+  },
+  {
+    id: 3,
+    name: "Corte + Barba",
+    duration: "45min",
+    price: "R$ 70,00",
+    icon: "sparkles",
+    image:
+      "https://images.unsplash.com/photo-1654097800183-574ba7368f74?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHw0fHxiZWFyZCUyMHRyaW1taW5nfGVufDB8fHx8MTc2NTMxMTQ3N3ww&ixlib=rb-4.1.0&q=85",
+  },
+  {
+    id: 4,
+    name: "Sobrancelha",
+    duration: "15min",
+    price: "R$ 20,00",
+    icon: "eye",
+    image: "https://images.pexels.com/photos/2847577/pexels-photo-2847577.jpeg",
+  },
+  {
+    id: 5,
+    name: "Hidratação Capilar",
+    duration: "40min",
+    price: "R$ 50,00",
+    icon: "droplet",
+    image:
+      "https://images.unsplash.com/photo-1717160675489-7779f2c91999?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwzfHxoYWlyJTIwdHJlYXRtZW50fGVufDB8fHx8MTc2NTMxMTQ5N3ww&ixlib=rb-4.1.0&q=85",
+  },
+];
+
+export const availableTimes = [
+  "09:00",
+  "09:30",
+  "10:00",
+  "10:30",
+  "11:00",
+  "11:30",
+  "14:00",
+  "14:30",
+  "15:00",
+  "15:30",
+  "16:00",
+  "16:30",
+  "17:00",
+  "17:30",
+  "18:00",
+  "18:30",
+  "19:00",
+];
+
+export const availableDates = [
+  { date: "2025-08-15", weekDay: "Sexta", day: "15", month: "Agosto" },
+  { date: "2025-08-16", weekDay: "Sábado", day: "16", month: "Agosto" },
+  { date: "2025-08-17", weekDay: "Domingo", day: "17", month: "Agosto" },
+  { date: "2025-08-18", weekDay: "Segunda", day: "18", month: "Agosto" },
+  { date: "2025-08-19", weekDay: "Terça", day: "19", month: "Agosto" },
+  { date: "2025-08-20", weekDay: "Quarta", day: "20", month: "Agosto" },
+  { date: "2025-08-21", weekDay: "Quinta", day: "21", month: "Agosto" },
+  { date: "2025-08-22", weekDay: "Sexta", day: "22", month: "Agosto" },
+  { date: "2025-08-23", weekDay: "Sábado", day: "23", month: "Agosto" },
+  { date: "2025-08-24", weekDay: "Domingo", day: "24", month: "Agosto" },
+  { date: "2025-08-25", weekDay: "Segunda", day: "25", month: "Agosto" },
+  { date: "2025-08-26", weekDay: "Terça", day: "26", month: "Agosto" },
+];
+
 export const heroData = {
   badge: "Revolucione seu negócio",
   title: "Transforme agendamentos em",
