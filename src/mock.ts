@@ -9,7 +9,7 @@ export const navigationItems = [
 // Mock data para o sistema de agendamento
 
 export const barbershopInfo = {
-  name: "Douglas Barber",
+  name: "Barberia Premium",
   tagline: "Estilo e tradição em cada corte",
   description: "Agende seu horário de forma rápida e fácil!",
 };
