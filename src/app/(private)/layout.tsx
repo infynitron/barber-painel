@@ -19,9 +19,8 @@ async function UserDetails() {
   const supabase = await createServerClient();
   const { data, error } = await supabase.auth.getClaims();
 
-  console.log(data);
-  console.log(error);
   if (error || !data?.claims) {
+    console.log("UserDetails error", error);
     redirect("/sign-in");
   }
 

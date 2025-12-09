@@ -6,6 +6,24 @@ export const navigationItems = [
   { label: "Contato", href: "#contato" },
 ];
 
+export const dailyRevenue = [
+  { day: "01", revenue: 850, appointments: 12 },
+  { day: "02", revenue: 920, appointments: 14 },
+  { day: "03", revenue: 1100, appointments: 16 },
+  { day: "04", revenue: 780, appointments: 11 },
+  { day: "05", revenue: 1250, appointments: 18 },
+  { day: "06", revenue: 1450, appointments: 21 },
+  { day: "07", revenue: 950, appointments: 13 },
+  { day: "08", revenue: 890, appointments: 12 },
+  { day: "09", revenue: 1020, appointments: 15 },
+  { day: "10", revenue: 1180, appointments: 17 },
+  { day: "11", revenue: 950, appointments: 14 },
+  { day: "12", revenue: 1300, appointments: 19 },
+  { day: "13", revenue: 1520, appointments: 22 },
+  { day: "14", revenue: 980, appointments: 14 },
+  { day: "15", revenue: 1100, appointments: 16 },
+];
+
 export const heroData = {
   badge: "Revolucione seu negócio",
   title: "Transforme agendamentos em",

@@ -7,6 +7,7 @@ import {
   TwitterIcon,
 } from "lucide-react";
 
+// TODO: Social Icons
 const socialIcons: any = {
   Instagram: InstagramIcon,
   Facebook: FacebookIcon,
