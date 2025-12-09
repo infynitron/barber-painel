@@ -57,7 +57,7 @@ export const CustomerRecentServices = ({
             }}
           >
             <DownloadIcon size={18} />
-            <span className="text-sm font-medium">Exportar</span>
+            Exportar
           </Button>
         </div>
       </CardHeader>
@@ -65,7 +65,7 @@ export const CustomerRecentServices = ({
       <CardContent>
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-[#0a0a0b]">
+            <thead className="bg-background">
               <tr>
                 <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
                   Data/Hora
@@ -112,7 +112,7 @@ const CustomerRecentServicesTableColumn = (item: ICustomerServiceRecent) => {
   return (
     <tr
       key={item.id}
-      className="hover:bg-[#1a1a1c] transition-colors duration-150"
+      className="transition-colors duration-150 hover:bg-background/80"
     >
       <td className="px-6 py-4">
         <div>
@@ -121,7 +121,7 @@ const CustomerRecentServicesTableColumn = (item: ICustomerServiceRecent) => {
             {formatDate(item.date)}
           </p>
 
-          <p className="text-xs text-gray-400">{item.date}</p>
+          <p className="text-xs text-foreground">{item.date}</p>
         </div>
       </td>
 
@@ -130,16 +130,18 @@ const CustomerRecentServicesTableColumn = (item: ICustomerServiceRecent) => {
           <div className="w-10 h-10 flex items-center justify-center font-semibold text-sm rounded-full bg-linear-to-br from-blue-500 to-purple-500 text-foreground">
             {item.customer.name.charAt(0)}
           </div>
-          <p className="text-sm font-medium text-foreground">{item.customer.name}</p>
+          <p className="text-sm font-medium text-foreground">
+            {item.customer.name}
+          </p>
         </div>
       </td>
 
       <td className="px-6 py-4">
-        <p className="text-sm text-gray-300">{item.team.name}</p>
+        <p className="text-sm text-foreground">{item.team.name}</p>
       </td>
 
       <td className="px-6 py-4">
-        <p className="text-sm text-gray-300">{item.service.name}</p>
+        <p className="text-sm text-foreground">{item.service.name}</p>
       </td>
 
       <td className="px-6 py-4">

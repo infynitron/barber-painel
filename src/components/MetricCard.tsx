@@ -24,7 +24,7 @@ export const MetricCardComponent = ({
   trend,
 }: MetricCardProps) => {
   return (
-    <div className="rounded-xl space-y-4 p-6 shadow-sm text-card-foreground bg-card border border-secondary hover:border-foreground transition-all duration-300 group ">
+    <div className="rounded-xl space-y-4 p-6 shadow-sm text-card-foreground bg-card border border-accent-foreground hover:border-accent transition-all duration-300 group">
       <div className="flex items-start justify-between">
         <div className="flex-1 space-y-2">
           <p className="text-foreground leading-none font-semibold text-sm">
