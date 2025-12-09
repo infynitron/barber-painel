@@ -187,18 +187,17 @@ const ChatBot = () => {
         style={{ animationDelay: "1s" }}
       ></div>
 
-      {/* Chat Container */}
       <div className="relative z-10 w-full max-w-5xl">
-        <Card className="h-[85vh] flex flex-col shadow-2xl border border-amber-500/20 bg-black/40 backdrop-blur-xl">
-          {/* Header */}
-          <div className="relative border-b border-amber-500/20 p-6 bg-linear-to-r from-black/60 to-zinc-900/60 backdrop-blur-sm">
+        <Card className="h-[85vh] flex flex-col shadow-2xl border bg-black/40 backdrop-blur-xl">
+          <div className="relative border-b bg-linear-to-r from-black/60 to-zinc-900/60 backdrop-blur-sm">
             <div className="flex items-center gap-4">
               <div className="relative">
-                <div className="relative bg-linear-to-br p-4 rounded-full shadow-lg overflow-hidden">
+                <div className="absolute inset-0 rounded-full blur-xl"></div>
+                <div className="relative bg-linear-to-b bg-black/40 p-4 rounded-full shadow-lg overflow-hidden">
                   <img
-                    src=""
+                    src="/imagens/logo.png"
                     alt="Logo Douglas Barber"
-                    className="w-8 h-8 object-contain"
+                    className="w-16 h-16 object-contain"
                   />
                 </div>
               </div>
