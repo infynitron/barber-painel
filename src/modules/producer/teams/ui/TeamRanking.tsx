@@ -1,5 +1,13 @@
 import { TrophyIcon, StarIcon } from "lucide-react";
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
 import { formatCurrency } from "@/modules/shared/utils";
 
 import { ITeamRanking } from "@/modules/producer/teams/teams";
@@ -21,51 +29,52 @@ interface TeamRankingTableProps {
 
 export const TeamRanking = ({ items, loading }: TeamRankingTableProps) => {
   return (
-    <div className="bg-[#121214] border border-gray-800 rounded-xl overflow-hidden">
-      <div className="p-6 border-b border-gray-800">
+    <Card>
+      <CardHeader>
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-xl font-bold text-white mb-1">
-              Ranking de Barbeiros
-            </h3>
-            <p className="text-sm text-gray-400">Desempenho individual</p>
+            <CardTitle className="text-xl">Ranking de Barbeiros</CardTitle>
+            <CardDescription>Desempenho individual</CardDescription>
           </div>
+
           <TrophyIcon className="text-yellow-500" size={32} />
         </div>
-      </div>
+      </CardHeader>
 
-      <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead className="bg-[#0a0a0b]">
-            <tr>
-              <th className="text-left px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                Posição
-              </th>
-              <th className="text-left px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                Barbeiro
-              </th>
-              <th className="text-left px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                Atendimentos
-              </th>
-              <th className="text-left px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                Faturamento
-              </th>
-              <th className="text-left px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                Avaliação
-              </th>
-            </tr>
-          </thead>
+      <CardContent>
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead className="bg-background">
+              <tr>
+                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
+                  Posição
+                </th>
+                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
+                  Barbeiro
+                </th>
+                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
+                  Atendimentos
+                </th>
+                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
+                  Faturamento
+                </th>
+                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
+                  Avaliação
+                </th>
+              </tr>
+            </thead>
 
-          <tbody className="divide-y divide-gray-800">
-            {loading && <TeamRankingTableLoading />}
+            <tbody className="divide-y divide-muted">
+              {loading && <TeamRankingTableLoading />}
 
-            {!loading && items.length === 0 && <TeamRankingTableEmpty />}
+              {!loading && items.length === 0 && <TeamRankingTableEmpty />}
 
-            {!loading && items.map(TeamRankingTableColumn)}
-          </tbody>
-        </table>
-      </div>
-    </div>
+              {!loading && items.map(TeamRankingTableColumn)}
+            </tbody>
+          </table>
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 
@@ -73,38 +82,40 @@ const TeamRankingTableColumn = (item: ITeamRanking, idx: number) => {
   return (
     <tr
       key={item.id}
-      className="hover:bg-[#1a1a1c] transition-colors duration-150"
+      className="transition-colors duration-150 hover:bg-background/80"
     >
       <td className="px-6 py-4">
         <div className="flex items-center gap-2">
           <TrophyIcon className={getMedalColor(idx + 1)} size={20} />
-          <span className="text-sm font-bold text-white">{idx + 1}º</span>
+          <span className="text-sm font-bold text-foreground">{idx + 1}º</span>
         </div>
       </td>
 
       <td className="px-6 py-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-linear-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-semibold text-sm">
+          <div className="w-10 h-10 rounded-full bg-linear-to-br from-blue-500 to-purple-500 flex items-center justify-center text-foreground font-semibold text-sm">
             {item.name.charAt(0)}
           </div>
-          <p className="text-sm font-medium text-white">{item.name}</p>
+          <p className="text-sm font-medium text-foreground">{item.name}</p>
         </div>
       </td>
 
       <td className="px-6 py-4">
-        <p className="text-sm text-gray-300">{item.appointments} clientes</p>
+        <p className="text-sm text-foreground">{item.appointments} clientes</p>
       </td>
 
       <td className="px-6 py-4">
-        <p className="text-sm font-semibold text-white">
+        <p className="text-sm font-semibold text-green-500">
           {formatCurrency(item.revenue)}
         </p>
       </td>
 
       <td className="px-6 py-4">
         <div className="flex items-center gap-1">
-          <StarIcon className="text-yellow-500 fill-yellow-500" size={16} />
-          <span className="text-sm font-medium text-white">{item.rating}</span>
+          <StarIcon className="text-primary fill-primary" size={16} />
+          <span className="text-sm font-medium text-foreground">
+            {item.rating}
+          </span>
         </div>
       </td>
     </tr>

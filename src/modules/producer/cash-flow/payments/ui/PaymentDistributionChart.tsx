@@ -1,4 +1,11 @@
-import { CardChart } from "@/components/CardChart";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
 import { DynamicIcon } from "@/components/DynamicIcon";
 
 import { formatCurrency } from "@/modules/shared/utils";
@@ -32,14 +39,19 @@ export const PaymentDistributionChart = ({
   loading,
 }: PaymentDistributionChartProps) => {
   return (
-    <CardChart
-      title="Formas de Pagamento"
-      subtitle="Distribuição dos pagamentos"
-    >
-      {loading && <PaymentDistributionLoading />}
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-xl">Formas de Pagamento</CardTitle>
 
-      {items.map(PaymentDistributionLine)}
-    </CardChart>
+        <CardDescription>Distribuição dos pagamentos</CardDescription>
+      </CardHeader>
+
+      <CardContent>
+        {loading && <PaymentDistributionLoading />}
+
+        {items.map(PaymentDistributionLine)}
+      </CardContent>
+    </Card>
   );
 };
 
@@ -61,15 +73,17 @@ const PaymentDistributionLine = (item: IPaymentDistribution, index: number) => {
               size={20}
             />
           </div>
-          <span className="text-sm font-medium text-white">{item.method}</span>
+          <span className="text-sm font-medium text-foreground">
+            {item.method}
+          </span>
         </div>
 
         <div className="text-right">
-          <p className="text-sm font-bold text-white">
+          <p className="text-sm font-bold text-foreground">
             {formatCurrency(item.amount)}
           </p>
 
-          <p className="text-xs text-gray-400">{item.percentage}%</p>
+          <p className="text-xs text-muted-foreground">{item.percentage}%</p>
         </div>
       </div>
 

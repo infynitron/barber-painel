@@ -1,4 +1,10 @@
-import { CardChart } from "@/components/CardChart";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 import { formatCurrency } from "@/modules/shared/utils";
 
@@ -16,18 +22,25 @@ export const BestsellingServicesChart = ({
   const maxRevenue = Math.max(...items.map((s) => s.revenue));
 
   return (
-    <CardChart title="Serviços Mais Vendidos" subtitle="Top 5 serviços">
-      {loading && <BestsellingServicesChartLoading />}
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-xl">Serviços Mais Vendidos</CardTitle>
+        <CardDescription>Top 5 serviços</CardDescription>
+      </CardHeader>
 
-      {items.map((item, index) => (
-        <BestsellingServicesChartItem
-          key={index}
-          item={item}
-          index={index}
-          maxRevenue={maxRevenue}
-        />
-      ))}
-    </CardChart>
+      <CardContent>
+        {loading && <BestsellingServicesChartLoading />}
+
+        {items.map((item, index) => (
+          <BestsellingServicesChartItem
+            key={index}
+            item={item}
+            index={index}
+            maxRevenue={maxRevenue}
+          />
+        ))}
+      </CardContent>
+    </Card>
   );
 };
 
@@ -51,26 +64,29 @@ const BestsellingServicesChartItem = ({
     <div key={index} className="space-y-2">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-linear-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white text-sm font-bold">
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold text-foreground bg-linear-to-br from-blue-500 to-purple-500">
             {index + 1}
           </div>
 
-          <span className="text-sm font-medium text-white">{item.name}</span>
+          <span className="text-sm font-medium text-foreground">
+            {item.name}
+          </span>
         </div>
 
         <div className="text-right">
-          <p className="text-sm font-bold text-white">
+          <p className="text-sm font-bold text-foreground">
             {formatCurrency(item.revenue)}
           </p>
-          <p className="text-xs text-gray-400">{item.sales} vendas</p>
+          <p className="text-xs text-muted-foreground">{item.sales} vendas</p>
         </div>
       </div>
 
-      <div className="relative h-2 bg-gray-800 rounded-full overflow-hidden">
+      {/* TODO: Progress */}
+      <div className="relative h-2 bg-secondary rounded-full overflow-hidden">
         <div
-          className="absolute top-0 left-0 h-full bg-linear-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-500"
+          className="absolute top-0 left-0 h-full bg-primary rounded-full transition-all duration-500"
           style={{ width: `${(item.revenue / maxRevenue) * 100}%` }}
-        />
+        ></div>
       </div>
     </div>
   );

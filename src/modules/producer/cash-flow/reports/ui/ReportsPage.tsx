@@ -225,6 +225,8 @@ export function ReportsComponent({
           // TODO: setSearchTerm
         }}
       />
+
+      {/* TODO: Exibir tabela de pagamentos recentes */}
     </div>
   );
 }
