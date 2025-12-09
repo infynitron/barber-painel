@@ -146,7 +146,7 @@ export function ReportsComponent({
           background_color: "bg-blue-500/10",
         },
         trend: {
-          label: "novos clientes",
+          label: `vs ${periods[period].toLowerCase()} anterior`,
           direction: reports.totalClients.growthRate >= 0 ? "up" : "down",
           value:
             reports.totalClients.growthRate >= 0
@@ -182,12 +182,12 @@ export function ReportsComponent({
           background_color: "bg-orange-500/10",
         },
         trend: {
+          label: `vs ${periods[period].toLowerCase()} anterior`,
           direction: reports.topService.count >= 0 ? "up" : "down",
           value:
             reports.topService.count >= 0
               ? `+${reports.topService.count}`
               : `-${reports.topService.count}`,
-          label: "até o momento",
         },
       },
     ];
@@ -197,7 +197,7 @@ export function ReportsComponent({
     <div className="min-h-screen space-y-4">
       <ReportsHeader
         selectedPeriod={period}
-        togglePeriod={() => {
+        togglePeriod={(newPeriod) => {
           // TODO: togglePeriod
         }}
       />
