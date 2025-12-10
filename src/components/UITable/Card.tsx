@@ -19,20 +19,20 @@ import {
   UITableEmptyProps,
 } from "@/components/UITable";
 
-import { DynamicIcon, DynamicIconProps } from "@/components/DynamicIcon";
+type IItem = any;
 
 interface UITableCardProps {
-  items: any[];
+  items: IItem[];
   columns: ITableColumn[];
   loading?: boolean;
   header: {
     title: string;
     subtitle: string;
-    icon?: DynamicIconProps;
+    actions?: React.ReactNode;
   };
   empty?: Partial<Omit<UITableEmptyProps, "columns">>;
   footer?: Omit<UITableFooterProps, "items">;
-  children: (item: any, idx: number) => React.ReactNode;
+  children: (item: IItem, idx: number) => React.ReactNode;
 }
 
 export const UITableCard = ({
@@ -58,7 +58,7 @@ export const UITableCard = ({
               <CardDescription>{header.subtitle}</CardDescription>
             </div>
 
-            {header?.icon?.name && <DynamicIcon {...header.icon} />}
+            {header?.actions && header?.actions}
           </div>
         </CardHeader>
       )}

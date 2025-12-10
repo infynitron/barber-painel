@@ -49,11 +49,7 @@ export const TeamRanking = ({ items, loading }: TeamRankingTableProps) => {
       header={{
         title: "Ranking de Barbeiros",
         subtitle: "Desempenho individual",
-        icon: {
-          className: "text-yellow-500",
-          name: "TrophyIcon",
-          size: 32,
-        },
+        actions: <TrophyIcon className="text-yellow-500" size={32} />,
       }}
       empty={{ placeholder: "Nenhum barbeiro registrado" }}
     >

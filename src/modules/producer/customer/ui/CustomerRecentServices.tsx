@@ -1,24 +1,8 @@
 import { DownloadIcon } from "lucide-react";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
 import { Button } from "@/components/ui/button";
 
-import { Search } from "@/components/Search";
-import { TableFooter } from "@/components/TableFooter";
-import {
-  UITableHeader,
-  ITableColumn,
-  UITableEmpty,
-  UITableLoading,
-} from "@/components/UITable";
+import { UITableCard, ITableColumn } from "@/components/UITable";
 
 import { formatCurrency, formatDate } from "@/modules/shared/utils";
 
@@ -68,20 +52,18 @@ export const CustomerRecentServices = ({
 }: CustomerRecentServicesProps) => {
   const toggleDownload = () => {
     // TODO: Ação de download de csv
+    console.log("CustomerRecentServices toggleDownload");
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <div className="flex items-center justify-between">
-          <div>
-            <CardTitle className="text-xl">Atendimentos Recentes</CardTitle>
-
-            <CardDescription>
-              Histórico detalhado de atendimentos
-            </CardDescription>
-          </div>
-
+    <UITableCard
+      items={items}
+      columns={columns}
+      loading={loading}
+      header={{
+        title: "Atendimentos Recentes",
+        subtitle: "Histórico detalhado de atendimentos",
+        actions: (
           <Button
             type="button"
             variant="outline"
@@ -92,37 +74,25 @@ export const CustomerRecentServices = ({
             <DownloadIcon size={18} />
             Exportar
           </Button>
-        </div>
-      </CardHeader>
-
-      <CardContent>
-        {/* TODO: Search */}
-
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <UITableHeader columns={columns} />
-
-            <tbody className="divide-y divide-muted">
-            {loading && <UITableLoading columns={columns.length} />}
-
-              {!loading && items.length === 0 && (
-                <UITableEmpty icon="CalendarIcon" columns={columns.length} />
-              )}
-
-              {!loading && items.map(CustomerRecentServicesTableColumn)}
-            </tbody>
-          </table>
-        </div>
-      </CardContent>
-
-      <CardFooter>
-        <TableFooter items={items.length} total={total} />
-      </CardFooter>
-    </Card>
+        ),
+      }}
+      empty={{ placeholder: "Nenhum atendimento recente" }}
+      footer={{ total }}
+    >
+      {(item, idx) => (
+        <CustomerRecentServicesTableColumn key={idx} item={item} />
+      )}
+    </UITableCard>
   );
 };
 
-const CustomerRecentServicesTableColumn = (item: ICustomerRecentService) => {
+interface CustomerRecentServicesTableColumnProps {
+  item: ICustomerRecentService;
+}
+
+const CustomerRecentServicesTableColumn = ({
+  item,
+}: CustomerRecentServicesTableColumnProps) => {
   return (
     <tr
       key={item.id}
