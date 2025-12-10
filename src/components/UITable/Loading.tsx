@@ -1,3 +1,5 @@
+import { Skeleton } from "@/components/ui/skeleton";
+
 interface UITableLoadingProps {
   columns: number;
 }
@@ -13,10 +15,9 @@ export const UITableLoading = ({ columns }: UITableLoadingProps) => {
           {new Array(columns).fill("").map((column, idx) => (
             <td
               key={"line_" + linheIdx + "column_" + idx}
-              colSpan={columns}
-              className="px-6 py-4"
+              className="px-2 py-2"
             >
-              {/* TODO: Skeleton */}
+              <Skeleton className="w-full h-14" />
             </td>
           ))}
         </tr>

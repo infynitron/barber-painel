@@ -1,8 +1,14 @@
 import { DynamicIcon } from "@/components/DynamicIcon";
 
-interface UITableEmptyProps {
+import { cn } from "@/lib/utils";
+
+export interface UITableEmptyProps {
   columns: number;
-  icon: string;
+  icon?: {
+    name?: string;
+    className?: string;
+    size?: number;
+  };
   placeholder?: string;
 }
 
@@ -13,11 +19,11 @@ export const UITableEmpty = ({
 }: UITableEmptyProps) => {
   return (
     <tr>
-      <td colSpan={columns} className="px-6 py-12 text-center">
+      <td colSpan={columns} className="px-6 py-12 space-y-4 text-center">
         <DynamicIcon
-          className="mx-auto mb-3 text-foreground"
-          name={icon}
-          size={48}
+          className={cn("mx-auto text-foreground", icon?.className)}
+          size={icon?.size ?? 48}
+          name={icon?.name ?? "CalendarIcon"}
         />
 
         <p className="text-gray-400 text-sm">

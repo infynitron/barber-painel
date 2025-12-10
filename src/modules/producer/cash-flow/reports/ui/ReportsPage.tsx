@@ -42,12 +42,13 @@ export const CashFlowReports = ({
   // TODO: reports
   const [reports, setReports] = React.useState<IReport | undefined>();
 
-  // TODO: rankingTeams
-  const [rankingTeams, setRankingTeams] = React.useState<ITeamRanking[]>([]);
+  // TODO: teamsRanking
+  const [teamsRanking, setteamsRanking] = React.useState<ITeamRanking[]>([]);
+  const [teamsRankingLoading, setTeamsRankingLoading] = React.useState(false);
 
   // TODO: customerServiceRecent
   const [customerServiceRecent, setCustomerServiceRecent] = React.useState<
-  ICustomerRecentService[]
+    ICustomerRecentService[]
   >([]);
 
   // TODO: paymentDistribution
@@ -72,9 +73,12 @@ export const CashFlowReports = ({
 
   // TODO: React Query
   React.useEffect(() => {
+    setTeamsRankingLoading(true);
     const fetch = async () => {
       const items = await new TeamsService().rankingByBarber();
-      setRankingTeams(items);
+      setteamsRanking(items);
+
+      setTimeout(() => setTeamsRankingLoading(false), 1000 * 5);
     };
 
     fetch();
@@ -213,7 +217,7 @@ export const CashFlowReports = ({
         <PaymentDistributionChart items={paymentDistribution} loading={false} />
       </div>
 
-      <TeamRanking items={rankingTeams} loading={false} />
+      <TeamRanking items={teamsRanking} loading={teamsRankingLoading} />
 
       <CustomerRecentServices
         items={customerServiceRecent}

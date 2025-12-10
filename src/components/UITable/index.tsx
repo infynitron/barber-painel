@@ -1,4 +1,5 @@
 export * from "@/components/UITable/Header";
+export * from "@/components/UITable/Card";
 export * from "@/components/UITable/Loading";
 export * from "@/components/UITable/Empty";
 

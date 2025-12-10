@@ -1,19 +1,6 @@
 import { TrophyIcon, StarIcon } from "lucide-react";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
-import {
-  UITableHeader,
-  ITableColumn,
-  UITableEmpty,
-  UITableLoading,
-} from "@/components/UITable";
+import { UITableCard, ITableColumn } from "@/components/UITable";
 
 import { formatCurrency } from "@/modules/shared/utils";
 
@@ -55,40 +42,35 @@ interface TeamRankingTableProps {
 
 export const TeamRanking = ({ items, loading }: TeamRankingTableProps) => {
   return (
-    <Card>
-      <CardHeader>
-        <div className="flex items-center justify-between">
-          <div>
-            <CardTitle className="text-xl">Ranking de Barbeiros</CardTitle>
-            <CardDescription>Desempenho individual</CardDescription>
-          </div>
-
-          <TrophyIcon className="text-yellow-500" size={32} />
-        </div>
-      </CardHeader>
-
-      <CardContent>
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <UITableHeader columns={columns} />
-
-            <tbody className="divide-y divide-muted">
-              {loading && <UITableLoading columns={columns.length} />}
-
-              {!loading && items.length === 0 && (
-                <UITableEmpty icon="CalendarIcon" columns={columns.length} />
-              )}
-
-              {!loading && items.map(TeamRankingTableColumn)}
-            </tbody>
-          </table>
-        </div>
-      </CardContent>
-    </Card>
+    <UITableCard
+      items={items}
+      columns={columns}
+      loading={loading}
+      header={{
+        title: "Ranking de Barbeiros",
+        subtitle: "Desempenho individual",
+        icon: {
+          className: "text-yellow-500",
+          name: "TrophyIcon",
+          size: 32,
+        },
+      }}
+      empty={{ placeholder: "Nenhum barbeiro registrado" }}
+    >
+      {(item, idx) => (
+        <TeamRankingTableColumn key={idx} idx={idx} item={item} />
+      )}
+    </UITableCard>
   );
 };
 
-const TeamRankingTableColumn = (item: ITeamRanking, idx: number) => {
+interface TeamRankingTableColumnProps {
+  item: ITeamRanking;
+  idx: number;
+}
+
+const TeamRankingTableColumn = ({ item, idx }: TeamRankingTableColumnProps) => {
+  console.log("TeamRankingTableColumn", idx);
   return (
     <tr
       key={item.id}

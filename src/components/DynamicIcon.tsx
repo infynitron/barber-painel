@@ -4,7 +4,7 @@ type Icon = React.ForwardRefExoticComponent<
   Omit<Icons.LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
 >;
 
-interface DynamicIconProps {
+export interface DynamicIconProps {
   name: string;
   size?: number;
   className?: string;
