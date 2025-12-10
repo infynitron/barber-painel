@@ -2,6 +2,7 @@
 
 import React from "react";
 
+import { FilterPeriod } from "@/components/FilterPeriod";
 import { MetricCardComponent, MetricCardProps } from "@/components/MetricCard";
 
 import { formatCurrency, periods } from "@/modules/shared/utils";
@@ -28,17 +29,16 @@ import { PaymentDistributionChart } from "@/modules/producer/cash-flow/payments/
 import { IServiceBestSelling } from "@/modules/producer/services/service";
 import { ServicesService } from "@/modules/producer/services/service.service";
 import { BestsellingServicesChart } from "@/modules/producer/services/ui/BestsellingServicesChart";
-import { FilterPeriod } from "@/components/FilterPeriod";
 
-interface ReportsComponentProps {
+interface CashFlowReportsProps {
   period: ReportPeriod;
   customerRecent: string;
 }
 
-export function ReportsComponent({
+export const CashFlowReports = ({
   period,
   customerRecent,
-}: ReportsComponentProps) {
+}: CashFlowReportsProps) => {
   // TODO: reports
   const [reports, setReports] = React.useState<IReport | undefined>();
 
@@ -230,4 +230,4 @@ export function ReportsComponent({
       {/* TODO: Exibir tabela de pagamentos recentes */}
     </div>
   );
-}
+};
