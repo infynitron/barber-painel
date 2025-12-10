@@ -1,6 +1,6 @@
-import { ITableColumn } from "@/components/UITable";
+import { TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
-import { cn } from "@/lib/utils";
+import { ITableColumn } from "@/components/UITable";
 
 interface UITableHeaderProps {
   columns: ITableColumn[];
@@ -8,20 +8,17 @@ interface UITableHeaderProps {
 
 export const UITableHeader = ({ columns }: UITableHeaderProps) => {
   return (
-    <thead className="bg-background">
-      <tr>
+    <TableHeader>
+      <TableRow>
         {columns.map((item) => (
-          <th
+          <TableHead
             key={"header_" + item.property}
-            className={cn(
-              "px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider",
-              `text-${item?.align ?? "left"}`
-            )}
+            className={`text-${item?.align ?? "left"}`}
           >
             {item.label}
-          </th>
+          </TableHead>
         ))}
-      </tr>
-    </thead>
+      </TableRow>
+    </TableHeader>
   );
 };

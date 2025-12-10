@@ -1,3 +1,5 @@
+import { TableCell, TableRow } from "@/components/ui/table";
+
 import { DynamicIcon } from "@/components/DynamicIcon";
 
 import { cn } from "@/lib/utils";
@@ -18,8 +20,8 @@ export const UITableEmpty = ({
   placeholder,
 }: UITableEmptyProps) => {
   return (
-    <tr>
-      <td colSpan={columns} className="px-6 py-12 space-y-4 text-center">
+    <TableRow>
+      <TableCell colSpan={columns} className="p-14 space-y-4 text-center">
         <DynamicIcon
           className={cn("mx-auto text-foreground", icon?.className)}
           size={icon?.size ?? 48}
@@ -29,7 +31,7 @@ export const UITableEmpty = ({
         <p className="text-gray-400 text-sm">
           {placeholder ?? "Nenhum registro encontrado"}
         </p>
-      </td>
-    </tr>
+      </TableCell>
+    </TableRow>
   );
 };

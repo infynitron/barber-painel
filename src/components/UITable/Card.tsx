@@ -9,6 +9,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import { Table, TableBody } from "@/components/ui/table";
+
 import {
   ITableColumn,
   UITableEmpty,
@@ -66,21 +68,19 @@ export const UITableCard = ({
       <CardContent>
         {/* TODO: Search */}
 
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <UITableHeader columns={columns} />
+        <Table className="overflow-x-auto">
+          <UITableHeader columns={columns} />
 
-            <tbody className="divide-y divide-muted">
-              {loading && <UITableLoading columns={columns.length} />}
+          <TableBody>
+            {loading && <UITableLoading columns={columns.length} />}
 
-              {!loading && items.length === 0 && (
-                <UITableEmpty columns={columns.length} {...empty} />
-              )}
+            {!loading && items.length === 0 && (
+              <UITableEmpty columns={columns.length} {...empty} />
+            )}
 
-              {!loading && items.length > 0 && <>{items.map(children)}</>}
-            </tbody>
-          </table>
-        </div>
+            {!loading && items.length > 0 && <>{items.map(children)}</>}
+          </TableBody>
+        </Table>
       </CardContent>
 
       {footer?.total && (
