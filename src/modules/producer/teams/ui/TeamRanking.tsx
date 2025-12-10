@@ -8,9 +8,34 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import { UITableHeader, ITableColumn } from "@/components/UITable";
+
 import { formatCurrency } from "@/modules/shared/utils";
 
 import { ITeamRanking } from "@/modules/producer/teams/teams";
+
+const columns: ITableColumn[] = [
+  {
+    property: "position",
+    label: "Posição",
+  },
+  {
+    property: "team.name",
+    label: "Barbeiro",
+  },
+  {
+    property: "appointments",
+    label: "Atendimentos",
+  },
+  {
+    property: "revenue",
+    label: "Faturamento",
+  },
+  {
+    property: "rating",
+    label: "Avaliação",
+  },
+];
 
 const colors: Record<number, string> = {
   1: "text-yellow-500",
@@ -44,25 +69,7 @@ export const TeamRanking = ({ items, loading }: TeamRankingTableProps) => {
       <CardContent>
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-background">
-              <tr>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
-                  Posição
-                </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
-                  Barbeiro
-                </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
-                  Atendimentos
-                </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
-                  Faturamento
-                </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
-                  Avaliação
-                </th>
-              </tr>
-            </thead>
+            <UITableHeader columns={columns} />
 
             <tbody className="divide-y divide-muted">
               {loading && <TeamRankingTableLoading />}

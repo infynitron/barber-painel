@@ -13,10 +13,38 @@ import { Button } from "@/components/ui/button";
 
 import { Search } from "@/components/Search";
 import { TableFooter } from "@/components/TableFooter";
+import { UITableHeader, ITableColumn } from "@/components/UITable";
 
 import { formatCurrency, formatDate } from "@/modules/shared/utils";
 
 import { ICustomerRecentService } from "@/modules/producer/customer/customer";
+
+const columns: ITableColumn[] = [
+  {
+    property: "date",
+    label: "Data/Hora",
+  },
+  {
+    property: "customer.name",
+    label: "Cliente",
+  },
+  {
+    property: "team.name",
+    label: "Barbeiro",
+  },
+  {
+    property: "service.name",
+    label: "Serviço",
+  },
+  {
+    property: "value",
+    label: "Valor",
+  },
+  {
+    property: "methodPayment",
+    label: "Pagamento",
+  },
+];
 
 interface CustomerRecentServicesProps {
   total: number;
@@ -67,28 +95,7 @@ export const CustomerRecentServices = ({
 
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-background">
-              <tr>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
-                  Data/Hora
-                </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
-                  Cliente
-                </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
-                  Barbeiro
-                </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
-                  Serviço
-                </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
-                  Valor
-                </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-foreground uppercase tracking-wider">
-                  Pagamento
-                </th>
-              </tr>
-            </thead>
+            <UITableHeader columns={columns} />
 
             <tbody className="divide-y divide-muted">
               {loading && <CustomerRecentServicesTableLoading />}
