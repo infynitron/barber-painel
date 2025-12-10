@@ -1,33 +1,32 @@
-import { Button } from "@/components/ui/button";
+import {
+  FilterPeriodButton,
+  FilterPeriodButtonProps,
+} from "@/components/FilterPeriodButton";
 
-import { Period } from "@/modules/shared/shared";
-import { periods } from "@/modules/shared/utils";
+type FilterPeriodProps = FilterPeriodButtonProps & {
+  title: string;
+  subtitle: string;
+};
 
-export type FilterPeriod = Period;
-
-export interface FilterPeriodProps {
-  selectedPeriod: FilterPeriod;
-  togglePeriod: (period: FilterPeriod) => void;
-}
-
-export const FilterPeriodComponent = ({
+export const FilterPeriod = ({
+  title,
+  subtitle,
   selectedPeriod,
   togglePeriod,
 }: FilterPeriodProps) => {
   return (
-    <div className="flex gap-2">
-      {Object.keys(periods).map((period) => (
-        <Button
-          key={period}
-          variant={selectedPeriod === period ? "default" : "secondary"}
-          type="button"
-          onClick={() => {
-            togglePeriod(period as FilterPeriod);
-          }}
-        >
-          {periods[period as FilterPeriod]}
-        </Button>
-      ))}
+    <div className="border-b border-secondary">
+      <div className="flex items-center justify-between p-6">
+        <div>
+          <h1 className="text-2xl font-bold text-foreground">{title}</h1>
+          <p className="text-sm text-muted-foreground mt-1">{subtitle}</p>
+        </div>
+
+        <FilterPeriodButton
+          selectedPeriod={selectedPeriod}
+          togglePeriod={togglePeriod}
+        />
+      </div>
     </div>
   );
 };

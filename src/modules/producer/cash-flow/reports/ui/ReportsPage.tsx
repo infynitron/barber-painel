@@ -13,8 +13,6 @@ import {
 
 import { ReportsService } from "@/modules/producer/cash-flow/reports/reports.service";
 
-import ReportsHeader from "@/modules/producer/cash-flow/reports/ui/ReportsHeader";
-
 import { ITeamRanking } from "@/modules/producer/teams/teams";
 import { TeamsService } from "@/modules/producer/teams/team.service";
 import { TeamRanking } from "@/modules/producer/teams/ui/TeamRanking";
@@ -30,6 +28,7 @@ import { PaymentDistributionChart } from "@/modules/producer/cash-flow/payments/
 import { IServiceBestSelling } from "@/modules/producer/services/service";
 import { ServicesService } from "@/modules/producer/services/service.service";
 import { BestsellingServicesChart } from "@/modules/producer/services/ui/BestsellingServicesChart";
+import { FilterPeriod } from "@/components/FilterPeriod";
 
 interface ReportsComponentProps {
   period: ReportPeriod;
@@ -195,7 +194,9 @@ export function ReportsComponent({
 
   return (
     <div className="min-h-screen space-y-4">
-      <ReportsHeader
+      <FilterPeriod
+        title="Relatórios"
+        subtitle="Análise completa do desempenho"
         selectedPeriod={period}
         togglePeriod={(newPeriod) => {
           // TODO: togglePeriod
