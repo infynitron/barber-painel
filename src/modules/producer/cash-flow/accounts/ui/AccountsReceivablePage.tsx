@@ -48,9 +48,9 @@ export const CashFlowAccountsReceivable = ({
 
     return [
       {
-        value: formatCurrency(receivablePeriod.receivable.value),
+        value: formatCurrency(receivablePeriod.receivable.total),
         title: "Total A Receber",
-        subtitle: `${receivablePeriod.receivable.count} faturas em aberto`,
+        subtitle: `${receivablePeriod.receivable.openInvoices} faturas em aberto`,
         icon: {
           name: "DollarSign",
           color: "text-green-500",
@@ -68,8 +68,8 @@ export const CashFlowAccountsReceivable = ({
       },
       {
         title: "Total Recebido",
-        value: formatCurrency(receivablePeriod.received.value),
-        subtitle: `${receivablePeriod.received.count} transações confirmadas`,
+        value: formatCurrency(receivablePeriod.received.total),
+        subtitle: `${receivablePeriod.received.confirmedTransactions} transações confirmadas`,
         icon: {
           name: "TrendingUp",
           color: "text-blue-500",

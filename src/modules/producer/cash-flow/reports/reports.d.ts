@@ -1,12 +1,22 @@
-import { IGrowthRate, Period } from "@/modules/shared/shared";
+import { Period } from "@/modules/shared/shared";
 
 export type ReportPeriod = Period;
 
 export interface IReport {
-  totalRevenue: IGrowthRate;
-  totalClients: IGrowthRate;
-  averageTicket: IGrowthRate;
-  workingDays: number;
+  revenue: {
+    total: number;
+    growthRate: number;
+    workingDays: number;
+  };
+  clients: {
+    total: number;
+    growthRate: number;
+    servicesProvided: number;
+  };
+  averageTicket: {
+    value: number;
+    growthRate: number;
+  };
   topService: {
     count: number;
     service: {

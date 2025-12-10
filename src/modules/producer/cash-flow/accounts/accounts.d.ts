@@ -3,10 +3,14 @@ import { IGrowthRate, Period } from "@/modules/shared/shared";
 export type AccountsPeriod = Period;
 
 export interface IReceivablePeriod {
-  receivable: IGrowthRate & {
-    count: number;
+  receivable: {
+    total: number;
+    growthRate: number;
+    openInvoices: number;
   };
-  received: IGrowthRate & {
-    count: number;
+  received: {
+    total: number;
+    growthRate: number;
+    confirmedTransactions: number;
   };
 }

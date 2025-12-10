@@ -12,14 +12,14 @@ export class AccountsService {
     // TODO: Backend
     const data: IReceivablePeriod = {
       receivable: {
-        value: 45780.5,
+        total: 45780.5,
         growthRate: 5.3,
-        count: 3,
+        openInvoices: 3,
       },
       received: {
-        value: 480.5,
+        total: 480.5,
         growthRate: 5.3,
-        count: 3,
+        confirmedTransactions: 3,
       },
     };
 

@@ -11,13 +11,14 @@ export class ReportsService {
   getByPeriod = async ({ period }: IGetByPeriodProps) => {
     // TODO: Backend
     const data: IReport = {
-      workingDays: 26,
-      totalRevenue: {
-        value: 28450.0,
+      revenue: {
+        total: 28450.0,
+        workingDays: 26,
         growthRate: 15.3,
       },
-      totalClients: {
-        value: 342,
+      clients: {
+        total: 342,
+        servicesProvided: 1,
         growthRate: 5.3,
       },
       averageTicket: {

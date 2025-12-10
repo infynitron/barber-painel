@@ -115,30 +115,27 @@ export const CashFlowReports = ({
 
     return [
       {
-        value: formatCurrency(reports.totalRevenue.value),
+        value: formatCurrency(reports.revenue.total),
         title: "Faturamento Total",
-        subtitle: `${reports.workingDays} dias trabalhados`,
+        subtitle: `${reports.revenue.workingDays} dias trabalhados`,
         icon: {
           name: "DollarSignIcon",
           color: "text-green-500",
-          background_color:
-            reports.totalRevenue.value >= 0
-              ? "bg-green-500/10"
-              : "bg-red-500/10",
+          background_color: "bg-green-500/10",
         },
         trend: {
           label: `vs ${periods[period].toLowerCase()} anterior`,
-          direction: reports.totalRevenue.growthRate >= 0 ? "up" : "down",
+          direction: reports.revenue.growthRate >= 0 ? "up" : "down",
           value:
-            reports.totalRevenue.growthRate >= 0
-              ? `+${reports.totalRevenue.growthRate}%`
-              : `-${reports.totalRevenue.growthRate}%`,
+            reports.revenue.growthRate >= 0
+              ? `+${reports.revenue.growthRate}%`
+              : `-${reports.revenue.growthRate}%`,
         },
       },
       {
-        value: `${reports.totalClients.value}`,
+        value: `${reports.clients.total}`,
         title: "Total de Clientes",
-        subtitle: "Atendimentos realizados",
+        subtitle: `${reports.clients.servicesProvided} atendimentos realizados`,
         icon: {
           name: "UsersIcon",
           color: "text-blue-500",
@@ -146,11 +143,11 @@ export const CashFlowReports = ({
         },
         trend: {
           label: `vs ${periods[period].toLowerCase()} anterior`,
-          direction: reports.totalClients.growthRate >= 0 ? "up" : "down",
+          direction: reports.clients.growthRate >= 0 ? "up" : "down",
           value:
-            reports.totalClients.growthRate >= 0
-              ? `+${reports.totalClients.growthRate}%`
-              : `-${reports.totalClients.growthRate}%`,
+            reports.clients.growthRate >= 0
+              ? `+${reports.clients.growthRate}%`
+              : `-${reports.clients.growthRate}%`,
         },
       },
       {
