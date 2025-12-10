@@ -1,4 +1,4 @@
-import { DownloadIcon, CalendarIcon } from "lucide-react";
+import { DownloadIcon } from "lucide-react";
 
 import {
   Card,
@@ -13,7 +13,11 @@ import { Button } from "@/components/ui/button";
 
 import { Search } from "@/components/Search";
 import { TableFooter } from "@/components/TableFooter";
-import { UITableHeader, ITableColumn } from "@/components/UITable";
+import {
+  UITableHeader,
+  ITableColumn,
+  UITableEmpty,
+} from "@/components/UITable";
 
 import { formatCurrency, formatDate } from "@/modules/shared/utils";
 
@@ -101,7 +105,7 @@ export const CustomerRecentServices = ({
               {loading && <CustomerRecentServicesTableLoading />}
 
               {!loading && items.length === 0 && (
-                <CustomerRecentServicesTableEmpty />
+                <UITableEmpty columns={columns} icon="CalendarIcon" />
               )}
 
               {!loading && items.map(CustomerRecentServicesTableColumn)}
@@ -192,17 +196,5 @@ const CustomerRecentServicesTableLoading = () => {
         </tr>
       ))}
     </>
-  );
-};
-
-// TODO: CustomerRecentServicesTableEmpty
-const CustomerRecentServicesTableEmpty = () => {
-  return (
-    <tr>
-      <td colSpan={6} className="px-6 py-12 text-center">
-        <CalendarIcon className="mx-auto mb-3 text-gray-600" size={48} />
-        <p className="text-gray-400 text-sm">Nenhum registro encontrado</p>
-      </td>
-    </tr>
   );
 };

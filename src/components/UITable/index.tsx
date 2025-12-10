@@ -1,4 +1,5 @@
 export * from "@/components/UITable/Header";
+export * from "@/components/UITable/Empty";
 
 export interface ITableColumn {
   property: string;

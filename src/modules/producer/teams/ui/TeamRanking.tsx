@@ -8,7 +8,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { UITableHeader, ITableColumn } from "@/components/UITable";
+import {
+  UITableHeader,
+  ITableColumn,
+  UITableEmpty,
+} from "@/components/UITable";
 
 import { formatCurrency } from "@/modules/shared/utils";
 
@@ -74,7 +78,9 @@ export const TeamRanking = ({ items, loading }: TeamRankingTableProps) => {
             <tbody className="divide-y divide-muted">
               {loading && <TeamRankingTableLoading />}
 
-              {!loading && items.length === 0 && <TeamRankingTableEmpty />}
+              {!loading && items.length === 0 && (
+                <UITableEmpty columns={columns} icon="CalendarIcon" />
+              )}
 
               {!loading && items.map(TeamRankingTableColumn)}
             </tbody>
@@ -124,17 +130,6 @@ const TeamRankingTableColumn = (item: ITeamRanking, idx: number) => {
             {item.rating}
           </span>
         </div>
-      </td>
-    </tr>
-  );
-};
-
-// TODO: TeamRankingTableEmpty
-const TeamRankingTableEmpty = () => {
-  return (
-    <tr>
-      <td colSpan={5} className="px-6 py-12 text-center">
-        <p className="text-gray-400 text-sm">Nenhum registro encontrado</p>
       </td>
     </tr>
   );
