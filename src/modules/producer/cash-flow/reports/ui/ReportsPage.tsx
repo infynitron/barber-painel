@@ -203,6 +203,7 @@ export const CashFlowReports = ({
         }}
       />
 
+      {/* TODO: MetricCardsComponent with skeleton */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {cards.map((metric, index) => (
           <MetricCardComponent key={"metric_card_" + index} {...metric} />
