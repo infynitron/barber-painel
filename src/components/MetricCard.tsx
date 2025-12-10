@@ -37,7 +37,7 @@ export const MetricCardComponent = ({
         <div
           className={`p-3 rounded-lg group-hover:scale-110 transition-transform duration-300 ${icon.background_color}`}
         >
-          <DynamicIcon name={icon.name} color={icon.color} size={24} />
+          <DynamicIcon className={icon.color} name={icon.name} size={24} />
         </div>
       </div>
 

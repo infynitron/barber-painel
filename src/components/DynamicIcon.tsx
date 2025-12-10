@@ -7,12 +7,12 @@ type Icon = React.ForwardRefExoticComponent<
 interface DynamicIconProps {
   name: string;
   size?: number;
-  color?: string;
+  className?: string;
 }
 
-export const DynamicIcon = ({ name, size, color }: DynamicIconProps) => {
+export const DynamicIcon = ({ name, ...props }: DynamicIconProps) => {
   const IconComponent = Icons[name as keyof typeof Icons] as Icon;
   if (!IconComponent) return <span>Icon "{name}" not found</span>;
 
-  return <IconComponent className={color} size={size}></IconComponent>;
+  return <IconComponent {...props}></IconComponent>;
 };

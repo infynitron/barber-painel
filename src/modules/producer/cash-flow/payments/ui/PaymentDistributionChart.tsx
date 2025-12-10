@@ -68,8 +68,8 @@ const PaymentDistributionLine = (item: IPaymentDistribution, index: number) => {
         <div className="flex items-center gap-3">
           <div className={`p-2 rounded-lg ${colors[item.method]}/10`}>
             <DynamicIcon
+              className={colors[item.method]}
               name={icons[item.method]}
-              color={colors[item.method]}
               size={20}
             />
           </div>
