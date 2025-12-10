@@ -1,6 +1,7 @@
-import { Period } from "./shared";
+import { Period } from "@/modules/shared/shared";
 
 export const periods: { [key in Period]: string } = {
+  day: "Dia",
   week: "Semana",
   month: "Mês",
   year: "Ano",

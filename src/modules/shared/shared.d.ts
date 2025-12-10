@@ -1,4 +1,4 @@
-export type Period = "week" | "month" | "year";
+export type Period = "day" | "week" | "month" | "year";
 
 export interface IGrowthRate {
   value: number;
