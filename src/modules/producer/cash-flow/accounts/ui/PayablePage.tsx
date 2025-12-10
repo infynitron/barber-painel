@@ -1,21 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
   Calendar,
   Search,
-  Filter,
   Download,
   AlertCircle,
   CheckCircle,
   Clock,
 } from "lucide-react";
+
+import { formatCurrency, formatDate } from "@/modules/shared/utils";
+
 import { upcomingReceivables } from "@/mock";
-import { any } from "zod/v4";
 
 const ReceivablesTable = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filterStatus, setFilterStatus] = useState("all");
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [filterStatus, setFilterStatus] = React.useState("all");
 
   const filteredReceivables = upcomingReceivables.filter((item) => {
     const matchesSearch =
@@ -61,21 +62,6 @@ const ReceivablesTable = () => {
         {config.label}
       </span>
     );
-  };
-
-  const formatCurrency = (value: any) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(value);
-  };
-
-  const formatDate = (dateString: any) => {
-    return new Date(dateString).toLocaleDateString("pt-BR", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    });
   };
 
   return (

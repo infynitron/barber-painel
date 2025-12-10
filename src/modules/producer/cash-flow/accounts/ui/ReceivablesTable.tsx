@@ -1,16 +1,11 @@
 import { DollarSign, TrendingUp, AlertCircle } from "lucide-react";
 
+import { formatCurrency } from "@/modules/shared/utils";
+
 import { metricsData } from "@/mock";
 
 import MetricCard from "@/modules/producer/cash-flow/accounts/ui/MetricCard";
 // import ReceivablesTable from "@/modules/producer/cash-flow/accounts/ui/ReceivablesTable";
-
-const formatCurrency = (value: any) => {
-  return new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(value);
-};
 
 const metrics = [
   {
