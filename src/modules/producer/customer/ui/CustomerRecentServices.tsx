@@ -17,6 +17,7 @@ import {
   UITableHeader,
   ITableColumn,
   UITableEmpty,
+  UITableLoading,
 } from "@/components/UITable";
 
 import { formatCurrency, formatDate } from "@/modules/shared/utils";
@@ -102,10 +103,10 @@ export const CustomerRecentServices = ({
             <UITableHeader columns={columns} />
 
             <tbody className="divide-y divide-muted">
-              {loading && <CustomerRecentServicesTableLoading />}
+            {loading && <UITableLoading columns={columns.length} />}
 
               {!loading && items.length === 0 && (
-                <UITableEmpty columns={columns} icon="CalendarIcon" />
+                <UITableEmpty icon="CalendarIcon" columns={columns.length} />
               )}
 
               {!loading && items.map(CustomerRecentServicesTableColumn)}
@@ -170,31 +171,5 @@ const CustomerRecentServicesTableColumn = (item: ICustomerRecentService) => {
         </span>
       </td>
     </tr>
-  );
-};
-
-// TODO: CustomerRecentServicesTableLoading
-const CustomerRecentServicesTableLoading = () => {
-  return (
-    <>
-      {new Array(4).fill("").map((item) => (
-        <tr
-          key={item}
-          className="hover:bg-[#1a1a1c] transition-colors duration-150"
-        >
-          <td className="px-6 py-4"></td>
-
-          <td className="px-6 py-4"></td>
-
-          <td className="px-6 py-4"></td>
-
-          <td className="px-6 py-4"></td>
-
-          <td className="px-6 py-4"></td>
-
-          <td className="px-6 py-4"></td>
-        </tr>
-      ))}
-    </>
   );
 };

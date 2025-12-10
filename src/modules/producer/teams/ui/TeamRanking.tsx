@@ -12,6 +12,7 @@ import {
   UITableHeader,
   ITableColumn,
   UITableEmpty,
+  UITableLoading,
 } from "@/components/UITable";
 
 import { formatCurrency } from "@/modules/shared/utils";
@@ -47,10 +48,6 @@ const colors: Record<number, string> = {
   3: "text-orange-600",
 };
 
-const getMedalColor = (position: number): string => {
-  return colors[position] ?? "text-gray-600";
-};
-
 interface TeamRankingTableProps {
   items: ITeamRanking[];
   loading?: boolean;
@@ -76,10 +73,10 @@ export const TeamRanking = ({ items, loading }: TeamRankingTableProps) => {
             <UITableHeader columns={columns} />
 
             <tbody className="divide-y divide-muted">
-              {loading && <TeamRankingTableLoading />}
+              {loading && <UITableLoading columns={columns.length} />}
 
               {!loading && items.length === 0 && (
-                <UITableEmpty columns={columns} icon="CalendarIcon" />
+                <UITableEmpty icon="CalendarIcon" columns={columns.length} />
               )}
 
               {!loading && items.map(TeamRankingTableColumn)}
@@ -99,7 +96,10 @@ const TeamRankingTableColumn = (item: ITeamRanking, idx: number) => {
     >
       <td className="px-6 py-4">
         <div className="flex items-center gap-2">
-          <TrophyIcon className={getMedalColor(idx + 1)} size={20} />
+          <TrophyIcon
+            className={colors[idx + 1] ?? "text-foreground"}
+            size={20}
+          />
           <span className="text-sm font-bold text-foreground">{idx + 1}º</span>
         </div>
       </td>
@@ -132,31 +132,5 @@ const TeamRankingTableColumn = (item: ITeamRanking, idx: number) => {
         </div>
       </td>
     </tr>
-  );
-};
-
-// TODO: TeamRankingTableLoading
-const TeamRankingTableLoading = () => {
-  return (
-    <>
-      {new Array(4).fill("").map((item) => (
-        <tr
-          key={item}
-          className="hover:bg-[#1a1a1c] transition-colors duration-150"
-        >
-          <td className="px-6 py-4"></td>
-
-          <td className="px-6 py-4"></td>
-
-          <td className="px-6 py-4"></td>
-
-          <td className="px-6 py-4"></td>
-
-          <td className="px-6 py-4"></td>
-
-          <td className="px-6 py-4"></td>
-        </tr>
-      ))}
-    </>
   );
 };
