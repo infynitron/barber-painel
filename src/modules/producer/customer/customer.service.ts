@@ -1,9 +1,9 @@
-import { ICustomerServiceRecent } from "@/modules/producer/customer/customer";
+import { ICustomerRecentService } from "@/modules/producer/customer/customer";
 
 export class CustomerService {
   serviceRecents = async () => {
     // TODO: Backend
-    const data: ICustomerServiceRecent[] = [
+    const data: ICustomerRecentService[] = [
       {
         id: "1",
         date: "2025-07-26T14:30:00.000Z",

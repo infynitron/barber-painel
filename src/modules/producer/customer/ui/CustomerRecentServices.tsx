@@ -16,11 +16,11 @@ import { TableFooter } from "@/components/TableFooter";
 
 import { formatCurrency, formatDate } from "@/modules/shared/utils";
 
-import { ICustomerServiceRecent } from "@/modules/producer/customer/customer";
+import { ICustomerRecentService } from "@/modules/producer/customer/customer";
 
 interface CustomerRecentServicesProps {
   total: number;
-  items: ICustomerServiceRecent[];
+  items: ICustomerRecentService[];
   loading?: boolean;
   searchTerm: string;
   setSearchTerm: (text: string) => void;
@@ -63,6 +63,8 @@ export const CustomerRecentServices = ({
       </CardHeader>
 
       <CardContent>
+        {/* TODO: Search */}
+
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="bg-background">
@@ -108,7 +110,7 @@ export const CustomerRecentServices = ({
   );
 };
 
-const CustomerRecentServicesTableColumn = (item: ICustomerServiceRecent) => {
+const CustomerRecentServicesTableColumn = (item: ICustomerRecentService) => {
   return (
     <tr
       key={item.id}
@@ -160,18 +162,6 @@ const CustomerRecentServicesTableColumn = (item: ICustomerServiceRecent) => {
   );
 };
 
-// TODO: CustomerRecentServicesTableEmpty
-const CustomerRecentServicesTableEmpty = () => {
-  return (
-    <tr>
-      <td colSpan={6} className="px-6 py-12 text-center">
-        <CalendarIcon className="mx-auto mb-3 text-gray-600" size={48} />
-        <p className="text-gray-400 text-sm">Nenhum registro encontrado</p>
-      </td>
-    </tr>
-  );
-};
-
 // TODO: CustomerRecentServicesTableLoading
 const CustomerRecentServicesTableLoading = () => {
   return (
@@ -195,5 +185,17 @@ const CustomerRecentServicesTableLoading = () => {
         </tr>
       ))}
     </>
+  );
+};
+
+// TODO: CustomerRecentServicesTableEmpty
+const CustomerRecentServicesTableEmpty = () => {
+  return (
+    <tr>
+      <td colSpan={6} className="px-6 py-12 text-center">
+        <CalendarIcon className="mx-auto mb-3 text-gray-600" size={48} />
+        <p className="text-gray-400 text-sm">Nenhum registro encontrado</p>
+      </td>
+    </tr>
   );
 };

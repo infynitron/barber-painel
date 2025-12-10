@@ -18,7 +18,7 @@ import { ITeamRanking } from "@/modules/producer/teams/teams";
 import { TeamsService } from "@/modules/producer/teams/team.service";
 import { TeamRanking } from "@/modules/producer/teams/ui/TeamRanking";
 
-import { ICustomerServiceRecent } from "@/modules/producer/customer/customer";
+import { ICustomerRecentService } from "@/modules/producer/customer/customer";
 import { CustomerService } from "@/modules/producer/customer/customer.service";
 import { CustomerRecentServices } from "@/modules/producer/customer/ui/CustomerRecentServices";
 
@@ -47,7 +47,7 @@ export const CashFlowReports = ({
 
   // TODO: customerServiceRecent
   const [customerServiceRecent, setCustomerServiceRecent] = React.useState<
-    ICustomerServiceRecent[]
+  ICustomerRecentService[]
   >([]);
 
   // TODO: paymentDistribution

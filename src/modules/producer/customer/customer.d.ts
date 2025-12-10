@@ -1,6 +1,6 @@
 import { PaymentMethod } from "@/modules/producer/cash-flow/payments/payment";
 
-export interface ICustomerServiceRecent {
+export interface ICustomerRecentService {
   id: string;
   date: string;
   methodPayment: PaymentMethod;
