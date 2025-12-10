@@ -4,6 +4,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -11,6 +12,8 @@ import {
 import {
   ITableColumn,
   UITableEmpty,
+  UITableFooter,
+  UITableFooterProps,
   UITableHeader,
   UITableLoading,
   UITableEmptyProps,
@@ -28,6 +31,7 @@ interface UITableCardProps {
     icon?: DynamicIconProps;
   };
   empty?: Partial<Omit<UITableEmptyProps, "columns">>;
+  footer?: Omit<UITableFooterProps, "items">;
   children: (item: any, idx: number) => React.ReactNode;
 }
 
@@ -37,6 +41,7 @@ export const UITableCard = ({
   loading,
   header,
   empty,
+  footer,
   children,
 }: UITableCardProps) => {
   if (columns.length == 0) {
@@ -59,6 +64,8 @@ export const UITableCard = ({
       )}
 
       <CardContent>
+        {/* TODO: Search */}
+
         <div className="overflow-x-auto">
           <table className="w-full">
             <UITableHeader columns={columns} />
@@ -75,6 +82,12 @@ export const UITableCard = ({
           </table>
         </div>
       </CardContent>
+
+      {footer?.total && (
+        <CardFooter>
+          <UITableFooter items={items.length} total={footer.total} />
+        </CardFooter>
+      )}
     </Card>
   );
 };

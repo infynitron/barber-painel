@@ -70,7 +70,6 @@ interface TeamRankingTableColumnProps {
 }
 
 const TeamRankingTableColumn = ({ item, idx }: TeamRankingTableColumnProps) => {
-  console.log("TeamRankingTableColumn", idx);
   return (
     <tr
       key={item.id}

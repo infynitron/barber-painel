@@ -1,9 +1,9 @@
-interface TableFooterProps {
+export interface UITableFooterProps {
   items: number;
   total: number;
 }
 
-export const TableFooter = ({ items, total }: TableFooterProps) => {
+export const UITableFooter = ({ items, total }: UITableFooterProps) => {
   if (items === 0) return <></>;
 
   return (
