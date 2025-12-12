@@ -22,9 +22,7 @@ const CTASection = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-3 px-6 py-3 bg-primary-foreground/20 backdrop-blur-xl border border-primary-foreground/30 rounded-full mb-8 shadow-2xl">
             <SparklesIcon className="w-5 h-5 text-primary-foreground" />
-            <span className="text-primary-foreground font-bold">
-              14 DIAS GRÁTIS - SEM CARTÃO
-            </span>
+            <span className="text-primary-foreground font-bold"></span>
           </div>
 
           {/* Heading */}
@@ -36,25 +34,41 @@ const CTASection = () => {
 
           {/* Subheading */}
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-12 leading-relaxed max-w-3xl mx-auto">
-            Junte-se a mais de 50.000 empresas que já transformaram seus
-            agendamentos. Começe gratuitamente hoje mesmo!
+            Junte-se a outras empresas que já transformaram seus agendamentos.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
             <Button
+              asChild
               size="lg"
               className="group px-12 py-8 text-xl font-black bg-primary-foreground text-primary hover:bg-primary-foreground/90 rounded-2xl shadow-2xl hover:shadow-primary-foreground/50 transition-all duration-300 hover:scale-110"
             >
-              Começar Agora Grátis
-              <ArrowRightIcon className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
+              <a
+                href="https://wa.me/5542999027693?text=Olá!%20Quero%20começar%20agora"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center"
+              >
+                Começar Agora
+                <ArrowRightIcon className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
+              </a>
             </Button>
+
             <Button
               size="lg"
               variant="outline"
               className="px-12 py-8 text-xl font-black text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground/10 rounded-2xl backdrop-blur-xl transition-all duration-300 hover:scale-105"
             >
-              Agendar Demonstração
+              <a
+                href="https://wa.me/5542999027693?text=Olá!%20Quero%20começar%20agora"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center"
+              >
+                Agendar demonstração
+                <ArrowRightIcon className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
+              </a>
             </Button>
           </div>
 
