@@ -34,13 +34,12 @@ const PricingSection = () => {
             <span className="text-primary">no seu bolso</span>
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Sem taxa de setup. Sem fidelidade. Cancele quando quiser. Teste
-            grátis por 14 dias.
+            Sem taxa de setup. Sem fidelidade. Cancele quando quiser
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto justify-center items-start">
           {pricingData.map((plan, index) => (
             <Card
               key={index}
@@ -57,7 +56,7 @@ const PricingSection = () => {
                 </div>
               )}
 
-              <CardContent className="p-10">
+              <CardContent className="p-6">
                 {/* Plan name */}
                 <h3
                   className={`text-2xl font-black mb-2 ${
