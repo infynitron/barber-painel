@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { footerData } from "@/mock";
 import {
   FacebookIcon,
@@ -7,7 +10,7 @@ import {
   TwitterIcon,
 } from "lucide-react";
 
-// TODO: Social Icons
+// Social Icons mapping
 const socialIcons: any = {
   Instagram: InstagramIcon,
   Facebook: FacebookIcon,
@@ -16,6 +19,12 @@ const socialIcons: any = {
 };
 
 export default function Footer() {
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="bg-gradient-to-b from-gray-950 to-black text-white py-20 relative overflow-hidden">
       {/* Background decoration */}
@@ -122,10 +131,12 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="text-gray-500 text-sm text-center md:text-right">
-            <p>
-              © {new Date().getFullYear()} {footerData.company.name}. Todos os
-              direitos reservados.
-            </p>
+            {currentYear && (
+              <p>
+                © {currentYear} {footerData.company.name}. Todos os direitos
+                reservados.
+              </p>
+            )}
             <p className="mt-1">Feito com ❤️ no Brasil</p>
           </div>
         </div>
