@@ -43,8 +43,8 @@ const Header = () => {
 
             <div>
               <h1
-                className={`text-2xl font-bold bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent ${
-                  !scrolled && "text-white bg-none"
+                className={`text-2xl font-bold transition-all duration-300 ${
+                  scrolled ? "text-white" : "text-white"
                 }`}
               >
                 Infynitron Agenda
@@ -72,6 +72,7 @@ const Header = () => {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-4">
             <Button
+              asChild
               className={
                 scrolled
                   ? "text-gray-300 hover:text-primary"
@@ -79,11 +80,31 @@ const Header = () => {
               }
               variant="ghost"
             >
-              Entrar
+              <a
+                href="https://wa.me/5542999027693?text=Olá!%20Quero%20entrar%20na%20plataforma"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Entrar
+              </a>
             </Button>
 
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/80 shadow-lg hover:shadow-primary/50 transition-all duration-200 hover:scale-105">
-              Teste Grátis
+            <Button
+              asChild
+              className={
+                scrolled
+                  ? "text-gray-300 hover:text-primary"
+                  : "text-white hover:text-primary"
+              }
+              variant="ghost"
+            >
+              <a
+                href="https://wa.me/5542999027693?text=Olá!%20Quero%20entrar%20na%20plataforma"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Cadastrar
+              </a>
             </Button>
           </div>
 
