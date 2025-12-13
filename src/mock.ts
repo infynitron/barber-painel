@@ -98,8 +98,7 @@ export const heroData = {
     "Sistema completo de agendamento online com IA, pagamentos integrados e automação inteligente. Aumente suas conversões em até 300%.",
   ctaPrimary: "Começar agora",
   ctaSecondary: "Agendar Demo",
-  stats: [
-  ],
+  stats: [],
 };
 
 export const featuresData = [
@@ -278,7 +277,7 @@ export const footerData = {
     name: "Infynitron Agenda",
     tagline: "O futuro dos agendamentos",
     description:
-      "Transformando a forma como empresas gerenciam tempo e clientes desde 2020.",
+      "Transformando a forma como empresas gerenciam tempo e clientes.",
   },
   links: {
     product: [
