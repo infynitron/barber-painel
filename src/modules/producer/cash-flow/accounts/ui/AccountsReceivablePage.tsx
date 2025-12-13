@@ -12,24 +12,29 @@ import {
   IReceivablePeriod,
 } from "@/modules/producer/cash-flow/accounts/accounts";
 
+import { IUpcomingPayment } from "@/modules/producer/cash-flow/accounts/accounts";
 import { AccountsService } from "@/modules/producer/cash-flow/accounts/accounts.service";
+import { CashFlowAccountsReceivableUpcomingPayments } from "@/modules/producer/cash-flow/accounts/ui/UpcomingPayments";
 
 interface CashFlowAccountsReceivableProps {
   period: AccountsPeriod;
+  upcomingPayments?: string;
 }
 
 export const CashFlowAccountsReceivable = ({
   period,
+  upcomingPayments,
 }: CashFlowAccountsReceivableProps) => {
   // TODO: receivablePeriod
   const [receivablePeriod, setReceivablePeriod] = React.useState<
     IReceivablePeriod | undefined
   >();
 
-  // TODO: React Query
-  React.useEffect(() => {
-    //
-  }, []);
+  // TODO: customerServiceRecent
+  const [accountsUpcomingPayments, setAccountsUpcomingPayments] =
+    React.useState<IUpcomingPayment[]>([]);
+  const [accountsUpcomingPaymentsLoading, setAccountsUpcomingPaymentsLoading] =
+    React.useState(false);
 
   // TODO: React Query
   React.useEffect(() => {
@@ -38,6 +43,20 @@ export const CashFlowAccountsReceivable = ({
         period,
       });
       setReceivablePeriod(data);
+    };
+
+    fetch();
+  }, []);
+
+  // TODO: React Query
+  React.useEffect(() => {
+    setAccountsUpcomingPaymentsLoading(true);
+
+    const fetch = async () => {
+      const items = await new AccountsService().getUpcomingPayments({ period });
+      setAccountsUpcomingPayments(items);
+
+      setTimeout(() => setAccountsUpcomingPaymentsLoading(false), 1000 * 5);
     };
 
     fetch();
@@ -122,6 +141,16 @@ export const CashFlowAccountsReceivable = ({
           <MetricCardComponent key={"metric_card_" + index} {...metric} />
         ))}
       </div>
+
+      <CashFlowAccountsReceivableUpcomingPayments
+        items={accountsUpcomingPayments}
+        total={accountsUpcomingPayments.length}
+        loading={accountsUpcomingPaymentsLoading}
+        searchTerm={upcomingPayments ?? ""}
+        setSearchTerm={(newTerm) => {
+          // TODO: setSearchTerm
+        }}
+      />
     </div>
   );
 };

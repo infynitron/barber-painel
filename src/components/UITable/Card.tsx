@@ -1,5 +1,7 @@
 import React from "react";
 
+import { SearchIcon } from "lucide-react";
+
 import {
   Card,
   CardContent,
@@ -32,6 +34,10 @@ interface UITableCardProps {
     subtitle: string;
     actions?: React.ReactNode;
   };
+  filters?: {
+    searchTerm: string;
+    setSearchTerm: (text: string) => void;
+  };
   empty?: Partial<Omit<UITableEmptyProps, "columns">>;
   footer?: Omit<UITableFooterProps, "items">;
   children: (item: IItem, idx: number) => React.ReactNode;
@@ -42,6 +48,7 @@ export const UITableCard = ({
   columns,
   loading,
   header,
+  filters,
   empty,
   footer,
   children,
@@ -66,7 +73,42 @@ export const UITableCard = ({
       )}
 
       <CardContent>
-        {/* TODO: Search */}
+        {filters && (
+          <div>
+            <div className="flex-1 relative">
+              <SearchIcon
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                size={18}
+              />
+
+              <input
+                className="w-full pl-10 pr-4 py-2.5 bg-[#1a1a1c] border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-700 transition-colors duration-200"
+                type="text"
+                placeholder="Buscar por cliente ou número da fatura..."
+                value={filters.searchTerm}
+                onChange={(e) => {
+                  // TODO: Search
+                  filters.setSearchTerm(e.target.value);
+                }}
+              />
+            </div>
+
+            {/*
+            // TODO: Filters
+            <div className="flex gap-2">
+              <select
+                className="px-4 py-2.5 bg-[#1a1a1c] border border-gray-800 rounded-lg text-white focus:outline-none focus:border-gray-700 transition-colors duration-200"
+                value={filterStatus}
+                onChange={(e) => setFilterStatus(e.target.value)}
+              >
+                <option value="all">Todos Status</option>
+                <option value="pending">Pendentes</option>
+                <option value="overdue">Atrasados</option>
+              </select>
+            </div>
+            */}
+          </div>
+        )}
 
         <Table className="overflow-x-auto">
           <UITableHeader columns={columns} />

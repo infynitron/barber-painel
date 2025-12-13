@@ -16,8 +16,10 @@ const socialIcons: any = {
 };
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-gradient-to-b from-gray-950 to-black text-white py-20 relative overflow-hidden">
+    <footer className="bg-linear-to-b from-gray-950 to-black text-white py-20 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
@@ -123,8 +125,7 @@ export default function Footer() {
           {/* Copyright */}
           <div className="text-gray-500 text-sm text-center md:text-right">
             <p>
-              © {new Date().getFullYear()} {footerData.company.name}. Todos os
-              direitos reservados.
+              © {year} {footerData.company.name}. Todos os direitos reservados.
             </p>
             <p className="mt-1">Feito com ❤️ no Brasil</p>
           </div>

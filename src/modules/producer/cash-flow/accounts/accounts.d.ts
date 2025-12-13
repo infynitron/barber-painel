@@ -14,3 +14,13 @@ export interface IReceivablePeriod {
     confirmedTransactions: number;
   };
 }
+
+export interface IUpcomingPayment {
+  id: string;
+  clientName: string;
+  amount: number;
+  dueDate: string;
+  status: string;
+  invoiceNumber: string;
+  paymentMethod: string;
+}

@@ -50,7 +50,8 @@ export const CashFlowReports = ({
   const [customerServiceRecent, setCustomerServiceRecent] = React.useState<
     ICustomerRecentService[]
   >([]);
-  const [serviceRecentLoading, setServiceRecentLoading] = React.useState(false);
+  const [customerServiceRecentLoading, setCustomerServiceRecentLoading] =
+    React.useState(false);
 
   // TODO: paymentDistribution
   const [paymentDistribution, setPaymentDistribution] = React.useState<
@@ -88,13 +89,13 @@ export const CashFlowReports = ({
 
   // TODO: React Query
   React.useEffect(() => {
-    setServiceRecentLoading(true);
+    setCustomerServiceRecentLoading(true);
 
     const fetch = async () => {
       const items = await new CustomerService().serviceRecents();
       setCustomerServiceRecent(items);
 
-      setTimeout(() => setServiceRecentLoading(false), 1000 * 5);
+      setTimeout(() => setCustomerServiceRecentLoading(false), 1000 * 5);
     };
 
     fetch();
@@ -228,9 +229,9 @@ export const CashFlowReports = ({
       <CustomerRecentServices
         items={customerServiceRecent}
         total={customerServiceRecent.length}
-        loading={serviceRecentLoading}
+        loading={customerServiceRecentLoading}
         searchTerm={customerRecent}
-        setSearchTerm={() => {
+        setSearchTerm={(newTerm) => {
           // TODO: setSearchTerm
         }}
       />
