@@ -96,13 +96,9 @@ export const heroData = {
   titleHighlight: "experiências incríveis",
   subtitle:
     "Sistema completo de agendamento online com IA, pagamentos integrados e automação inteligente. Aumente suas conversões em até 300%.",
-  ctaPrimary: "Começar Gratuitamente",
+  ctaPrimary: "Começar agora",
   ctaSecondary: "Agendar Demo",
   stats: [
-    { value: "50K+", label: "Empresas" },
-    { value: "2M+", label: "Agendamentos/mês" },
-    { value: "98%", label: "Satisfação" },
-    { value: "24/7", label: "Suporte" },
   ],
 };
 
@@ -196,15 +192,16 @@ export const benefitsData = [
 export const pricingData = [
   {
     name: "Starter",
-    price: "97",
+    price: "24,90",
     period: "/mês",
     description: "Perfeito para começar",
     features: [
-      "Até 3 profissionais",
-      "500 agendamentos/mês",
-      "WhatsApp + SMS básico",
-      "Pagamentos online",
-      "Suporte por email",
+      "Gestão financeira e fluxo de caixa — Visualize entradas, saídas, relatórios de faturamento e tenha controle total do seu negócio.",
+      "Agendamentos intuitivos — o cliente marca o horário sozinho, sem precisar chamar no WhatsApp.",
+      "Bot automático para envio do link de agendamento — sempre que o cliente chamar no WhatsApp, ele recebe automaticamente o link para agendar.",
+      "Cadastro e venda de produtos — pomadas, cremes, camisas ou qualquer item que você venda no salão.",
+      "Lembretes automáticos por WhatsApp — lembretes de agendamento.",
+      "Sistema 100% online e responsivo — acesse sua agenda, relatórios e histórico de qualquer lugar, em qualquer dispositivo.",
     ],
     highlighted: false,
   },
@@ -214,30 +211,15 @@ export const pricingData = [
     period: "/mês",
     description: "Mais popular",
     features: [
-      "Profissionais ilimitados",
-      "Agendamentos ilimitados",
-      "WhatsApp + SMS + Email",
-      "IA preditiva inclusa",
-      "Analytics avançado",
-      "Suporte prioritário",
+      "Site próprio da barbearia — com seu domínio, logo, cores e textos personalizados, para dar mais profissionalismo e facilitar o agendamento online",
+      "Comissões, produtos, serviços e assinaturas — Automatize o cálculo de comissões, vales e o registro de pagamentos para seus colaboradores",
+      "Controle de filiais — caso você abra novos endereços no futuro",
+      "Agente de IA — responde seu cliente automaticamente, tira dúvidas e ajuda nos agendamentos 24h por dia",
+      "Envio de mensagens promocionais — para movimentar sua agenda e fidelizar clientes",
+      "Links rastreáveis e pixel do Facebook - Saiba de onde vem cada cliente e otimize seus anúncios com inteligência.",
       "App personalizado",
     ],
-    highlighted: true, // Pode colorir com primary no layout
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    description: "Para grandes operações",
-    features: [
-      "Tudo do Professional",
-      "Múltiplas unidades",
-      "API dedicada",
-      "Gerente de conta",
-      "SLA garantido",
-      "Integração sob medida",
-    ],
-    highlighted: false,
+    highlighted: true,
   },
 ];
 

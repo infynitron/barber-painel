@@ -98,11 +98,6 @@ const TestimonialsSection = () => {
           </p>
           <div className="flex flex-wrap justify-center items-center gap-12 opacity-40">
             {[
-              "Empresa A",
-              "Empresa B",
-              "Empresa C",
-              "Empresa D",
-              "Empresa E",
             ].map((company, i) => (
               <div
                 key={i}

@@ -7,6 +7,7 @@ import PricingSection from '@/components/public/PricingSection';
 import TestimonialsSection from '@/components/public/TestimonialsSection';
 import FAQSection from '@/components/public/FAQSection';
 import CTASection from '@/components/public/CTASection';
+import WhatsAppButton from "@/components/public/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <TestimonialsSection />
       <FAQSection />
       <CTASection />
+      <WhatsAppButton />
       </main>
 
       <Footer />

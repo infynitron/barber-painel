@@ -7,7 +7,7 @@ import {
   TwitterIcon,
 } from "lucide-react";
 
-// TODO: Social Icons
+// Social Icons mapping
 const socialIcons: any = {
   Instagram: InstagramIcon,
   Facebook: FacebookIcon,
@@ -15,9 +15,9 @@ const socialIcons: any = {
   Twitter: TwitterIcon,
 };
 
-export default function Footer() {
-  const year = new Date().getFullYear();
+const year = new Date().getFullYear();
 
+export default function Footer() {
   return (
     <footer className="bg-linear-to-b from-gray-950 to-black text-white py-20 relative overflow-hidden">
       {/* Background decoration */}

@@ -70,7 +70,16 @@ const FAQSection = () => {
             href="#contato"
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-bold text-lg transition-colors"
           >
-            Fale com nosso time
+            <a
+              href="https://wa.me/5542999027693?text=Olá!%20Preciso%20de%20ajuda"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-yellow-400 hover:text-yellow-500 font-semibold inline-flex items-center gap-2 transition-colors"
+            >
+              Fale com nosso time
+              <span>›</span>
+            </a>
+
             <ChevronDownIcon className="w-5 h-5 -rotate-90" />
           </a>
         </div>
